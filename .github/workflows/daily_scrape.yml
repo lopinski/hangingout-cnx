@@ -1,0 +1,38 @@
+name: Daily Scraper (El Cerebro)
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 20:00 UTC (3:00 AM en Tailandia)
+    - cron: '0 20 * * *'
+  # Permite ejecutarlo manualmente desde GitHub
+  workflow_dispatch:
+
+jobs:
+  scrape_and_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Descargar el código (Checkout)
+        uses: actions/checkout@v4
+        
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Instalar Dependencias
+        run: pip install -r requirements.txt
+        
+      - name: Ejecutar la Inteligencia Artificial (brain.py)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python brain.py
+        
+      - name: Guardar los nuevos eventos en GitHub
+        run: |
+          git config --global user.name 'HangingOut Bot'
+          git config --global user.email 'bot@hangingoutcnx.com'
+          git add events.json events.js
+          # Hacemos commit solo si hay cambios reales
+          git commit -m "🤖 Actualización automática de eventos diarios" || echo "No hay eventos nuevos hoy"
+          git push
