@@ -10,16 +10,20 @@ function renderEvents() {
     const feed = document.getElementById('event-feed');
     feed.innerHTML = ''; // Clear existing
 
-    // Filtrar los eventos seg√∫n la pesta√±a seleccionada
     const filteredEvents = currentFilter === 'All' 
         ? mockEvents 
         : mockEvents.filter(event => {
-            // Comparamos el texto del filtro con la categor√≠a o tipo
-            const filterText = currentFilter.toLowerCase();
-            return event.category.toLowerCase().includes(filterText) || 
-                   event.type.toLowerCase().includes(filterText) ||
-                   (filterText === 'live music' && event.type === 'music') ||
-                   (filterText === 'art' && event.type === 'culture');
+            const cat = (event.category || '').toLowerCase();
+            const typ = (event.type || '').toLowerCase();
+            let filterText = currentFilter.toLowerCase();
+            
+            // Arreglar plurales y mapeos espec√≠ficos
+            if (filterText === 'workouts') filterText = 'workout';
+            if (filterText === 'art') filterText = 'culture';
+            
+            return cat.includes(filterText) || 
+                   typ.includes(filterText) ||
+                   (filterText === 'live music' && typ === 'music');
         });
 
     if (filteredEvents.length === 0) {
