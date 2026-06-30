@@ -4,41 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hanging Out CNX | Chiang Mai Events Guide</title>
-    <meta name="description" content="Discover the best free events, live music, and workouts in Chiang Mai today.">
+    <meta name="description" content="HangingOut CNX is the ultimate free guide for events, live music, workouts, and meetups in Chiang Mai. Discover what's happening today!">
+    
+    <!-- SEO & OpenGraph -->
+    <meta property="og:title" content="HangingOut CNX | Chiang Mai Events Guide">
+    <meta property="og:description" content="Discover the best free events, live music, and workouts in Chiang Mai today.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://hangingoutasia.netlify.app/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HangingOut CNX | Chiang Mai Events Guide">
+    <meta name="twitter:description" content="Discover the best free events, live music, and workouts in Chiang Mai today.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Favicon (Elephant Emoji for Chiang Mai) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐘</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
     <div class="app-container">
         <!-- Header -->
         <header class="header">
-            <div class="logo">HANGING OUT <span>CNX</span></div>
+            <div class="logo" onclick="goToHomeFilter('filter_all')" style="cursor:pointer;">HANGING OUT <span data-i18n="title_cnx">CNX</span></div>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button>
-                <button class="icon-btn" aria-label="Profile">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </button>
+                <a href="#" onclick="goToView('about-view')" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; margin-right:10px;" data-i18n="about">About</a>
+                <select id="lang-select" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 4px 8px; font-family: 'Outfit', sans-serif;">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="yue">🇭🇰 粵語</option>
+                    <option value="th">🇹🇭 TH</option>
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="pt">🇵🇹 PT</option>
+                    <option value="ko">🇰🇷 KO</option>
+                </select>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="main-content">
-            <section class="date-header">
-                <h1 id="current-date">Today's Free Events</h1>
-            </section>
+            <!-- HOME VIEW -->
+            <div id="home-view">
+                <section class="date-header">
+                    <h1 id="current-date">Today's Free Events</h1>
+                </section>
 
             <!-- Filters -->
             <div class="filters-container">
                 <div class="filters">
-                    <button class="filter-chip active">All</button>
-                    <button class="filter-chip">Live Music</button>
-                    <button class="filter-chip">Workouts</button>
-                    <button class="filter-chip">Language</button>
-                    <button class="filter-chip">Art</button>
+                    <button class="filter-chip active" data-i18n="filter_all">All</button>
+                    <button class="filter-chip" data-i18n="filter_music">Live Music</button>
+                    <button class="filter-chip" data-i18n="filter_workouts">Workouts</button>
+                    <button class="filter-chip" data-i18n="filter_language">Language</button>
+                    <button class="filter-chip" data-i18n="filter_art">Culture</button>
+                    <button class="filter-chip" data-i18n="filter_soul">Soul</button>
+                    <button class="filter-chip" data-i18n="filter_dance">Dance</button>
+                    <button class="filter-chip" data-i18n="filter_markets">Markets</button>
+                    <button class="filter-chip" data-i18n="filter_courses">Courses</button>
                 </div>
             </div>
 
@@ -46,21 +74,94 @@
             <div class="event-feed" id="event-feed">
                 <!-- Events will be injected here by app.js -->
             </div>
+            </div> <!-- End Home View -->
+            
+            <!-- EXPLORE VIEW -->
+            <div id="explore-view" style="display: none;">
+                <h1 style="color: white; font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="explore_title">Explore Categories</h1>
+                <div class="explore-grid">
+                    <div class="explore-card" onclick="goToHomeFilter('Live Music')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_music">Live Music</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('Workouts')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_workouts">Workouts</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('Art')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="explore_art">Art & Culture</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('Language')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_language">Language</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('filter_soul')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_soul">Soul</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('filter_dance')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_dance">Dance</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('filter_markets')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_markets">Markets</h3>
+                    </div>
+                    <div class="explore-card" onclick="goToHomeFilter('filter_courses')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=800');">
+                        <h3 data-i18n="filter_courses">Courses</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CALENDAR VIEW -->
+            <div id="calendar-view" style="display: none;">
+                <h1 style="color: white; font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="calendar_title">Upcoming Days</h1>
+                <div id="calendar-feed">
+                    <!-- Eventos agrupados por fecha irán aquí -->
+                </div>
+            </div>
+            
+            <!-- Coming Soon Placeholder -->
+            <div id="coming-soon" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px; opacity: 0.5;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <h2 style="font-size: 1.2rem; color: white; margin-bottom: 10px;" data-i18n="coming_title">En Construcción</h2>
+                <p data-i18n="coming_desc">Nuestra IA está trabajando duro para traerte esta sección muy pronto.</p>
+            </div>
+
+            <!-- ABOUT VIEW -->
+            <div id="about-view" style="display: none; padding: 20px 0;">
+                <button onclick="goToHomeFilter('filter_all')" style="background:none; border:none; color:var(--neon-blue); font-size:1rem; cursor:pointer; margin-bottom: 20px; display:flex; align-items:center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back
+                </button>
+                <h2 style="color: white; font-size: 1.5rem; margin-bottom: 15px;" data-i18n="about_title">About HangingOut</h2>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;" data-i18n="about_desc">Tired of scrolling through dozens of chaotic WhatsApp and Facebook groups just to figure out what's going on today? We were too. HangingOut CNX is a free, community-driven tool built for everyone—locals, nomads, and travelers. Our AI automatically curates the best free events across Chiang Mai in one place, so you can stop scrolling and start living.</p>
+            </div>
+
+            <!-- LEGAL VIEW -->
+            <div id="legal-view" style="display: none; padding: 20px 0;">
+                <button onclick="goToHomeFilter('filter_all')" style="background:none; border:none; color:var(--neon-blue); font-size:1rem; cursor:pointer; margin-bottom: 20px; display:flex; align-items:center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back
+                </button>
+                <h2 id="legal-title" style="color: white; font-size: 1.5rem; margin-bottom: 15px;">Legal</h2>
+                <p id="legal-text" style="color: var(--text-muted); line-height: 1.6; white-space: pre-wrap;">Legal text goes here.</p>
+            </div>
+
+            <!-- EVENT DETAIL VIEW DELETED: Now using expandable accordion cards inside the feed -->
+
+            <!-- FOOTER -->
+            <div id="footer-section" style="text-align: center; padding: 30px 0 100px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px;">
+                <a href="#" onclick="showLegal('terms')" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin: 0 10px;" data-i18n="terms">Terms of Service</a>
+                <a href="#" onclick="showLegal('privacy')" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; margin: 0 10px;" data-i18n="privacy">Privacy Policy</a>
+            </div>
         </main>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
             <button class="nav-item active">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                <span>Home</span>
+                <span data-i18n="nav_home">Home</span>
             </button>
             <button class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-                <span>Explore</span>
+                <span data-i18n="nav_explore">Explore</span>
             </button>
             <button class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                <span>Calendar</span>
+                <span data-i18n="nav_calendar">Calendar</span>
             </button>
         </nav>
     </div>
@@ -69,7 +170,19 @@
     <div class="bg-glow blob-1"></div>
     <div class="bg-glow blob-2"></div>
 
-    <script src="events.js"></script>
-    <script src="app.js"></script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="display:none; position:fixed; bottom:100px; right:15px; width:45px; height:45px; border-radius:50%; background:var(--neon-blue); color:var(--bg-dark); border:none; box-shadow:0 0 15px rgba(0,240,255,0.4); z-index:99; cursor:pointer; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- GDPR Cookie Banner -->
+    <div id="cookie-banner" style="display:none; position:fixed; bottom:100px; left:10px; right:10px; background:rgba(10, 15, 30, 0.95); border:1px solid rgba(0, 240, 255, 0.3); border-radius:12px; padding:15px; z-index:100; box-shadow:0 -5px 20px rgba(0,0,0,0.5); backdrop-filter:blur(10px); flex-direction:column; align-items:center; text-align:center;">
+        <p style="color:var(--text-muted); font-size:0.9rem; margin:0 0 10px 0; line-height:1.4;" data-i18n="cookie_msg">We use local storage to save your language preference. No tracking.</p>
+        <button onclick="acceptCookies()" style="background:var(--neon-blue); color:var(--bg-dark); border:none; padding:8px 20px; border-radius:20px; font-weight:600; font-family:'Outfit', sans-serif; cursor:pointer;" data-i18n="cookie_btn">Got it!</button>
+    </div>
+
+    <script src="i18n.js?v=9"></script>
+    <script src="events.js?v=9"></script>
+    <script src="app.js?v=9"></script>
 </body>
 </html>
