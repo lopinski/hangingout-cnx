@@ -405,10 +405,12 @@ function renderCalendar() {
         
         dayCell.onclick = () => {
             selectedDate = dateStr;
+            console.log("Calendar day clicked:", selectedDate);
             
             // Automatically highlight the filter chips for available events on this day
             const dayEvts = mockEvents.filter(e => e.date === selectedDate);
             const dayTypes = [...new Set(dayEvts.map(e => e.type))];
+            console.log("Events found for this day:", dayEvts.length, "Types:", dayTypes);
             
             const reverseTypeMapping = {
                 'music': 'filter_music',
