@@ -25,7 +25,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=23">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0f111a">
+    <link rel="apple-touch-icon" href="./assets/images/generic_event.png">
 </head>
 <body>
     <div class="app-container">
@@ -34,7 +37,8 @@
             <div class="logo" onclick="goToHomeFilter('filter_all')" style="cursor:pointer;">HANGING OUT <span data-i18n="title_cnx">CNX</span></div>
             <div class="header-actions">
                 <a href="#" onclick="goToView('about-view')" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; margin-right:10px;" data-i18n="about">About</a>
-                <select id="lang-select" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 4px 8px; font-family: 'Outfit', sans-serif;">
+                <button id="theme-toggle" onclick="toggleTheme()" style="background: none; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; margin-right: 10px;">☀️</button>
+                <select id="lang-select" style="background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 4px 8px; font-family: 'Outfit', sans-serif;">
                     <option value="en">🇺🇸 EN</option>
                     <option value="es">🇪🇸 ES</option>
                     <option value="zh">🇨🇳 中文</option>
@@ -55,18 +59,25 @@
                     <h1 id="current-date">Today's Free Events</h1>
                 </section>
 
-            <!-- Filters -->
             <div class="filters-container">
-                <div class="filters">
-                    <button class="filter-chip active" data-i18n="filter_all">All</button>
-                    <button class="filter-chip" data-i18n="filter_music">Live Music</button>
-                    <button class="filter-chip" data-i18n="filter_workouts">Workouts</button>
-                    <button class="filter-chip" data-i18n="filter_language">Language</button>
-                    <button class="filter-chip" data-i18n="filter_art">Culture</button>
-                    <button class="filter-chip" data-i18n="filter_soul">Soul</button>
-                    <button class="filter-chip" data-i18n="filter_dance">Dance</button>
-                    <button class="filter-chip" data-i18n="filter_markets">Markets</button>
-                    <button class="filter-chip" data-i18n="filter_courses">Courses</button>
+                <div class="scroll-x-container filters-scroll">
+                    <button class="filter-chip active" data-cat="all" data-i18n="filter_all">All</button>
+                    <button class="filter-chip" data-cat="saved" data-i18n="filter_saved">Saved ❤️</button>
+                    <button class="filter-chip" data-cat="music" data-i18n="filter_music">Live Music</button>
+                    <button class="filter-chip" data-cat="workout" data-i18n="filter_workouts">Workouts</button>
+                    <button class="filter-chip" data-cat="language" data-i18n="filter_language">Language</button>
+                    <button class="filter-chip" data-cat="culture" data-i18n="filter_art">Culture</button>
+                    <button class="filter-chip" data-cat="soul" data-i18n="filter_soul">Soul</button>
+                    <button class="filter-chip" data-cat="dance" data-i18n="filter_dance">Dance</button>
+                    <button class="filter-chip" data-cat="markets" data-i18n="filter_markets">Markets</button>
+                    <button class="filter-chip" data-cat="courses" data-i18n="filter_courses">Courses</button>
+                </div>
+            </div>
+            
+            <!-- Sub-filters (Dynamic) -->
+            <div class="sub-filters-container" id="sub-filters" style="display: none;">
+                <div class="scroll-x-container sub-filters-scroll" id="sub-filters-content">
+                    <!-- Dynamic chips injected here by app.js -->
                 </div>
             </div>
 
@@ -78,7 +89,7 @@
             
             <!-- EXPLORE VIEW -->
             <div id="explore-view" style="display: none;">
-                <h1 style="color: white; font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="explore_title">Explore Categories</h1>
+                <h1 style="color: var(--text-main); font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="explore_title">Explore Categories</h1>
                 <div class="explore-grid">
                     <div class="explore-card" onclick="goToHomeFilter('Live Music')" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800');">
                         <h3 data-i18n="filter_music">Live Music</h3>
@@ -109,7 +120,29 @@
 
             <!-- CALENDAR VIEW -->
             <div id="calendar-view" style="display: none;">
-                <h1 style="color: white; font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="calendar_title">Upcoming Days</h1>
+                <h1 style="color: var(--text-main); font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;" data-i18n="calendar_title">Upcoming Days</h1>
+                
+                <div class="filters-container">
+                    <div class="scroll-x-container filters-scroll">
+                        <button class="filter-chip active" data-cat="all" data-i18n="filter_all">All</button>
+                        <button class="filter-chip" data-cat="saved" data-i18n="filter_saved">Saved ❤️</button>
+                        <button class="filter-chip" data-cat="music" data-i18n="filter_music">Live Music</button>
+                        <button class="filter-chip" data-cat="workout" data-i18n="filter_workouts">Workouts</button>
+                        <button class="filter-chip" data-cat="language" data-i18n="filter_language">Language</button>
+                        <button class="filter-chip" data-cat="culture" data-i18n="filter_art">Culture</button>
+                        <button class="filter-chip" data-cat="soul" data-i18n="filter_soul">Soul</button>
+                        <button class="filter-chip" data-cat="dance" data-i18n="filter_dance">Dance</button>
+                        <button class="filter-chip" data-cat="markets" data-i18n="filter_markets">Markets</button>
+                        <button class="filter-chip" data-cat="courses" data-i18n="filter_courses">Courses</button>
+                    </div>
+                </div>
+                
+                <!-- Sub-filters (Dynamic) for Calendar -->
+                <div class="sub-filters-container calendar-sub-filters" style="display: none;">
+                    <div class="scroll-x-container sub-filters-scroll calendar-sub-filters-content">
+                        <!-- Dynamic chips injected here by app.js -->
+                    </div>
+                </div>
                 <div id="calendar-feed">
                     <!-- Eventos agrupados por fecha irán aquí -->
                 </div>
@@ -118,7 +151,7 @@
             <!-- Coming Soon Placeholder -->
             <div id="coming-soon" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);">
                 <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px; opacity: 0.5;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                <h2 style="font-size: 1.2rem; color: white; margin-bottom: 10px;" data-i18n="coming_title">En Construcción</h2>
+                <h2 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 10px;" data-i18n="coming_title">En Construcción</h2>
                 <p data-i18n="coming_desc">Nuestra IA está trabajando duro para traerte esta sección muy pronto.</p>
             </div>
 
@@ -127,7 +160,7 @@
                 <button onclick="goToHomeFilter('filter_all')" style="background:none; border:none; color:var(--neon-blue); font-size:1rem; cursor:pointer; margin-bottom: 20px; display:flex; align-items:center;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back
                 </button>
-                <h2 style="color: white; font-size: 1.5rem; margin-bottom: 15px;" data-i18n="about_title">About HangingOut</h2>
+                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px;" data-i18n="about_title">About HangingOut</h2>
                 <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;" data-i18n="about_desc">Tired of scrolling through dozens of chaotic WhatsApp and Facebook groups just to figure out what's going on today? We were too. HangingOut CNX is a free, community-driven tool built for everyone—locals, nomads, and travelers. Our AI automatically curates the best free events across Chiang Mai in one place, so you can stop scrolling and start living.</p>
             </div>
 
@@ -136,7 +169,7 @@
                 <button onclick="goToHomeFilter('filter_all')" style="background:none; border:none; color:var(--neon-blue); font-size:1rem; cursor:pointer; margin-bottom: 20px; display:flex; align-items:center;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back
                 </button>
-                <h2 id="legal-title" style="color: white; font-size: 1.5rem; margin-bottom: 15px;">Legal</h2>
+                <h2 id="legal-title" style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px;">Legal</h2>
                 <p id="legal-text" style="color: var(--text-muted); line-height: 1.6; white-space: pre-wrap;">Legal text goes here.</p>
             </div>
 
@@ -181,8 +214,19 @@
         <button onclick="acceptCookies()" style="background:var(--neon-blue); color:var(--bg-dark); border:none; padding:8px 20px; border-radius:20px; font-weight:600; font-family:'Outfit', sans-serif; cursor:pointer;" data-i18n="cookie_btn">Got it!</button>
     </div>
 
-    <script src="i18n.js?v=9"></script>
-    <script src="events.js?v=9"></script>
-    <script src="app.js?v=9"></script>
+    <script src="i18n.js?v=23"></script>
+    <script src="events.js?v=23"></script>
+    <script src="app.js?v=23"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
 </body>
 </html>

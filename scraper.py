@@ -7,54 +7,53 @@ import time
 # from google import genai
 # client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
-def extract_event_with_ai(raw_text):
-    print("🤖 IA leyendo y analizando el texto del post...")
-    time.sleep(1.5) # Simulamos el tiempo de procesamiento de la IA
+from bs4 import BeautifulSoup
+
+def scrape_with_bs4(html_content):
+    print("🕸️ BeautifulSoup analizando la estructura HTML...")
+    soup = BeautifulSoup(html_content, 'html.parser')
     
-    # Este es el Prompt EXACTO que le enviaríamos al modelo de lenguaje:
-    prompt = f"""
-    Eres un asistente experto en eventos en Chiang Mai.
-    Extrae los detalles de este post de redes sociales en un formato JSON estricto:
-    title, venue, time, category, type (music, workout, culture), imageUrl, attending (int), timeStatus.
+    # En un caso real, buscarías por clases específicas, ej: soup.find('h1', class_='event-title')
+    title = soup.find('h1').text.strip() if soup.find('h1') else "Unknown Event"
+    venue = soup.find('div', class_='location').text.strip() if soup.find('div', class_='location') else "Unknown Venue"
+    time_str = soup.find('span', class_='time').text.strip() if soup.find('span', class_='time') else "TBA"
     
-    Texto del post:
-    {raw_text}
-    """
+    print("✅ ¡BS4 extrajo los datos básicos con éxito!")
     
-    print("🧠 IA extrayendo: Título, Lugar, Hora y determinando si es Gratis...")
-    time.sleep(1.5)
-    
-    # Para esta demo (sin API Key), simulamos la respuesta perfecta de la IA basándonos en el sample_post.txt
-    simulated_ai_response = {
+    # Simulamos que pasamos estos datos a la IA para categorizar y buscar imagen
+    simulated_event = {
         "id": int(datetime.datetime.now().timestamp()),
-        "title": "JAZZ NIGHT UNDER THE STARS",
-        "venue": "The North Gate Jazz Co-op",
-        "time": "9:00 PM",
+        "title": title,
+        "venue": venue,
+        "time": time_str,
         "category": "Live Music",
         "type": "music",
         "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
         "attending": 0,
-        "timeStatus": "Tonight"
+        "timeStatus": "Tonight",
+        "date": "Today"
     }
-    
-    print("✅ ¡La IA estructuró los datos con éxito!")
-    return simulated_ai_response
+    return simulated_event
 
 def main():
     print("🚀 Iniciando Scraper Automatizado...\n")
     
-    # 1. Leemos el "post" nuevo (Esto en la vida real sería un scraper bajando el texto de Instagram)
-    try:
-        with open('sample_post.txt', 'r', encoding='utf-8') as f:
-            raw_text = f.read()
-    except FileNotFoundError:
-        print("❌ Error: No se encontró sample_post.txt")
-        return
+    # 1. Obtenemos HTML (Esto en la vida real sería requests.get(url).text)
+    mock_html = """
+    <html>
+      <body>
+        <h1>JAZZ NIGHT UNDER THE STARS</h1>
+        <div class="location">The North Gate Jazz Co-op</div>
+        <span class="time">9:00 PM</span>
+        <p>Come join us for a free jazz night!</p>
+      </body>
+    </html>
+    """
         
-    print(f"📥 Post encontrado ({len(raw_text)} caracteres).")
+    print(f"📥 HTML descargado ({len(mock_html)} caracteres).")
     
-    # 2. La IA extrae los datos
-    new_event = extract_event_with_ai(raw_text)
+    # 2. BS4 extrae los datos
+    new_event = scrape_with_bs4(mock_html)
     
     # 3. Leemos la base de datos actual de la web (events.json)
     db_path = 'events.json'

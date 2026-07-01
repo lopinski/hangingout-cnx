@@ -20,6 +20,28 @@
     --glow-orange: 0 0 20px rgba(255, 122, 0, 0.3);
 }
 
+[data-theme="light"] {
+    --bg-dark: #f0f2f5;
+    --bg-panel: rgba(255, 255, 255, 0.8);
+    --text-main: #1a1a2e;
+    --text-muted: #5a6270;
+    
+    /* Neon Accents become solid vivid colors */
+    --neon-blue: #007bff;
+    --neon-purple: #6a0dad;
+    --neon-orange: #ff5500;
+    --neon-green: #00b347;
+    
+    /* Glassmorphism */
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    
+    /* Shadows */
+    --glow-blue: 0 4px 15px rgba(0, 123, 255, 0.2);
+    --glow-purple: 0 4px 15px rgba(106, 13, 173, 0.2);
+    --glow-orange: 0 4px 15px rgba(255, 85, 0, 0.2);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -58,6 +80,18 @@ body {
     height: 400px;
     background: var(--neon-purple);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+    }
+    .calendar-day {
+        min-height: 40px;
+        padding: 2px;
+    }
+};
 
 /* Layout */
 .app-container {
@@ -150,11 +184,116 @@ body {
 }
 
 .calendar-mode-switcher {
+    display: none; /* Removed for full grid */
+}
+
+/* Full Grid Calendar */
+.calendar-header {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
+.calendar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+.calendar-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.calendar-nav-btn:hover {
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+}
+
+.calendar-day {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    min-height: 60px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.active-day {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.day-number {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.calendar-day.today .day-number {
+    color: var(--neon-blue);
+    font-weight: 800;
+}
+
+.event-dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.dot-music { background-color: #8a2be2; box-shadow: 0 0 5px #8a2be2; }
+.dot-workout { background-color: #ff7a00; box-shadow: 0 0 5px #ff7a00; }
+.dot-culture { background-color: #00ff66; box-shadow: 0 0 5px #00ff66; }
+.dot-soul { background-color: #ff007f; box-shadow: 0 0 5px #ff007f; }
+.dot-dance { background-color: #ff1493; box-shadow: 0 0 5px #ff1493; }
+.dot-markets { background-color: #ffd700; box-shadow: 0 0 5px #ffd700; }
+.dot-courses { background-color: #00ffff; box-shadow: 0 0 5px #00ffff; }
+
 
 .mode-btn {
     background: rgba(255, 255, 255, 0.05);
@@ -221,7 +360,64 @@ body {
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
 }
 
-/* Event Feed */
+/* Sub-Filters */
+.sub-filters-container {
+    margin-bottom: 24px;
+    margin-top: -10px; /* Pull it closer to main filters */
+    overflow-x: auto;
+    -ms-overflow-style: auto;
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    animation: slideDown 0.3s ease-out forwards;
+}
+.sub-filters-container::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-filters-scroll {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+}
+
+.sub-filter-chip {
+    padding: 6px 14px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0a6b5;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sub-filter-chip:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Dynamic Active Sub-Filter Colors based on parent category */
+.sub-filters-container.filter_music .sub-filter-chip.active { background: rgba(138, 43, 226, 0.1); color: #c48fff; border-color: rgba(138, 43, 226, 0.4); box-shadow: 0 0 10px rgba(138, 43, 226, 0.2); }
+.sub-filters-container.filter_workout .sub-filter-chip.active { background: rgba(255, 122, 0, 0.1); color: #ffad66; border-color: rgba(255, 122, 0, 0.4); box-shadow: 0 0 10px rgba(255, 122, 0, 0.2); }
+.sub-filters-container.filter_art .sub-filter-chip.active { background: rgba(0, 255, 102, 0.1); color: #00ff66; border-color: rgba(0, 255, 102, 0.4); box-shadow: 0 0 10px rgba(0, 255, 102, 0.2); }
+.sub-filters-container.filter_soul .sub-filter-chip.active { background: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+.sub-filters-container.filter_dance .sub-filter-chip.active { background: rgba(255, 50, 50, 0.1); color: #ff6666; border-color: rgba(255, 50, 50, 0.4); box-shadow: 0 0 10px rgba(255, 50, 50, 0.2); }
+.sub-filters-container.filter_markets .sub-filter-chip.active { background: rgba(255, 215, 0, 0.1); color: #ffe666; border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+.sub-filters-container.filter_courses .sub-filter-chip.active { background: rgba(0, 255, 255, 0.1); color: #66ffff; border-color: rgba(0, 255, 255, 0.4); box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
+.sub-filters-container.filter_language .sub-filter-chip.active { background: rgba(0, 240, 255, 0.1); color: #00f0ff; border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .event-feed {
     display: flex;
     flex-direction: column;
@@ -248,15 +444,16 @@ body {
 .event-card.music { border-color: rgba(138, 43, 226, 0.4); box-shadow: var(--glow-purple); }
 .event-card.workout { border-color: rgba(255, 122, 0, 0.4); box-shadow: var(--glow-orange); }
 .event-card.culture { border-color: rgba(0, 255, 102, 0.4); box-shadow: 0 0 20px rgba(0, 255, 102, 0.2); }
-.event-card.soul { border-color: rgba(255, 0, 127, 0.4); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2); }
-.event-card.dance { border-color: rgba(255, 20, 147, 0.4); box-shadow: 0 0 20px rgba(255, 20, 147, 0.2); }
+.event-card.soul { border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); } /* Changed to White/Silver */
+.event-card.dance { border-color: rgba(255, 50, 50, 0.4); box-shadow: 0 0 20px rgba(255, 50, 50, 0.2); } /* Changed to Red */
 .event-card.markets { border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
 .event-card.courses { border-color: rgba(0, 255, 255, 0.4); box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
 
 .event-image {
     width: 100%;
-    height: 180px;
+    height: 240px;
     object-fit: cover;
+    object-position: center 30%;
     opacity: 0.8;
 }
 
@@ -489,3 +686,12 @@ body {
     padding-bottom: 5px;
     border-bottom: 1px solid rgba(0, 240, 255, 0.2);
 }
+
+.filter-chip[data-cat="music"].active { border-color: #8a2be2 !important; color: #8a2be2 !important; box-shadow: 0 0 10px #8a2be2 !important; background: rgba(138, 43, 226, 0.1) !important; }
+.filter-chip[data-cat="workout"].active { border-color: #ff7a00 !important; color: #ff7a00 !important; box-shadow: 0 0 10px #ff7a00 !important; background: rgba(255, 122, 0, 0.1) !important; }
+.filter-chip[data-cat="language"].active { border-color: #ff4500 !important; color: #ff4500 !important; box-shadow: 0 0 10px #ff4500 !important; background: rgba(255, 69, 0, 0.1) !important; }
+.filter-chip[data-cat="culture"].active { border-color: #00ff66 !important; color: #00ff66 !important; box-shadow: 0 0 10px #00ff66 !important; background: rgba(0, 255, 102, 0.1) !important; }
+.filter-chip[data-cat="soul"].active { border-color: #ff007f !important; color: #ff007f !important; box-shadow: 0 0 10px #ff007f !important; background: rgba(255, 0, 127, 0.1) !important; }
+.filter-chip[data-cat="dance"].active { border-color: #ff1493 !important; color: #ff1493 !important; box-shadow: 0 0 10px #ff1493 !important; background: rgba(255, 20, 147, 0.1) !important; }
+.filter-chip[data-cat="markets"].active { border-color: #ffd700 !important; color: #ffd700 !important; box-shadow: 0 0 10px #ffd700 !important; background: rgba(255, 215, 0, 0.1) !important; }
+.filter-chip[data-cat="courses"].active { border-color: #00ffff !important; color: #00ffff !important; box-shadow: 0 0 10px #00ffff !important; background: rgba(0, 255, 255, 0.1) !important; }

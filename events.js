@@ -4,155 +4,566 @@ window.eventsData = [
         "title": "JAZZ NIGHT UNDER THE STARS",
         "venue": "The North Gate Jazz Co-op",
         "time": "9:00 PM",
-        "date": "30 Jun",
+        "date": "2026-06-30",
         "category": "Live Music",
         "type": "music",
         "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
         "timeStatus": "Tonight",
         "description": "Enjoy the best live jazz in Chiang Mai. Grab a drink and feel the vibe of the city!",
-        "link": ""
+        "link": "",
+        "tags": [
+            "jazz"
+        ]
     },
     {
         "id": 2,
         "title": "OPEN MIC NIGHT",
         "venue": "The Riverside Bar",
         "time": "8:00 PM",
-        "date": "30 Jun",
+        "date": "2026-06-30",
         "category": "Live Music",
         "type": "music",
-        "imageUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
         "timeStatus": "1 hr left",
         "description": "Showcase your talent or just enjoy local musicians sharing their passion.",
-        "link": ""
+        "link": "",
+        "tags": [
+            "live band"
+        ]
     },
     {
         "id": 3,
         "title": "SUNSET YOGA FLOW",
         "venue": "Nong Buak Haad Park",
         "time": "5:00 PM",
-        "date": "1 Jul",
+        "date": "2026-07-01",
         "category": "Workouts",
         "type": "workout",
-        "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "./assets/images/yoga_class.png",
         "timeStatus": "Tomorrow",
         "description": "Join our community for a relaxing Vinyasa flow as the sun sets over the park. Bring your own mat.",
-        "link": ""
+        "link": "",
+        "tags": [
+            "yoga"
+        ]
     },
     {
         "id": 4,
         "title": "LANNA ART EXHIBITION",
         "venue": "Chiang Mai City Arts Center",
         "time": "10:00 AM - 5:00 PM",
-        "date": "1 Jul",
+        "date": "2026-07-01",
         "category": "Culture",
         "type": "culture",
-        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "./assets/images/lanna_art.png",
         "timeStatus": "Tomorrow",
         "description": "Local artisans showcasing their beautiful handmade crafts and art.",
-        "link": ""
+        "link": "",
+        "tags": [
+            "art exhibition"
+        ]
     },
     {
         "id": 5,
         "title": "LANGUAGES EXCHANGE CNX",
         "venue": "Free Bird Cafe",
         "time": "5:30 PM",
-        "date": "2 Jul",
+        "date": "2026-07-02",
         "category": "Language",
         "type": "language",
-        "imageUrl": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "./assets/images/language_exchange.png",
         "timeStatus": "Upcoming",
         "description": "Meet people from all over the world. Practice Thai, English, Spanish or Mandarin in a casual setting.",
-        "link": ""
-    },
-    {
-        "id": 6,
-        "title": "SUNDAY NIGHT MEDITATION",
-        "venue": "Wat Tung Yu",
-        "time": "7:00 PM",
-        "date": "5 Jul",
-        "category": "Soul",
-        "type": "soul",
-        "imageUrl": "https://images.unsplash.com/photo-1528315758189-23124df61ea9?auto=format&fit=crop&q=80&w=800",
-        "timeStatus": "Upcoming",
-        "description": "A weekly meditation session to calm the mind and cultivate mindfulness based on Gotama Buddha's teachings.",
-        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai"
-    },
-    {
-        "id": 61,
-        "title": "INTRODUCTION TO THE TEACHINGS",
-        "venue": "Wat Tung Yu - Classroom",
-        "time": "9:00 AM",
-        "date": "4 Jul",
-        "category": "Courses",
-        "type": "courses",
-        "imageUrl": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800",
-        "timeStatus": "Upcoming",
-        "description": "Learn the basics of Buddhist philosophy and how to apply it in your daily life.",
-        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai"
-    },
-    {
-        "id": 62,
-        "title": "BUDDHIST TEMPLE TOURS",
-        "venue": "Chiang Mai Old City",
-        "time": "8:30 AM",
-        "date": "10 Jul",
-        "category": "Culture",
-        "type": "culture",
-        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=800",
-        "timeStatus": "Upcoming",
-        "description": "Guided walking tour exploring the history and spiritual significance of local temples.",
-        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai"
-    },
-    {
-        "id": 63,
-        "title": "FOUNDATION IN THE PATH TO ENLIGHTENMENT",
-        "venue": "Wat Tung Yu",
-        "time": "1:00 PM",
-        "date": "15 Jul",
-        "category": "Courses",
-        "type": "courses",
-        "imageUrl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=800",
-        "timeStatus": "Upcoming",
-        "description": "An in-depth course on the core principles required to attain enlightenment.",
-        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai"
+        "link": "",
+        "tags": [
+            "exchange",
+            "networking"
+        ]
     },
     {
         "id": 7,
         "title": "SUNDAY WALKING STREET MARKET",
         "venue": "Tha Phae Gate",
         "time": "4:00 PM - 10:00 PM",
-        "date": "5 Jul",
+        "date": "2026-07-05",
         "category": "Markets",
         "type": "markets",
         "imageUrl": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800",
         "timeStatus": "Upcoming",
         "description": "The biggest and most famous night market in Chiang Mai. Explore endless street food and Lanna handicrafts.",
-        "link": ""
+        "link": "",
+        "tags": [
+            "night market"
+        ]
     },
     {
         "id": 8,
         "title": "LATIN DANCE FIESTA",
         "venue": "One Nimman Courtyard",
         "time": "8:00 PM",
-        "date": "4 Jul",
+        "date": "2026-07-04",
         "category": "Dance",
         "type": "dance",
-        "imageUrl": "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "./assets/images/salsa_dance.png",
         "timeStatus": "Upcoming",
         "description": "Free outdoor Salsa and Bachata dancing. Everyone is welcome, whether you are a beginner or a pro!",
-        "link": ""
+        "link": "",
+        "tags": [
+            "salsa"
+        ]
     },
     {
         "id": 9,
         "title": "FREE THAI COOKING CLASS",
         "venue": "Community Center",
         "time": "2:00 PM",
-        "date": "6 Jul",
+        "date": "2026-07-06",
         "category": "Courses",
         "type": "courses",
-        "imageUrl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=800",
+        "imageUrl": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800",
         "timeStatus": "Upcoming",
         "description": "Learn to cook authentic Pad Thai! Limited spots available. Ingredients are provided for free by local sponsors.",
-        "link": "https://example.com/cooking-class"
+        "link": "",
+        "tags": [
+            "cooking"
+        ]
+    },
+    {
+        "id": 101,
+        "title": "SUNDAY NIGHT MEDITATION",
+        "venue": "Wat Tung Yu",
+        "time": "7:00 PM",
+        "date": "2026-07-05",
+        "category": "Soul",
+        "type": "soul",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "A weekly meditation session to calm the mind and cultivate mindfulness based on Gotama Buddha's teachings.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "meditation"
+        ]
+    },
+    {
+        "id": 102,
+        "title": "INTRODUCTION TO THE TEACHINGS",
+        "venue": "Wat Tung Yu - Classroom",
+        "time": "9:00 AM",
+        "date": "2026-07-04",
+        "category": "Courses",
+        "type": "courses",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "Learn the basics of Buddhist philosophy and how to apply it in your daily life.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "buddhism"
+        ]
+    },
+    {
+        "id": 103,
+        "title": "BUDDHIST TEMPLE TOURS",
+        "venue": "Chiang Mai Old City",
+        "time": "8:30 AM",
+        "date": "2026-07-10",
+        "category": "Culture",
+        "type": "culture",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "Guided walking tour exploring the history and spiritual significance of local temples.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "temple tours"
+        ]
+    },
+    {
+        "id": 104,
+        "title": "FOUNDATION IN THE PATH TO ENLIGHTENMENT",
+        "venue": "Wat Tung Yu",
+        "time": "1:00 PM",
+        "date": "2026-07-15",
+        "category": "Courses",
+        "type": "courses",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "An in-depth course on the core principles required to attain enlightenment.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "buddhism"
+        ]
+    },
+    {
+        "id": 105,
+        "title": "WEEKLY CLASSES",
+        "venue": "Wat Tung Yu",
+        "time": "6:00 PM",
+        "date": "2026-07-07",
+        "category": "Courses",
+        "type": "courses",
+        "imageUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
+        "timeStatus": "Upcoming",
+        "description": "Regular weekly classes covering various topics on the path to enlightenment.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "workshop"
+        ]
+    },
+    {
+        "id": 106,
+        "title": "BUDDHIST TEMPLE AUDIO TOURS",
+        "venue": "Anywhere (Online/Audio)",
+        "time": "Anytime",
+        "date": "2026-06-30",
+        "category": "Culture",
+        "type": "culture",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Available",
+        "description": "Self-guided audio tours for exploring the rich history of Buddhist temples at your own pace.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "temple tours"
+        ]
+    },
+    {
+        "id": 107,
+        "title": "TEMPLE GAME FUN NIGHT",
+        "venue": "Wat Tung Yu",
+        "time": "6:30 PM",
+        "date": "2026-07-09",
+        "category": "Soul",
+        "type": "soul",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "A fun and interactive evening playing games designed to foster community and mindfulness.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "mindful games"
+        ]
+    },
+    {
+        "id": 111,
+        "title": "BUDDHIST TEACHER TRAINING PROGRAM",
+        "venue": "Wat Tung Yu",
+        "time": "9:00 AM",
+        "date": "2026-07-25",
+        "category": "Courses",
+        "type": "courses",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "A rigorous training program for advanced students aspiring to teach the words of the Buddha.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "buddhism"
+        ]
+    },
+    {
+        "id": 112,
+        "title": "INTERNATIONAL RETREATS",
+        "venue": "Global Locations",
+        "time": "TBD",
+        "date": "2026-08-01",
+        "category": "Soul",
+        "type": "soul",
+        "imageUrl": "./assets/images/meditation_buddha.png",
+        "timeStatus": "Upcoming",
+        "description": "Join David Roylance for international retreats hosted around the world.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "tags": [
+            "retreats"
+        ]
+    },
+    {
+        "id": 101,
+        "title": "JING JAI (JJ) WEEKEND MARKET",
+        "venue": "Jing Jai Market",
+        "time": "7:00 AM",
+        "date": "2026-07-04",
+        "category": "Markets",
+        "type": "markets",
+        "imageUrl": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "weekend market"
+        ]
+    },
+    {
+        "id": 102,
+        "title": "SATURDAY NIGHT WALKING STREET",
+        "venue": "Wua Lai Road",
+        "time": "5:00 PM",
+        "date": "2026-07-04",
+        "category": "Markets",
+        "type": "markets",
+        "imageUrl": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "night market"
+        ]
+    },
+    {
+        "id": 103,
+        "title": "SUNDAY NIGHT MARKET",
+        "venue": "Ratchadamnoen Road",
+        "time": "5:00 PM",
+        "date": "2026-07-05",
+        "category": "Markets",
+        "type": "markets",
+        "imageUrl": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "night market"
+        ]
+    },
+    {
+        "id": 104,
+        "title": "SALSA NIGHT AT ZOE IN YELLOW",
+        "venue": "Zoe in Yellow",
+        "time": "9:00 PM",
+        "date": "2026-07-05",
+        "category": "Dance",
+        "type": "dance",
+        "imageUrl": "./assets/images/salsa_dance.png",
+        "price": "Free",
+        "tags": [
+            "salsa"
+        ]
+    },
+    {
+        "id": 105,
+        "title": "ECSTATIC DANCE NONG BUAK HAAD",
+        "venue": "Nong Buak Haad Park",
+        "time": "5:30 PM",
+        "date": "2026-07-06",
+        "category": "Dance",
+        "type": "dance",
+        "imageUrl": "./assets/images/salsa_dance.png",
+        "price": "Free",
+        "tags": [
+            "ecstatic dance"
+        ]
+    },
+    {
+        "id": 106,
+        "title": "BLUES NIGHT",
+        "venue": "Boy Blues Bar",
+        "time": "8:30 PM",
+        "date": "2026-07-06",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "blues"
+        ]
+    },
+    {
+        "id": 107,
+        "title": "ROOTS ROCK REGGAE",
+        "venue": "Roots Rock Reggae Bar",
+        "time": "9:30 PM",
+        "date": "2026-07-07",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "reggae"
+        ]
+    },
+    {
+        "id": 200,
+        "title": "North Gate: Lobster",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-06",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 201,
+        "title": "North Gate: Kalio & the CM crew",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-06",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 202,
+        "title": "North Gate: สันป่าข่อย คอมโบ้",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-07",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 203,
+        "title": "North Gate: Jam session",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-07",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "jam session"
+        ]
+    },
+    {
+        "id": 204,
+        "title": "North Gate: Inter Player",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-08",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 205,
+        "title": "North Gate: Funkasm",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-08",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 206,
+        "title": "North Gate: Nice guy",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-09",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 207,
+        "title": "North Gate: The Low-keys",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-09",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 208,
+        "title": "North Gate: Super Handsome",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-10",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 209,
+        "title": "North Gate: Delritmo",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-10",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 210,
+        "title": "North Gate: Jazz police",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-11",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "jazz"
+        ]
+    },
+    {
+        "id": 211,
+        "title": "North Gate: Super rich",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-11",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 212,
+        "title": "North Gate: Five forrest",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "8:30 PM",
+        "date": "2026-07-12",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "live band"
+        ]
+    },
+    {
+        "id": 213,
+        "title": "North Gate: ฉันจะโทรไปฟ้องพระพุทธเจ้า BLUES BAND",
+        "venue": "North Gate Jazz Co-Op",
+        "time": "11:00 PM",
+        "date": "2026-07-12",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "price": "Free",
+        "tags": [
+            "blues"
+        ]
     }
 ];
