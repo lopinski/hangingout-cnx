@@ -1,5 +1,27 @@
 window.eventsData = [
     {
+        "id": 1002,
+        "title": "LANGUAGE EXCHANGE",
+        "venue": "Yellow Coworking",
+        "time": "7:00 PM",
+        "category": "Language",
+        "type": "culture",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "attending": 0,
+        "timeStatus": "Tomorrow"
+    },
+    {
+        "id": 1001,
+        "title": "INTRO MUAY THAI CLASS",
+        "venue": "Lanna Fight Gym",
+        "time": "5:00 PM",
+        "category": "Workout",
+        "type": "workout",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "attending": 0,
+        "timeStatus": "Today"
+    },
+    {
         "id": 23456,
         "title": "LANGUAGE EXCHANGE",
         "venue": "Yellow Coworking",
