@@ -39,12 +39,12 @@
     <!-- Self-hosted open fonts (SIL OFL): no third-party font requests -->
     <link rel="preload" href="./assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=29">
-    <script src="boot.js?v=29"></script>
+    <link rel="stylesheet" href="styles.css?v=30">
+    <script src="boot.js?v=30"></script>
     <!-- Deferred: the three files download in parallel while the page parses, then run in order. -->
-    <script defer src="i18n.js?v=29"></script>
-    <script defer src="events.js?v=29"></script>
-    <script defer src="app.js?v=29"></script>
+    <script defer src="i18n.js?v=30"></script>
+    <script defer src="events.js?v=30"></script>
+    <script defer src="app.js?v=30"></script>
 
     <!-- Structured data: WebSite + Place. Event entries are added to <head> by app.js from the live listings. -->
     <script type="application/ld+json">
@@ -111,44 +111,73 @@
         <p class="masthead__tagline" data-i18n="tagline">The free guide to what's on in Chiang Mai</p>
     </header>
 
-    <!-- SECTIONS (category filter) -->
-    <nav class="sections" data-i18n-aria="sections" aria-label="Sections">
-        <div class="wrap sections__scroll" id="section-nav">
-            <button type="button" class="section-link is-active" data-filter="filter_all" aria-pressed="true"><span data-i18n="filter_all">All</span></button>
-            <span class="festival-chips" id="festival-chips"></span>
-            <button type="button" class="section-link" data-filter="filter_music" aria-pressed="false"><span data-i18n="filter_music">Live Music</span></button>
-            <button type="button" class="section-link" data-filter="filter_markets" aria-pressed="false"><span data-i18n="filter_markets">Markets</span></button>
-            <button type="button" class="section-link" data-filter="filter_art" aria-pressed="false"><span data-i18n="filter_art">Culture</span></button>
-            <button type="button" class="section-link" data-filter="filter_dance" aria-pressed="false"><span data-i18n="filter_dance">Dance</span></button>
-            <button type="button" class="section-link" data-filter="filter_workouts" aria-pressed="false"><span data-i18n="filter_workouts">Workouts</span></button>
-            <button type="button" class="section-link" data-filter="filter_soul" aria-pressed="false"><span data-i18n="filter_soul">Soul</span></button>
-            <button type="button" class="section-link" data-filter="filter_language" aria-pressed="false"><span data-i18n="filter_language">Language</span></button>
-            <button type="button" class="section-link" data-filter="filter_courses" aria-pressed="false"><span data-i18n="filter_courses">Courses</span></button>
-            <button type="button" class="section-link section-link--saved" data-filter="filter_saved" aria-pressed="false">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-                <span data-i18n="filter_saved">Saved</span>
-                <span class="count" id="saved-count">0</span>
-            </button>
-        </div>
-        <div class="wrap sub-sections" id="sub-filters" hidden></div>
-    </nav>
+    <!-- DISCOVERY: search plus one-tap When / Vibe / Price / Area -->
+    <section class="discover" id="discover" data-i18n-aria="search_label" aria-label="Search events">
+        <div class="wrap">
+            <div class="discover__top">
+            <div class="search">
+                <svg class="icon search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+                <input type="search" id="q" class="search__input" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"
+                    role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list"
+                    placeholder="What do you want to do?" aria-label="Search events">
+                <ul class="search__list" id="suggestions" role="listbox" hidden></ul>
+            </div>
 
-    <!-- DAY STRIP (date filter) -->
-    <div class="daystrip" id="daystrip">
-        <div class="wrap daystrip__row" role="group" data-i18n-aria="choose_day" aria-label="Choose a day">
-            <button type="button" class="daystrip__nav" id="days-prev" data-i18n-aria="prev_days" aria-label="Earlier days">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            <div class="frow">
+                <span class="frow__label" data-i18n="when">When</span>
+                <div class="frow__pills" id="when-row" role="group" data-i18n-aria="when" aria-label="When"></div>
+            </div>
+            </div>
+
+            <div class="daystrip" id="daystrip" hidden>
+                <div class="daystrip__row" role="group" data-i18n-aria="choose_day" aria-label="Choose a day">
+                    <button type="button" class="daystrip__nav" id="days-prev" data-i18n-aria="prev_days" aria-label="Earlier days">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                    </button>
+                    <div class="daystrip__days" id="day-list"></div>
+                    <button type="button" class="daystrip__nav" id="days-next" data-i18n-aria="next_days" aria-label="Later days">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" class="discover__toggle" id="filters-toggle" aria-expanded="false" aria-controls="more-filters">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+                <span data-i18n="filters">Filters</span>
+                <span class="count" id="filters-count" hidden></span>
             </button>
-            <div class="daystrip__days" id="day-list"></div>
-            <button type="button" class="daystrip__nav" id="days-next" data-i18n-aria="next_days" aria-label="Later days">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-            </button>
+
+            <div class="discover__more" id="more-filters">
+                <div class="frow">
+                    <span class="frow__label" data-i18n="vibe">Vibe</span>
+                    <div class="frow__pills" id="vibe-row" role="group" data-i18n-aria="vibe" aria-label="Vibe"></div>
+                </div>
+                <div class="frow-pair">
+                    <div class="frow">
+                        <span class="frow__label" data-i18n="price">Price</span>
+                        <div class="frow__pills" id="price-row" role="group" data-i18n-aria="price" aria-label="Price"></div>
+                    </div>
+                    <div class="frow">
+                        <span class="frow__label" data-i18n="area">Area</span>
+                        <div class="frow__pills" id="area-row" role="group" data-i18n-aria="area" aria-label="Area"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE RESULTS LINE (sticks to the top while scrolling) -->
+    <div class="results" id="results">
+        <div class="wrap results__row">
+            <p class="results__line" id="results-line" role="status" aria-live="polite"></p>
+            <button type="button" class="text-link results__clear" id="clear-filters" data-i18n="clear_filters" hidden>Clear filters</button>
         </div>
     </div>
 
     <!-- LISTINGS -->
     <main id="listings" class="wrap" tabindex="-1">
         <p class="notice" id="back-issue" hidden></p>
+        <div id="fallback-note"></div>
         <section id="cover" class="cover" aria-live="polite"></section>
         <div id="dossier" class="dossier"></div>
         <noscript><p class="notice">HangingOut CNX needs JavaScript to show today's listings.</p></noscript>
@@ -192,6 +221,16 @@
             <div class="cta" id="page-actions" hidden></div>
         </div>
     </dialog>
+
+    <!-- JUMP DOCK (phones): back to top, and on to the next section -->
+    <div class="dock" id="dock">
+        <button type="button" class="dock__btn" id="dock-up" data-i18n-aria="back_to_top" aria-label="Back to top" hidden>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+        <button type="button" class="dock__btn" id="dock-down" data-i18n-aria="next_section" aria-label="Next section" hidden>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

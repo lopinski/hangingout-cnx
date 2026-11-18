@@ -56,7 +56,34 @@ class NormalizeTests(unittest.TestCase):
         self.assertEqual(classify("Sunday Walking Street Market")[0], "markets")
         self.assertEqual(classify("AI Engineers Weekly")[0], "courses")
         self.assertEqual(classify("Maintain your bike")[0], "culture")           # "ai" must not match inside words
-        self.assertEqual(classify("Something Unclear", default_social=True), ("language", ["meetup"], True))
+        self.assertEqual(classify("Something Unclear", default_social=True), ("language", ["meetup"], True, False))
+
+    def test_reported_misclassifications(self):
+        # A salsa and bachata festival is dance, whatever section the source filed it under.
+        festival = normalize(raw(source="citylife", type="culture", start=None,
+                                 title="Chiang Mai Afro-Latin Festival 2026: The 5th International "
+                                       "Afro-Latin Dance & Culture Festival in Chiang Mai"), TODAY)
+        self.assertEqual((festival["type"], festival["category"]), ("dance", "Dance"))
+        self.assertEqual(festival["imageUrl"], "./assets/images/opt/dance_latin-960.jpg")
+        # Tubing is a social day out on the water, not a gym session.
+        tubing = normalize(raw(source="eventbrite", title="Sunset Tubing Social for Solo Travellers (every day)"), TODAY)
+        self.assertEqual((tubing["type"], tubing["category"]), ("language", "Language & Social"))
+        self.assertEqual(tubing["imageUrl"], "./assets/images/opt/river_tubing-960.jpg")
+        self.assertIn("tubing", tubing["tags"])
+
+    def test_keyword_groups(self):
+        for title in ("Salsa Sunday", "Bachata Basics", "Kizomba Night", "Tango in the Park", "Afro-Latin Party"):
+            self.assertEqual(classify(title)[0], "dance", title)
+        for title in ("River Kayak Day", "Friday Party", "Nomad Meetup", "Team Social"):
+            self.assertEqual(classify(title)[:1] + classify(title)[2:3], ("language", True), title)
+        for title in ("Lanna Woodwork Demo", "Temple Tour", "Craft Fair Exhibition"):
+            self.assertEqual(classify(title)[0], "culture", title)
+        for title in ("Sunrise Yoga", "Muay Thai Basics", "Open Gym Hour", "Fitness Bootcamp"):
+            self.assertEqual(classify(title)[0], "workout", title)
+
+    def test_source_section_is_only_a_fallback(self):
+        self.assertEqual(normalize(raw(source="citylife", type="music", title="Chiang Yai Fest 20+"), TODAY)["type"], "music")
+        self.assertEqual(normalize(raw(source="recurring", type="soul", title="Monk Chat Dance"), TODAY)["type"], "soul")
 
     def test_festival_tag(self):
         self.assertEqual(festival_tags("Loy Krathong x Kad Mua"), ["festival:loy-krathong"])
@@ -144,15 +171,23 @@ class ImageTests(unittest.TestCase):
 
     def test_picture_follows_the_subject_not_just_the_section(self):
         from scraper_engine.normalize import pick_image
-        self.assertNotEqual(pick_image("Sunset Tubing Social for Solo Travellers", "workout"), "workout")
-        self.assertEqual(pick_image("Free Yoga in the Park", "workout"), "workout")
+        self.assertEqual(pick_image("Sunset Tubing Social for Solo Travellers", "language", social=True), "river_tubing")
+        self.assertEqual(pick_image("Free Yoga in the Park", "workout"), "yoga_park")
+        self.assertEqual(pick_image("Open Gym Hour", "workout"), "workout")
+        self.assertEqual(pick_image("Live Jazz at North Gate", "music"), "live_music")
+        self.assertEqual(pick_image("Sunday Walking Street Market", "markets"), "night_market")
+        self.assertEqual(pick_image("Jing Jai Farmers' Market", "markets"), "markets")
+        self.assertEqual(pick_image("Chiang Mai Afro-Latin Festival 2026", "dance"), "dance_latin")
+        self.assertEqual(pick_image("Unnamed Dance-Section Event", "dance"), "dance_latin")
         self.assertEqual(pick_image("Saturday Social Dinner & Karaoke", "language"), "music")
         self.assertEqual(pick_image("Thai Cooking Class", "courses"), "courses")
         self.assertEqual(pick_image("Something Unclear", "language", social=True), "community")
 
     def test_image_url_points_at_a_local_file(self):
         event = normalize(raw(title="Sunday Walking Street Market"), TODAY)
-        self.assertEqual(event["imageUrl"], "./assets/images/opt/markets-960.jpg")
+        self.assertEqual(event["imageUrl"], "./assets/images/opt/night_market-960.jpg")
+        for size in (480, 720, 960):
+            self.assertTrue((config.REPO_ROOT / event["imageUrl"].replace("-960", f"-{size}")).exists())
 
 
 class GeoTests(unittest.TestCase):
@@ -305,6 +340,47 @@ class FetcherTests(unittest.TestCase):
         from scraper_engine.fetch import Fetcher
         self.assertEqual(Fetcher().user_agent, config.USER_AGENT)
         self.assertIn("compatible;", config.USER_AGENT)
+
+
+class AuditTests(unittest.TestCase):
+    def test_a_normalised_event_passes(self):
+        from scraper_engine.audit import check_event
+        self.assertEqual(check_event(normalize(raw(is_free=True), TODAY), TODAY), [])
+        self.assertEqual(check_event(normalize(raw(start=None), TODAY), TODAY), [])          # all-day
+
+    def test_calendar_span_matches_the_site(self):
+        from scraper_engine.audit import calendar_span
+        event = normalize(raw(), TODAY)                                                     # 8:30 PM, Chiang Mai
+        self.assertEqual(calendar_span(event), ("20261120T133000Z", "20261120T153000Z"))    # +2h default
+        event["time"] = "11:00 PM - 1:00 AM"
+        self.assertEqual(calendar_span(event), ("20261120T160000Z", "20261120T180000Z"))    # past midnight
+        event["time"] = "All day"
+        self.assertEqual(calendar_span(event), ("20261120", "20261121"))
+
+    def test_problems_are_reported(self):
+        from scraper_engine.audit import check_event, check_feed
+        good = normalize(raw(), TODAY)
+        cases = {
+            "time not understood": {"time": "sometime"},
+            "mapsUrl is not a Google Maps search": {"mapsUrl": "https://example.org/?q=somewhere"},
+            "title contains control characters or symbols": {"title": "Jazz \U0001F3B7 Night"},
+            "source link is malformed": {"link": "meetup.com/events/1"},
+            "type/category mismatch": {"category": "Culture"},
+            "picture file missing": {"imageUrl": "./assets/images/opt/nope-960.jpg"},
+            "coordinates are not in northern Thailand": {"lat": 13.75, "lng": 100.5},
+            "date outside the listing window": {"date": "2026-01-01"},
+        }
+        for expected, change in cases.items():
+            problems = check_event({**good, **change}, TODAY)
+            self.assertTrue(any(expected in p for p in problems), (expected, problems))
+        self.assertIn("duplicate id", check_feed([good, dict(good)], TODAY)[good["id"]])
+
+    def test_published_feed_is_clean(self):
+        import json
+        from scraper_engine.audit import check_feed
+        events = json.loads(config.EVENTS_JSON.read_text(encoding="utf-8"))
+        first_day = date.fromisoformat(min(e["date"] for e in events))
+        self.assertEqual(check_feed(events, first_day), {})
 
 
 if __name__ == "__main__":

@@ -13,12 +13,22 @@
     const STRIP_DAYS = 14;
     const IMG_DIR = 'assets/images/opt/';
 
-    const FILTER_TYPE = {
-        filter_music: 'music', filter_workouts: 'workout', filter_language: 'language',
-        filter_art: 'culture', filter_soul: 'soul', filter_dance: 'dance',
-        filter_markets: 'markets', filter_courses: 'courses'
+    // Feed section -> translation key for its name.
+    const TYPE_FILTER = {
+        music: 'filter_music', workout: 'filter_workouts', language: 'filter_language', culture: 'filter_art',
+        soul: 'filter_soul', dance: 'filter_dance', markets: 'filter_markets', courses: 'filter_courses'
     };
-    const TYPE_FILTER = Object.fromEntries(Object.entries(FILTER_TYPE).map(([k, v]) => [v, k]));
+
+    // The "Vibe" pills: moods people search by, each covering one or two feed sections.
+    const VIBES = [
+        { key: 'social', label: 'vibe_social', types: ['language'] },
+        { key: 'dance', label: 'vibe_dance', types: ['dance'] },
+        { key: 'music', label: 'vibe_music', types: ['music'] },
+        { key: 'wellness', label: 'vibe_wellness', types: ['workout', 'soul'] },
+        { key: 'markets', label: 'vibe_markets', types: ['markets'] },
+        { key: 'culture', label: 'vibe_culture', types: ['culture', 'courses'] }
+    ];
+    const AREAS = ['Old City', 'Nimman', 'Riverside', 'Santitham', 'Hang Dong'];
 
     // Every picture is a local file chosen by the pipeline's matcher (imageUrl);
     // anything else, including a remote URL, falls back to the section picture.
@@ -114,13 +124,12 @@
 
     function imageKey(raw, type) {
         const src = String(raw.imageUrl || '');
-        const local = src.match(/^(?:\.\/)?assets\/images\/opt\/([a-z-]+)-960\.jpg$/);
+        const local = src.match(/^(?:\.\/)?assets\/images\/opt\/([a-z_-]+)-960\.jpg$/);
         if (local) return local[1];                                // chosen by the pipeline's matcher
         return SECTION_IMAGES.includes(type) ? type : 'night-out';
     }
 
     // ---- Data ------------------------------------------------------------
-    const NEIGHBORHOODS = ['Old City', 'Nimman', 'Riverside', 'Santitham', 'Hang Dong'];
     const usedUids = new Set();
 
     function safeMapsUrl(url) {
@@ -155,7 +164,7 @@
             tags: allTags.filter(x => !x.startsWith('festival:')).map(x => x.replace(/-/g, ' ')),
             festival,
             weekly: allTags.includes('weekly'),
-            neighborhood: NEIGHBORHOODS.includes(raw.neighborhood) ? raw.neighborhood : '',
+            neighborhood: AREAS.includes(raw.neighborhood) ? raw.neighborhood : '',
             mapsUrl: safeMapsUrl(raw.mapsUrl),
             source: String(raw.source || '').toLowerCase(),
             lat: Number.isFinite(raw.lat) && Number.isFinite(raw.lng) ? raw.lat : null,
@@ -168,12 +177,19 @@
         };
     }
 
+    /** Lower-case, accent-free text for matching ("Café" finds "cafe"). */
+    const fold = text => String(text).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
     const byWhen = (a, b) =>
         (a.date || '9999').localeCompare(b.date || '9999') ||
         ((a.start == null ? -1 : a.start) - (b.start == null ? -1 : b.start)) ||
         a.title.localeCompare(b.title);
 
     const events = (Array.isArray(window.eventsData) ? window.eventsData : []).map(normalise).sort(byWhen);
+    events.forEach(e => {                                              // what the search box looks through
+        e.haystack = fold([e.title, e.venue, e.neighborhood, e.category, e.tags.join(' '),
+            e.festival.replace(/-/g, ' '), e.source].join(' '));
+    });
     const byUid = new Map(events.map(e => [e.uid, e]));
     const datedEvents = events.filter(e => e.date);
 
@@ -189,12 +205,22 @@
         return addDays(end, -(STRIP_DAYS - 1));
     })();
 
-    const state = {
-        filter: 'filter_all',
-        sub: null,
-        day: (datedEvents.find(e => e.date >= stripMin) || { date: stripMin }).date,   // 'YYYY-MM-DD' or 'all'
-        stripStart: stripMin
-    };
+    // One object holds every choice in the discovery panel.
+    //   when: 'today' | 'tomorrow' | 'weekend' | 'date' (uses state.date) | 'all'
+    //   vibe: 'all' | a VIBES key | 'festival:<slug>' | 'saved'
+    const hasToday = datedEvents.some(e => e.date === stripMin);
+    const initialState = () => ({
+        q: '',
+        when: isBackIssue ? 'all' : hasToday ? 'today' : 'date',
+        date: (datedEvents.find(e => e.date >= stripMin) || { date: stripMin }).date,
+        vibe: 'all',
+        freeOnly: false,
+        area: '',
+        stripStart: stripMin,
+        stripOpen: false,
+        filtersOpen: false
+    });
+    const state = initialState();
 
     let saved = loadSaved();
     let ready = false;
@@ -216,17 +242,46 @@
     const isSaved = uid => saved.includes(uid);
 
     // ---- Filtering -------------------------------------------------------
-    function matchesSection(e) {
-        if (state.filter === 'filter_all') return true;
-        if (state.filter === 'filter_saved') return isSaved(e.uid);
-        if (state.filter.startsWith('festival:')) return e.festival === state.filter.slice(9);
-        const type = FILTER_TYPE[state.filter];
-        return e.type === type || e.category.toLowerCase().includes(type);
+    /** Friday to Sunday of the current week, never earlier than today. */
+    function weekendDates() {
+        const weekday = toUTC(stripMin).getUTCDay();                   // 0 = Sunday ... 6 = Saturday
+        const toFriday = weekday === 0 ? -2 : 5 - weekday;
+        return [0, 1, 2].map(i => addDays(stripMin, toFriday + i)).filter(d => d >= stripMin);
     }
-    const matchesSub = e => !state.sub || e.tags.some(tag => tag.toLowerCase() === state.sub);
 
-    /** Events for the current section + tag, across all days. */
-    const pool = () => events.filter(e => matchesSection(e) && matchesSub(e));
+    /** The dates the "When" choice stands for, or null for all dates. */
+    function activeDates() {
+        if (state.when === 'today') return [stripMin];
+        if (state.when === 'tomorrow') return [addDays(stripMin, 1)];
+        if (state.when === 'weekend') return weekendDates();
+        if (state.when === 'date') return [state.date];
+        return null;
+    }
+
+    const queryWords = () => fold(state.q).split(/\s+/).filter(Boolean);
+
+    const tests = {
+        q: e => queryWords().every(word => e.haystack.includes(word)),
+        vibe: e => {
+            if (state.vibe === 'all') return true;
+            if (state.vibe === 'saved') return isSaved(e.uid);
+            if (state.vibe.startsWith('festival:')) return e.festival === state.vibe.slice(9);
+            const vibe = VIBES.find(v => v.key === state.vibe);
+            return !!vibe && vibe.types.includes(e.type);
+        },
+        price: e => !state.freeOnly || e.isFree,
+        area: e => !state.area || e.neighborhood === state.area,
+        when: e => { const dates = activeDates(); return !dates || dates.includes(e.date); }
+    };
+
+    /** Events passing every filter except the ones named in `skip`. */
+    function matching(...skip) {
+        const active = Object.keys(tests).filter(name => !skip.includes(name)).map(name => tests[name]);
+        return events.filter(e => active.every(test => test(e)));
+    }
+
+    /** Everything matching search, vibe, price and area, on any date. */
+    const pool = () => matching('when');
 
     function dayCounts(list) {
         const counts = new Map();
@@ -234,19 +289,9 @@
         return counts;
     }
 
-    /** If the chosen day has nothing in this section, move to the nearest day that does. */
-    function settleDay() {
-        if (state.filter === 'filter_saved') { state.day = 'all'; return; }
-        if (state.day === 'all') return;
-        const dates = [...dayCounts(pool()).keys()].sort();
-        if (!dates.length || dates.includes(state.day)) return;
-        const visible = dates.filter(d => d >= stripMin);
-        state.day = visible.find(d => d >= state.day) || visible[visible.length - 1] || state.day;
-        showDay(state.day);
-    }
+    const isFiltered = () => state.q.trim() !== '' || state.vibe !== 'all' || state.freeOnly || state.area !== '';
 
     function showDay(day) {
-        if (day === 'all') return;
         const end = addDays(state.stripStart, STRIP_DAYS - 1);
         if (day < state.stripStart || day > end) {
             let start = day < stripMin ? stripMin : day;
@@ -342,6 +387,14 @@
     const timeText = e => (!e.timeLabel || /^all day$/i.test(e.timeLabel) ? t('all_day') : e.timeLabel);
     const placeText = e => (e.neighborhood && !e.venue.includes(e.neighborhood) ? `${e.venue}, ${e.neighborhood}` : e.venue);
     const festivalLabel = slug => titleCase(slug.replace(/-/g, ' '));
+
+    /** Escape text and wrap whatever matches the search words in <mark>. */
+    function hl(text) {
+        const words = state.q.trim().split(/\s+/).filter(Boolean).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+        if (!words.length) return esc(text);
+        return String(text).split(new RegExp(`(${words.join('|')})`, 'gi'))
+            .map((part, i) => (i % 2 ? `<mark>${esc(part)}</mark>` : esc(part))).join('');
+    }
     const SOURCE_NAMES = { meetup: 'Meetup', eventbrite: 'Eventbrite', luma: 'Luma', citylife: 'Chiang Mai Citylife' };
     const priceClass = e => (e.isFree ? 'free' : 'paid');
     const whenText = e => (e.date ? `${fmtLong(e.date)} · ${timeText(e)}` : t('date_tbc'));
@@ -445,64 +498,91 @@
             </a>
             <div class="card__body">
                 ${kicker(e)}
-                <h3 class="card__title"><a href="#e=${e.uid}" data-open="${e.uid}">${esc(e.title)}</a></h3>
-                <p class="card__meta"><strong>${esc(when)}</strong> · ${esc(placeText(e))} · <span class="${priceClass(e)}">${esc(priceLabel(e))}</span></p>
+                <h3 class="card__title"><a href="#e=${e.uid}" data-open="${e.uid}">${hl(e.title)}</a></h3>
+                <p class="card__meta"><strong>${esc(when)}</strong> · ${hl(placeText(e))} · <span class="${priceClass(e)}">${esc(priceLabel(e))}</span></p>
             </div>
             ${actionBar(e)}
         </article>`;
     }
 
-    // ---- Render: sections nav -------------------------------------------
-    function renderNav() {
-        // A festival with at least two upcoming listings gets its own chip, first in line (two at most).
-        const festivals = new Map();
-        events.forEach(e => { if (e.festival && e.date >= stripMin) festivals.set(e.festival, (festivals.get(e.festival) || 0) + 1); });
-        $('festival-chips').innerHTML = [...festivals].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([slug]) =>
-            `<button type="button" class="section-link section-link--festival" data-filter="festival:${esc(slug)}" aria-pressed="false"><span aria-hidden="true">★</span> <span>${esc(festivalLabel(slug))}</span></button>`
-        ).join('');
+    // ---- Render: discovery panel ----------------------------------------
+    const pill = (set, label, { active = false, count = null, quiet = false, extra = '' } = {}) =>
+        `<button type="button" class="pill${active ? ' is-active' : ''}${quiet ? ' is-quiet' : ''}${extra}" data-set="${esc(set)}" aria-pressed="${active}">${label}${count == null ? '' : `<span class="pill__n">${count}</span>`}</button>`;
 
-        // Sections with nothing in the feed are hidden; sections with nothing on the chosen day are quietened.
-        const inFeed = new Set(events.map(e => e.type));
-        const onDay = new Set(events.filter(e => state.day === 'all' || e.date === state.day).map(e => e.type));
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-            const active = btn.dataset.filter === state.filter;
-            const type = FILTER_TYPE[btn.dataset.filter];
-            btn.classList.toggle('is-active', active);
-            btn.setAttribute('aria-pressed', active);
-            if (type) {
-                btn.hidden = !inFeed.has(type) && !active;
-                btn.classList.toggle('is-quiet', !onDay.has(type));
-            }
-        });
-        $('saved-count').textContent = saved.length;
-
-        // Tag chips come from the listings themselves, so there are no dead ends.
-        const box = $('sub-filters');
-        const tags = new Map();
-        if (FILTER_TYPE[state.filter]) {
-            events.filter(matchesSection).forEach(e => e.tags.forEach(tag => {
-                const key = tag.toLowerCase();
-                if (key === 'weekly') return;                           // a schedule note, not a genre
-                tags.set(key, (tags.get(key) || 0) + 1);
-            }));
-        }
-        box.hidden = tags.size < 2;
-        box.innerHTML = [...tags.keys()].sort().map(tag =>
-            `<button type="button" class="chip${state.sub === tag ? ' is-active' : ''}" data-sub="${esc(tag)}" aria-pressed="${state.sub === tag}">${esc(titleCase(tag))} <span aria-hidden="true">· ${tags.get(tag)}</span></button>`
-        ).join('');
+    function whenLabel() {
+        if (state.when === 'today') return t('today');
+        if (state.when === 'tomorrow') return t('tomorrow');
+        if (state.when === 'weekend') return t('this_weekend');
+        if (state.when === 'date') return fmtShort(state.date);
+        return t('all_dates');
     }
 
-    // ---- Render: day strip ----------------------------------------------
-    function renderStrip() {
-        const list = pool();
-        const counts = dayCounts(list);
-        const cells = [`<button type="button" class="day day--all${state.day === 'all' ? ' is-active' : ''}" data-day="all" aria-pressed="${state.day === 'all'}">
-            <span class="day__num">${esc(t('all_dates'))}</span><span class="day__count">${list.length}</span></button>`];
+    function vibeLabel() {
+        if (state.vibe === 'saved') return t('filter_saved');
+        if (state.vibe.startsWith('festival:')) return festivalLabel(state.vibe.slice(9));
+        const vibe = VIBES.find(v => v.key === state.vibe);
+        return vibe ? t(vibe.label) : '';
+    }
 
+    function renderDiscover() {
+        // When
+        const relative = isBackIssue ? [] : [['today', t('today')], ['tomorrow', t('tomorrow')], ['weekend', t('this_weekend')]];
+        const chosen = state.when === 'date' ? fmtShort(state.date) : t('choose_date');
+        $('when-row').innerHTML = relative.map(([key, label]) => pill(`when:${key}`, esc(label), { active: state.when === key })).join('') +
+            pill('when:all', esc(t('all_dates')), { active: state.when === 'all' }) +
+            `<button type="button" class="pill pill--date${state.when === 'date' ? ' is-active' : ''}" id="date-toggle" aria-expanded="${state.stripOpen}" aria-controls="daystrip">${esc(chosen)} <span aria-hidden="true">${state.stripOpen ? '▴' : '▾'}</span></button>`;
+        $('daystrip').hidden = !state.stripOpen;
+
+        // Vibe: counts respect the other choices, so a pill never promises more than it shows.
+        const others = matching('vibe');
+        const festivals = new Map();
+        events.forEach(e => { if (e.festival && e.date >= stripMin) festivals.set(e.festival, (festivals.get(e.festival) || 0) + 1); });
+        const festivalPills = [...festivals].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([slug]) =>
+            pill(`vibe:festival:${slug}`, `<span aria-hidden="true">★</span> ${esc(festivalLabel(slug))}`,
+                { active: state.vibe === `festival:${slug}`, extra: ' pill--festival' })).join('');
+        const vibePills = VIBES.map(vibe => {
+            const n = others.filter(e => vibe.types.includes(e.type)).length;
+            return pill(`vibe:${vibe.key}`, esc(t(vibe.label)), { active: state.vibe === vibe.key, count: n, quiet: !n });
+        }).join('');
+        $('vibe-row').innerHTML = pill('vibe:all', esc(t('filter_all')), { active: state.vibe === 'all' }) + festivalPills + vibePills +
+            pill('vibe:saved', `${icon('heart', 'icon--heart')} ${esc(t('filter_saved'))}`, { active: state.vibe === 'saved', count: saved.length, extra: ' pill--saved' });
+
+        // Price and area
+        $('price-row').innerHTML = pill('price:all', esc(t('all_listings')), { active: !state.freeOnly }) +
+            pill('price:free', esc(t('free_only')), { active: state.freeOnly });
+        const byArea = matching('area');
+        $('area-row').innerHTML = pill('area:', esc(t('all_cnx')), { active: !state.area }) +
+            AREAS.filter(area => events.some(e => e.neighborhood === area)).map(area => {
+                const n = byArea.filter(e => e.neighborhood === area).length;
+                return pill(`area:${area}`, esc(area), { active: state.area === area, count: n, quiet: !n });
+            }).join('');
+
+        // Phone-only "Filters" toggle with a count of what is switched on
+        const on = (state.vibe !== 'all') + state.freeOnly + (state.area !== '');
+        $('filters-count').hidden = !on;
+        $('filters-count').textContent = on;
+        $('filters-toggle').setAttribute('aria-expanded', state.filtersOpen);
+        $('more-filters').classList.toggle('is-open', state.filtersOpen);
+    }
+
+    /** "Showing 4 events · Today · Old City · Free only" plus a way to undo it all. */
+    function renderResults(count) {
+        const parts = [whenLabel(), vibeLabel(), state.area, state.freeOnly ? t('free_only') : '',
+            state.q.trim() ? `“${state.q.trim()}”` : ''].filter(Boolean);
+        $('results-line').innerHTML = `${esc(t('showing'))} <strong>${esc(countLabel(count))}</strong>` +
+            parts.map(part => ` <span class="results__sep" aria-hidden="true">·</span> ${esc(part)}`).join('');
+        $('clear-filters').hidden = !isFiltered();
+    }
+
+    // ---- Render: day strip ("Choose date") ------------------------------
+    function renderStrip() {
+        if (!state.stripOpen) return;
+        const counts = dayCounts(pool());
+        const cells = [];
         for (let i = 0; i < STRIP_DAYS; i++) {
             const date = addDays(state.stripStart, i);
             const n = counts.get(date) || 0;
-            const active = state.day === date;
+            const active = state.when === 'date' && state.date === date;
             const isToday = date === today;
             const showMonth = i === 0 || date.endsWith('-01');
             const dow = isToday ? t('today') : fmt(date, { weekday: 'short' });
@@ -546,7 +626,7 @@
             </a>
             <div class="cover__body">
                 ${kicker(lead, true)}
-                <h2 class="cover__title"><a href="#e=${lead.uid}" data-open="${lead.uid}">${esc(lead.title)}</a></h2>
+                <h2 class="cover__title"><a href="#e=${lead.uid}" data-open="${lead.uid}">${hl(lead.title)}</a></h2>
                 ${lead.desc ? `<p class="standfirst">${esc(lead.desc)}</p>` : ''}
                 ${facts(lead)}
                 ${ctaRow(lead)}
@@ -554,11 +634,10 @@
         </article>`;
     }
 
-    function pager(counts) {
-        if (state.day === 'all') return '';
+    function pager(counts, day) {
         const dates = [...counts.keys()].filter(d => d >= stripMin).sort();
-        const prev = dates.filter(d => d < state.day).pop();
-        const next = dates.find(d => d > state.day);
+        const prev = dates.filter(d => d < day).pop();
+        const next = dates.find(d => d > day);
         const link = (date, label, arrowFirst) => `<button type="button" class="btn" data-day="${date}">
             ${arrowFirst ? '<span aria-hidden="true">←</span>' : ''}
             <span><span class="pager__label">${esc(label)}</span><br>${esc(fmtLong(date))} · ${esc(countLabel(counts.get(date)))}</span>
@@ -568,28 +647,37 @@
     }
 
     function emptyState() {
-        const message = state.filter === 'filter_saved' ? t('empty_saved')
-            : state.day !== 'all' ? tf('empty_day', { date: fmtLong(state.day) })
-            : t('empty_events');
-        const buttons = [];
-        if (state.filter !== 'filter_all') buttons.push(`<button type="button" class="btn btn--primary" data-filter="filter_all">${esc(t('show_all_sections'))}</button>`);
-        if (state.day !== 'all') buttons.push(`<button type="button" class="btn" data-day="all">${esc(t('show_all_dates'))}</button>`);
-        return `<div class="empty"><p>${esc(message)}</p><div class="cta">${buttons.join('')}</div></div>`;
+        const message = state.vibe === 'saved' && !saved.length ? t('empty_saved') : t('empty_events');
+        return `<div class="empty"><p>${esc(message)}</p><div class="cta">
+            <button type="button" class="btn btn--primary" data-reset>${esc(t('clear_filters'))}</button></div></div>`;
     }
 
     function renderListings() {
         const all = pool();
         const counts = dayCounts(all);
-        const list = state.day === 'all' ? all : all.filter(e => e.date === state.day);
+        let dates = activeDates();
+        let list = dates ? all.filter(e => dates.includes(e.date)) : all;
+        const wanted = list.length;
+
+        // Never a dead end: if the chosen day(s) have no match but another day does, show that day.
+        let notice = '';
+        if (!list.length && all.length) {
+            const next = [...counts.keys()].filter(d => d >= stripMin).sort()[0] || [...counts.keys()].sort()[0];
+            dates = [next];
+            list = all.filter(e => e.date === next);
+            notice = `<p class="notice">${esc(tf('no_match_when', { when: whenLabel() }))}</p>`;
+        }
+
+        renderResults(wanted);
         const lead = pickLead(list);
         const rest = list.filter(e => e !== lead);
-
         renderCover(lead);
+        $('fallback-note').innerHTML = notice;
 
         let html = '';
         if (!list.length) {
             html = emptyState();
-        } else if (state.day === 'all') {
+        } else if (!dates || dates.length > 1) {
             const groups = new Map();
             rest.forEach(e => {
                 const key = e.date || 'tbc';
@@ -603,14 +691,17 @@
                 </header>
                 <div class="grid grid--compact">${items.map(e => card(e, false)).join('')}</div>
             </section>`).join('');
-        } else if (rest.length) {
-            html = `<header class="section-head">
-                    <h2>${esc(tf('also_on', { date: fmtLong(state.day) }))}</h2>
+        } else {
+            if (rest.length) {
+                html = `<header class="section-head">
+                    <h2>${esc(tf('also_on', { date: fmtLong(dates[0]) }))}</h2>
                     <p>${esc(countLabel(rest.length))}</p>
                 </header>
                 <div class="grid">${rest.map(e => card(e, false)).join('')}</div>`;
+            }
+            html += pager(counts, dates[0]);
         }
-        $('dossier').innerHTML = html + pager(counts);
+        $('dossier').innerHTML = html;
     }
 
     function renderChrome() {
@@ -620,6 +711,8 @@
         const stamp = meta && /^\d{4}-\d{2}-\d{2}/.test(meta.updated || '') ? meta.updated.slice(0, 10) : '';
         $('updated-line').textContent = stamp ? tf('updated', { date: fmt(stamp, { day: 'numeric', month: 'long', year: 'numeric' }) }) : '';
         $('submit-link').href = submitUrl();
+        $('q').placeholder = t('search_placeholder');
+        $('q').setAttribute('aria-label', t('search_label'));
         const notice = $('back-issue');
         notice.hidden = !isBackIssue;
         if (isBackIssue) {
@@ -630,9 +723,10 @@
 
     function renderAll(flash) {
         renderChrome();
-        renderNav();
+        renderDiscover();
         renderStrip();
         renderListings();
+        updateDock();
         if (flash) {
             [$('cover'), $('dossier')].forEach(el => {
                 el.classList.remove('is-fresh');
@@ -644,8 +738,72 @@
 
     /** After a filter change, bring the results back into view if the reader had scrolled past them. */
     function settleScroll() {
-        const top = $('listings').getBoundingClientRect().top + window.scrollY - $('daystrip').offsetHeight - 8;
+        const top = $('listings').getBoundingClientRect().top + window.scrollY - $('results').offsetHeight - 8;
         if (window.scrollY > top) window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    // ---- Search suggestions ----------------------------------------------
+    // Vocabulary = the feed's own tags, areas, venues and festivals, so a suggestion always has results.
+    const vocabulary = (() => {
+        const terms = new Map();
+        const add = term => { const key = fold(term).trim(); if (key.length > 2 && !terms.has(key)) terms.set(key, term); };
+        events.forEach(e => {
+            e.tags.forEach(tag => { if (!['weekly', 'meetup'].includes(tag)) add(tag); });
+            if (e.festival) add(e.festival.replace(/-/g, ' '));
+            if (e.neighborhood) add(e.neighborhood);
+            if (e.venue && !/see listing/.test(e.venue)) add(e.venue);
+        });
+        ['salsa', 'jazz', 'yoga', 'market', 'coworking', 'meetup', 'free'].forEach(add);
+        return [...terms].map(([key, label]) => ({ key, label, n: events.filter(e => e.haystack.includes(key)).length }))
+            .filter(term => term.n > 0);
+    })();
+
+    let suggestIndex = -1;
+
+    function suggestions() {
+        const typed = fold(state.q).trim();
+        const ranked = vocabulary.filter(term => (typed ? term.key.includes(typed) && term.key !== typed : term.label.length < 14))
+            .sort((a, b) => (typed ? (b.key.startsWith(typed) - a.key.startsWith(typed)) : 0) || b.n - a.n);
+        return ranked.slice(0, 6);
+    }
+
+    function renderSuggestions(open) {
+        const list = $('suggestions');
+        const items = open ? suggestions() : [];
+        list.hidden = !items.length;
+        $('q').setAttribute('aria-expanded', !!items.length);
+        suggestIndex = Math.min(suggestIndex, items.length - 1);
+        list.innerHTML = (items.length && !state.q.trim() ? `<li class="search__hint" role="presentation">${esc(t('popular'))}</li>` : '') +
+            items.map((term, i) => `<li class="search__option${i === suggestIndex ? ' is-active' : ''}" id="suggestion-${i}" role="option" aria-selected="${i === suggestIndex}" data-suggest="${esc(term.label)}">
+                <span>${hl(titleCase(term.label))}</span><span class="pill__n">${term.n}</span></li>`).join('');
+        if (suggestIndex >= 0) $('q').setAttribute('aria-activedescendant', `suggestion-${suggestIndex}`);
+        else $('q').removeAttribute('aria-activedescendant');
+    }
+
+    function setQuery(text) {
+        state.q = text;
+        if ($('q').value !== text) $('q').value = text;
+        renderDiscover();
+        renderStrip();
+        renderListings();
+        updateDock();
+    }
+
+    // ---- Jump dock (phones) -----------------------------------------------
+    /** Section starts the down-arrow steps through: cover, each day or "also on" heading, the footer. */
+    const jumpTargets = () => [$('cover'), ...document.querySelectorAll('#dossier .section-head, #dossier .pager'), document.querySelector('.footer')]
+        .filter(el => el && el.offsetParent !== null);
+    const stickyOffset = () => $('results').offsetHeight + 8;
+
+    function nextTarget() {
+        const line = window.scrollY + stickyOffset() + 4;
+        return jumpTargets().find(el => el.getBoundingClientRect().top + window.scrollY > line + 1);
+    }
+
+    function updateDock() {
+        $('dock-up').hidden = window.scrollY < 400;
+        $('dock-down').hidden = !nextTarget() ||
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40;
     }
 
     // ---- Actions ---------------------------------------------------------
@@ -664,8 +822,8 @@
         storage.set('savedEvents', JSON.stringify(saved));
         toast(t(on ? 'toast_saved' : 'toast_removed'));
 
-        if (state.filter === 'filter_saved') { renderAll(false); }
-        else { $('saved-count').textContent = saved.length; }
+        if (state.vibe === 'saved') renderAll(false);
+        else renderDiscover();
         document.querySelectorAll(`[data-act="save"][data-uid="${uid}"]`).forEach(btn => {
             btn.setAttribute('aria-pressed', on);
             const label = btn.querySelector('[data-save-label]');
@@ -857,8 +1015,34 @@
     }
 
     // ---- Wiring ----------------------------------------------------------
+    /** Apply one discovery choice, e.g. "when:today", "vibe:dance", "price:free", "area:Nimman". */
+    function applyChoice(choice) {
+        const cut = choice.indexOf(':');
+        const dimension = choice.slice(0, cut);
+        const value = choice.slice(cut + 1);
+        if (dimension === 'when') {
+            state.when = value;
+            state.stripOpen = false;
+        } else if (dimension === 'vibe') {
+            state.vibe = state.vibe === value ? 'all' : value;         // tapping the active pill clears it
+            // Saved events and festivals span many days, so look across all of them.
+            if (state.vibe === 'saved' || state.vibe.startsWith('festival:')) state.when = 'all';
+        } else if (dimension === 'price') {
+            state.freeOnly = value === 'free';
+        } else if (dimension === 'area') {
+            state.area = state.area === value ? '' : value;
+        }
+    }
+
+    function resetFilters() {
+        Object.assign(state, initialState(), { filtersOpen: state.filtersOpen });
+        $('q').value = '';
+        suggestIndex = -1;
+        renderSuggestions(false);
+    }
+
     document.addEventListener('click', ev => {
-        const el = ev.target.closest('[data-open], [data-act], [data-day], [data-filter], [data-sub], [data-page]');
+        const el = ev.target.closest('[data-open], [data-act], [data-day], [data-set], [data-suggest], [data-reset], [data-page]');
         if (!el) return;
 
         if (el.dataset.open) {
@@ -873,19 +1057,21 @@
             else if (el.dataset.act === 'share') share(e);
             else if (el.dataset.act === 'copy') copyLink(e, el);
         } else if (el.dataset.day) {
-            state.day = el.dataset.day;
-            showDay(state.day);
+            state.when = 'date';
+            state.date = el.dataset.day;
+            showDay(state.date);
             renderAll(true);
             settleScroll();
-        } else if (el.dataset.filter) {
-            state.filter = el.dataset.filter;
-            state.sub = null;
-            settleDay();
+        } else if (el.dataset.set !== undefined) {
+            applyChoice(el.dataset.set);
             renderAll(true);
             settleScroll();
-        } else if (el.dataset.sub) {
-            state.sub = state.sub === el.dataset.sub ? null : el.dataset.sub;
-            settleDay();
+        } else if (el.dataset.suggest !== undefined) {
+            suggestIndex = -1;
+            setQuery(el.dataset.suggest);
+            renderSuggestions(false);
+        } else if (el.dataset.reset !== undefined) {
+            resetFilters();
             renderAll(true);
         } else if (el.dataset.page) {
             if (fillPageDialog(el.dataset.page)) { openPage = el.dataset.page; pageDialog.showModal(); }
@@ -926,13 +1112,61 @@
         $('days-next').addEventListener('click', () => shiftStrip(7));
         $('theme-toggle').addEventListener('click', toggleTheme);
         arrowKeys($('day-list'), '.day');
-        arrowKeys($('section-nav'), '.section-link');
+        ['when-row', 'vibe-row', 'price-row', 'area-row'].forEach(id => arrowKeys($(id), '.pill'));
+
+        // "Choose date" opens the day strip; the phone-only toggle opens vibe, price and area.
+        $('when-row').addEventListener('click', ev => {
+            if (!ev.target.closest('#date-toggle')) return;
+            state.stripOpen = !state.stripOpen;
+            if (state.stripOpen && state.when === 'date') showDay(state.date);
+            renderDiscover();
+            renderStrip();
+        });
+        $('filters-toggle').addEventListener('click', () => { state.filtersOpen = !state.filtersOpen; renderDiscover(); });
+        $('clear-filters').addEventListener('click', () => { resetFilters(); renderAll(true); });
+
+        // Search: filter on every keystroke; suggestions follow the arrow keys.
+        const search = $('q');
+        search.addEventListener('input', () => { suggestIndex = -1; setQuery(search.value); renderSuggestions(true); });
+        search.addEventListener('focus', () => renderSuggestions(true));
+        search.addEventListener('blur', () => setTimeout(() => renderSuggestions(false), 150));
+        search.addEventListener('keydown', ev => {
+            const items = $('suggestions').hidden ? [] : suggestions();
+            if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+                if (!items.length) return;
+                ev.preventDefault();
+                // Cycle through "nothing selected" (-1) and each suggestion.
+                const slots = items.length + 1;
+                suggestIndex = (suggestIndex + 1 + (ev.key === 'ArrowDown' ? 1 : -1) + slots) % slots - 1;
+                renderSuggestions(true);
+            } else if (ev.key === 'Enter') {
+                ev.preventDefault();
+                if (suggestIndex >= 0 && items[suggestIndex]) setQuery(items[suggestIndex].label);
+                suggestIndex = -1;
+                renderSuggestions(false);
+                search.blur();                                          // drop the phone keyboard to reveal results
+            } else if (ev.key === 'Escape') {
+                if (!$('suggestions').hidden) { ev.preventDefault(); renderSuggestions(false); }
+                else if (state.q) { ev.preventDefault(); setQuery(''); }
+            }
+        });
+
+        // Jump dock
+        $('dock-up').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        $('dock-down').addEventListener('click', () => {
+            const target = nextTarget();
+            if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - stickyOffset(), behavior: 'smooth' });
+        });
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => { ticking = false; updateDock(); });
+        }, { passive: true });
+
         $('home-link').addEventListener('click', ev => {
             ev.preventDefault();
-            state.filter = 'filter_all';
-            state.sub = null;
-            state.day = (datedEvents.find(e => e.date >= stripMin) || { date: stripMin }).date;
-            state.stripStart = stripMin;
+            resetFilters();
             renderAll(false);
             window.scrollTo({ top: 0 });
         });

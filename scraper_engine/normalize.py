@@ -20,29 +20,36 @@ from .models import RawEvent
 # Each keyword doubles as a tag (spaces become hyphens).
 TYPE_KEYWORDS: list[tuple[str, list[str]]] = [
     ("dance", ["salsa", "bachata", "kizomba", "tango", "swing dance", "zouk", "ecstatic dance",
-               "afro-latin", "afro latin", "dance"]),
+               "afro-latin", "afro latin", "latin night", "dance"]),
     ("language", ["language exchange", "thai lesson", "learn thai", "english class",
                   "conversation club", "speak thai"]),
     ("markets", ["night market", "walking street", "farmers market", "farmers' market", "flea market",
                  "thrift", "bazaar", "kad mua", "market"]),
     ("soul", ["meditation", "breathwork", "sound bath", "sound healing", "mindful", "dhamma",
               "buddhis", "monk chat", "cacao", "reiki", "tantra", "spiritual", "kirtan"]),
-    ("workout", ["yoga", "acro", "muay thai", "running", "run club", "hike", "hiking", "fitness",
-                 "pilates", "climbing", "skate", "football", "badminton", "cycling", "tubing",
+    ("workout", ["yoga", "acro", "muay thai", "gym", "running", "run club", "hike", "hiking", "fitness",
+                 "pilates", "climbing", "skate", "football", "badminton", "cycling",
                  "workout", "volleyball", "circuit training", "hiit", "walk", "trek"]),
+    # Unmistakably cultural subjects, checked before the broad social words below.
+    ("culture", ["loy krathong", "yi peng", "lantern", "exhibition", "temple", "woodwork", "craft",
+                 "gallery", "museum"]),
+    # Social get-togethers, including water fun: tubing is a day out with people, not a workout.
+    # The site files these under "Language & Social".
+    ("language", ["tubing", "river", "kayak", "rafting", "party", "new in town", "networking",
+                  "social", "meetup", "hangout", "dinner", "brunch", "solo traveller",
+                  "solo traveler", "nomad", "board game", "game night"]),
     ("music", ["jazz", "blues", "open mic", "jam session", "live music", "concert", "live band",
                "acoustic", "reggae", "dj set", "gig", "karaoke", "handpan"]),
-    ("culture", ["exhibition", "gallery", "museum", "craft", "film", "cinema", "theatre", "theater",
-                 "poetry", "book club", "reading club", "sketch", "weaving", "lanna", "temple",
-                 "festival", "loy krathong", "yi peng", "art"]),
+    ("culture", ["film", "cinema", "theatre", "theater", "poetry", "book club", "reading club",
+                 "sketch", "weaving", "lanna", "festival", "art"]),
     ("courses", ["workshop", "masterclass", "bootcamp", "course", "lecture", "seminar", "talk",
                  "pechakucha", "crypto", "coding", "startup", "business", "robotics", "ai", "class"]),
-    # Social meetups have no section of their own; the site files them with exchanges.
-    ("language", ["new in town", "networking", "social", "meetup", "hangout", "dinner", "brunch",
-                  "solo traveller", "solo traveler", "nomad", "board game", "game night"]),
 ]
-SOCIAL_KEYWORDS = {"new in town", "networking", "social", "meetup", "hangout", "dinner", "brunch",
-                   "solo traveller", "solo traveler", "nomad", "board game", "game night"}
+SOCIAL_KEYWORDS = {"tubing", "river", "kayak", "rafting", "party", "new in town", "networking",
+                   "social", "meetup", "hangout", "dinner", "brunch", "solo traveller",
+                   "solo traveler", "nomad", "board game", "game night"}
+# Social words specific enough to be worth showing as a tag; the rest become "meetup".
+SOCIAL_TAGS = {"tubing", "kayak", "rafting", "party", "dinner", "brunch", "board game", "game night"}
 # Sources that publish news-style headlines rather than event names.
 HEADLINE_SOURCES = {"citylife"}
 # Community platforms whose uncategorised listings are, in practice, social meet-ups.
@@ -92,25 +99,30 @@ IMAGE_DIR = config.REPO_ROOT / "assets" / "images" / "opt"
 IMAGE_RULES: list[tuple[tuple[str, ...], list[str]]] = [
     (("lantern", "culture"), ["loy krathong", "loi krathong", "yi peng", "yee peng", "lantern"]),
     (("courses",), ["cooking", "cookery"]),
-    (("river", "community"), ["tubing", "river", "rafting", "kayak", "paddle"]),
-    (("dance",), ["salsa", "bachata", "kizomba", "tango", "zouk", "swing", "dance"]),
-    (("markets",), ["market", "walking street", "bazaar", "kad mua"]),
-    (("music",), ["jazz", "blues", "karaoke", "open mic", "jam session", "band", "concert",
-                  "live music", "handpan", "reggae", "acoustic"]),
+    (("river_tubing", "community"), ["tubing", "river", "rafting", "kayak", "paddle"]),
+    (("dance_latin", "dance"), ["salsa", "bachata", "kizomba", "tango", "zouk", "swing", "dance",
+                                "afro-latin", "afro latin", "latin"]),
+    (("markets",), ["farmers market", "farmers' market", "jing jai", "flea market", "thrift"]),
+    (("night_market", "markets"), ["night market", "walking street", "bazaar", "kad mua", "market"]),
+    (("live_music", "music"), ["jazz", "blues", "jam session", "band", "bands", "concert", "live music", "open mic"]),
+    (("music",), ["karaoke", "handpan", "reggae", "acoustic"]),
     (("temple", "soul"), ["temple", "wat", "monk", "dhamma", "buddhis"]),
     (("soul",), ["meditation", "kirtan", "breathwork", "sound bath", "sound healing", "mindful"]),
-    (("workout",), ["yoga", "pilates", "acro", "fitness", "circuit training", "hiit", "muay thai"]),
+    (("yoga_park", "workout"), ["yoga", "acro"]),
+    (("workout",), ["pilates", "fitness", "circuit training", "hiit", "muay thai", "gym"]),
     (("outdoors", "community"), ["running", "run club", "run", "hike", "hiking", "trek", "trail",
                                  "walk", "cycling", "skate", "climbing"]),
     (("food", "night-out"), ["dinner", "brunch", "lunch", "food", "wine", "tasting", "thanksgiving",
                              "potluck", "cocktails"]),
     (("art", "culture"), ["art", "craft", "sketch", "painting", "weaving", "pottery", "terracotta",
-                          "exhibition", "gallery", "poetry"]),
+                          "exhibition", "gallery", "poetry", "woodwork"]),
     (("language",), ["language exchange", "conversation club", "thai lesson", "english class"]),
     (("talk", "language"), ["talk", "lecture", "ai", "crypto", "business", "startup", "pechakucha",
                             "seminar", "conference", "coding", "engineers", "robotics", "masterclass",
                             "workshop", "reading club", "book club"]),
 ]
+# When no keyword matches, the section decides. Listed only where it differs from "<type>".
+TYPE_IMAGES: dict[str, tuple[str, ...]] = {"dance": ("dance_latin", "dance")}
 
 
 def _available(keys: tuple[str, ...]) -> str | None:
@@ -125,7 +137,7 @@ def pick_image(title: str, kind: str, social: bool = False) -> str:
             match = _available(keys)
             if match:
                 return match
-    return _available(("community",) if social else (kind,)) or "night-out"
+    return _available(("community",) if social else TYPE_IMAGES.get(kind, (kind,))) or "night-out"
 
 KIND_PHRASE = {
     "music": ["a live music night", "an evening of live sets"],
@@ -205,21 +217,25 @@ def _contains(haystack: str, keyword: str) -> bool:
     return keyword in haystack
 
 
-def classify(title: str, default_social: bool = False) -> tuple[str, list[str], bool]:
-    """Title -> (type, tags, is_social).
+def classify(title: str, default_social: bool = False) -> tuple[str, list[str], bool, bool]:
+    """Title -> (type, tags, is_social, matched).
 
     Only the title is used: source descriptions mention too many unrelated words
-    to classify reliably.
+    to classify reliably. `matched` is False when no keyword hit and a default was used.
     """
     lowered = title.lower()
     for kind, keywords in TYPE_KEYWORDS:
         hits = [k for k in keywords if _contains(lowered, k)]
         if hits:
             social = bool(set(hits) & SOCIAL_KEYWORDS)
-            return kind, (["meetup"] if social else [slugify(k) for k in hits[:2]]), social
+            if social:
+                tags = [slugify(k) for k in hits if k in SOCIAL_TAGS][:1] or ["meetup"]
+            else:
+                tags = [slugify(k) for k in hits[:2]]
+            return kind, tags, social, True
     if default_social:
-        return "language", ["meetup"], True
-    return "culture", [], False
+        return "language", ["meetup"], True, False
+    return "culture", [], False, False
 
 
 def festival_tags(text: str) -> list[str]:
@@ -306,8 +322,10 @@ def normalize(raw: RawEvent, today: date) -> dict | None:
     if not (today <= day <= today + timedelta(days=config.WINDOW_DAYS)):
         return None
 
-    kind, tags, social = classify(title, default_social=raw.source in SOCIAL_SOURCES)
-    if raw.type in config.CATEGORIES:                           # the source already knows the section
+    kind, tags, social, matched = classify(title, default_social=raw.source in SOCIAL_SOURCES)
+    if raw.type in config.CATEGORIES and (raw.source == "recurring" or not matched):
+        # A hand-curated entry is authoritative. A source's own section is only a
+        # fallback: a salsa festival filed under "arts" is still a dance event.
         kind, social = raw.type, False
         tags = [] if raw.tags else [tag for tag in tags if tag != "meetup"]
     tags = list(dict.fromkeys([*raw.tags, *tags, *festival_tags(raw.title)]))[:5]

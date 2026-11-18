@@ -1,6 +1,6 @@
 # Picture credits and licences
 
-Every picture the site shows is a local file in `assets/images/opt/` (`<key>-480.jpg` and `<key>-960.jpg`).
+Every picture the site shows is a local file in `assets/images/opt/` (`<key>-480.jpg`, `<key>-720.jpg` and `<key>-960.jpg`).
 No picture is ever loaded from another site, and none is taken from an event listing.
 
 | Key | Subject | Origin | Licence |
@@ -9,6 +9,11 @@ No picture is ever loaded from another site, and none is taken from an event lis
 | `markets` | Market stalls | Unsplash, photo id `1533900298318-6b8da08a523e` | Unsplash License |
 | `courses` | Cooking class | Unsplash, photo id `1556910103-1c02745aae4d` | Unsplash License |
 | `community` | Group of friends | Unsplash, photo id `1517486808906-6ca8b3f04846` | Unsplash License |
+| `dance_latin` | Social Latin dancing | Unsplash, photo id `1785835394931-beaa98c42d1f` | Unsplash License |
+| `river_tubing` | Tubing on a river | Unsplash, photo id `1783685710094-6de1f0ddbfd3` | Unsplash License |
+| `night_market` | Night market street | Unsplash, photo id `1783515426040-4581e2bcc4cc` | Unsplash License |
+| `live_music` | Jazz quartet on stage | Unsplash, photo id `1541804627596-3b5b9ef58c93` | Unsplash License |
+| `yoga_park` | Yoga in a park | Unsplash, photo id `1758274525923-c012bbd8bfbe` | Unsplash License |
 | `culture` | Lanna craft stall | Supplied with the project; appears to be a generated illustration | Origin not independently verified |
 | `dance` | Social dancing | Supplied with the project; appears to be a generated illustration | Origin not independently verified |
 | `language` | Language exchange café | Supplied with the project; appears to be a generated illustration | Origin not independently verified |
@@ -22,6 +27,6 @@ It is not the same as CC0 / public domain.
 ## Adding a picture
 
 The pipeline's matcher (`IMAGE_RULES` in `scraper_engine/normalize.py`) already has rules for
-`lantern`, `river`, `outdoors`, `temple`, `food`, `art` and `talk`. Until a file with that key exists,
-each rule falls back to the nearest picture above. To switch one on, add `<key>-480.jpg` and
+`lantern`, `outdoors`, `temple`, `food`, `art` and `talk`. Until a file with that key exists,
+each rule falls back to the nearest picture above. To switch one on, add `<key>-480.jpg`, `<key>-720.jpg` and
 `<key>-960.jpg` here in `opt/` and a row to the table. Only add pictures whose licence you have checked.

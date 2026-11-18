@@ -24,7 +24,7 @@ REQUEST_TIMEOUT_SECONDS = 25
 # The only values the site understands.
 CATEGORIES = {
     "music": "Live Music", "workout": "Workouts", "culture": "Culture", "soul": "Soul",
-    "dance": "Dance", "markets": "Markets", "courses": "Courses", "language": "Language",
+    "dance": "Dance", "markets": "Markets", "courses": "Courses", "language": "Language & Social",
 }
 NEIGHBORHOODS = ["Old City", "Nimman", "Riverside", "Santitham", "Hang Dong"]
 

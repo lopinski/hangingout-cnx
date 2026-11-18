@@ -35,7 +35,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -47,17 +47,17 @@
         "neighborhood": "Santitham",
         "date": "2026-11-18",
         "time": "11:30 AM - 7:30 PM",
-        "category": "Workouts",
-        "type": "workout",
+        "category": "Language & Social",
+        "type": "language",
         "is_free": true,
         "timeStatus": "Tonight",
-        "description": "Sunset Tubing Social for Solo Travellers is an active meet-up at Jing Jai Market Chiang Mai in Santitham. It starts at 11:30 AM on Wednesday 18 November. Entry is free.",
+        "description": "Sunset Tubing Social for Solo Travellers is an easy way to meet people in town at Jing Jai Market Chiang Mai in Santitham. It starts at 11:30 AM on Wednesday 18 November. Entry is free.",
         "link": "https://www.eventbrite.com/e/sunset-tubing-social-for-solo-travellers-every-day-tickets-2004157839047",
         "mapsUrl": "https://maps.google.com/?q=Jing+Jai+Market+Chiang+Mai+Chiang+Mai",
         "tags": [
             "tubing"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/river_tubing-960.jpg",
         "source": "eventbrite",
         "lat": 18.80625,
         "lng": 98.9953
@@ -103,7 +103,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -126,7 +126,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -149,7 +149,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -172,7 +172,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -245,7 +245,7 @@
         "neighborhood": "Santitham",
         "date": "2026-11-19",
         "time": "11:00 AM - 12:30 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
@@ -273,8 +273,7 @@
         "link": "https://www.meetup.com/lanna-art-craft-culture-lovers/events/317408210/",
         "mapsUrl": "https://maps.google.com/?q=Happy+Allergy+Bakery+Chiang+Mai",
         "tags": [
-            "craft",
-            "art"
+            "craft"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "meetup"
@@ -306,15 +305,15 @@
         "neighborhood": "Old City",
         "date": "2026-11-19",
         "time": "3:00 PM - 6:00 PM",
-        "category": "Culture",
-        "type": "culture",
+        "category": "Language & Social",
+        "type": "language",
         "is_free": true,
         "timeStatus": "Tomorrow",
-        "description": "Social Weaving: Breathe In, Weave Out is an arts and culture outing at Pa Rang Cafe & Art Stay in Old City. It starts at 3:00 PM on Thursday 19 November. Entry is free.",
+        "description": "Social Weaving: Breathe In, Weave Out is a relaxed social meet-up at Pa Rang Cafe & Art Stay in Old City. It starts at 3:00 PM on Thursday 19 November. Entry is free.",
         "link": "https://www.eventbrite.com/e/social-weaving-breathe-in-weave-out-tickets-2004272105822",
         "mapsUrl": "https://maps.google.com/?q=Pa+Rang+Cafe+%26+Art+Stay+Chiang+Mai",
         "tags": [
-            "weaving"
+            "meetup"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "eventbrite",
@@ -328,7 +327,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-19",
         "time": "5:00 PM - 8:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
@@ -348,7 +347,7 @@
         "neighborhood": "Old City",
         "date": "2026-11-19",
         "time": "6:00 PM - 8:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
@@ -368,7 +367,7 @@
         "neighborhood": "Nimman",
         "date": "2026-11-19",
         "time": "6:00 PM - 8:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
@@ -410,7 +409,7 @@
         "neighborhood": "Nimman",
         "date": "2026-11-19",
         "time": "6:00 PM - 11:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
@@ -441,7 +440,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -484,7 +483,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -507,7 +506,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -530,7 +529,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -594,7 +593,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -651,7 +650,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-20",
         "time": "6:00 PM - 9:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -659,7 +658,7 @@
         "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317426125/",
         "mapsUrl": "https://maps.google.com/?q=Salsa+Kitchen+Ruamchok+Chiang+Mai",
         "tags": [
-            "meetup"
+            "dinner"
         ],
         "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
@@ -671,7 +670,7 @@
         "neighborhood": "Riverside",
         "date": "2026-11-20",
         "time": "7:00 PM - 11:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -702,7 +701,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -725,7 +724,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -746,7 +745,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -769,7 +768,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -835,7 +834,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -888,7 +887,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-21",
         "time": "10:30 AM - 12:30 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -908,7 +907,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-21",
         "time": "12:00 PM - 2:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -928,7 +927,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-21",
         "time": "2:00 PM - 4:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -959,7 +958,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -982,7 +981,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7795,
         "lng": 98.9858
@@ -994,15 +993,15 @@
         "neighborhood": "Old City",
         "date": "2026-11-21",
         "time": "6:00 PM - 8:00 PM",
-        "category": "Live Music",
-        "type": "music",
+        "category": "Language & Social",
+        "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "Saturday Social Dinner & Karaoke at Spice Garden is a live music night at Spice Garden in Old City. It starts at 6:00 PM on Saturday 21 November. Hosted by Beyond Small Talks Chiang Mai. Check the listing for cost and booking.",
+        "description": "Saturday Social Dinner & Karaoke at Spice Garden is a relaxed social meet-up at Spice Garden in Old City. It starts at 6:00 PM on Saturday 21 November. Hosted by Beyond Small Talks Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/meetup-group-cadpaxaq/events/317215362/",
         "mapsUrl": "https://maps.google.com/?q=Spice+Garden+Chiang+Mai",
         "tags": [
-            "karaoke"
+            "dinner"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "meetup"
@@ -1025,7 +1024,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -1048,7 +1047,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -1069,7 +1068,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1092,7 +1091,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1138,7 +1137,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -1192,7 +1191,7 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-22",
         "time": "11:00 AM - 1:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -1200,7 +1199,7 @@
         "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317393156/",
         "mapsUrl": "https://maps.google.com/?q=Hideaway+cafe+and+restaurant+Chiang+Mai",
         "tags": [
-            "meetup"
+            "brunch"
         ],
         "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
@@ -1212,7 +1211,7 @@
         "neighborhood": "Santitham",
         "date": "2026-11-22",
         "time": "11:30 AM - 1:30 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
@@ -1220,7 +1219,7 @@
         "link": "https://www.meetup.com/meetup-group-cadpaxaq/events/317215514/",
         "mapsUrl": "https://maps.google.com/?q=Lady+and+The+Fox+-+Brunch+%26+Eatery+Chiang+Mai",
         "tags": [
-            "meetup"
+            "brunch"
         ],
         "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
@@ -1263,7 +1262,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -1286,7 +1285,7 @@
             "acro",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -1320,7 +1319,7 @@
         "neighborhood": "Old City",
         "date": "2026-11-22",
         "time": "4:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": true,
         "timeStatus": "This Weekend",
@@ -1353,7 +1352,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7877,
         "lng": 98.9933
@@ -1417,7 +1416,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -1440,7 +1439,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1463,7 +1462,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -1496,15 +1495,15 @@
         "neighborhood": "Nimman",
         "date": "2026-11-23",
         "time": "10:00 AM - 11:00 AM",
-        "category": "Courses",
-        "type": "courses",
+        "category": "Language & Social",
+        "type": "language",
         "is_free": true,
         "timeStatus": "Upcoming",
-        "description": "AI for Women: Create, Learn & Connect - AI Goddesses Meetup Chiang Mai is a talk-and-learn session at 4Seas Nimman Coliving Coworking Space. It starts at 10:00 AM on Monday 23 November. Entry is free.",
+        "description": "AI for Women: Create, Learn & Connect - AI Goddesses Meetup Chiang Mai is an easy way to meet people in town at 4Seas Nimman Coliving Coworking Space. It starts at 10:00 AM on Monday 23 November. Entry is free.",
         "link": "https://www.eventbrite.sg/e/ai-for-women-create-learn-connect-ai-goddesses-meetup-chiang-mai-tickets-1989192542442",
         "mapsUrl": "https://maps.google.com/?q=4Seas+Nimman+Coliving+Coworking+Space+Chiang+Mai",
         "tags": [
-            "ai"
+            "meetup"
         ],
         "imageUrl": "./assets/images/opt/language-960.jpg",
         "source": "eventbrite",
@@ -1573,7 +1572,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -1596,7 +1595,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1620,7 +1619,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1667,7 +1666,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -1731,7 +1730,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -1755,7 +1754,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1778,7 +1777,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1801,7 +1800,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -1908,7 +1907,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -1931,7 +1930,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1954,7 +1953,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1977,7 +1976,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2030,7 +2029,7 @@
         "neighborhood": "Old City",
         "date": "2026-11-26",
         "time": "6:00 PM - 8:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Upcoming",
@@ -2038,7 +2037,7 @@
         "link": "https://www.meetup.com/meetup-group-cadpaxaq/events/317023104/",
         "mapsUrl": "https://maps.google.com/?q=The+Haus+224+Chiang+Mai",
         "tags": [
-            "meetup"
+            "dinner"
         ],
         "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
@@ -2061,7 +2060,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -2084,7 +2083,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2107,7 +2106,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2119,18 +2118,18 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-27",
         "time": "All day",
-        "category": "Culture",
-        "type": "culture",
+        "category": "Dance",
+        "type": "dance",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is an evening of social dancing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
             "festival:afro-latin-festival"
         ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "imageUrl": "./assets/images/opt/dance_latin-960.jpg",
         "source": "citylife"
     },
     {
@@ -2151,7 +2150,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2195,7 +2194,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -2261,7 +2260,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -2284,7 +2283,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -2305,7 +2304,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2328,7 +2327,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2340,18 +2339,18 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-28",
         "time": "All day",
-        "category": "Culture",
-        "type": "culture",
+        "category": "Dance",
+        "type": "dance",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is an evening of social dancing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
             "festival:afro-latin-festival"
         ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "imageUrl": "./assets/images/opt/dance_latin-960.jpg",
         "source": "citylife"
     },
     {
@@ -2415,7 +2414,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2448,7 +2447,7 @@
         "neighborhood": "Hang Dong",
         "date": "2026-11-28",
         "time": "12:00 PM - 3:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Upcoming",
@@ -2479,7 +2478,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -2502,7 +2501,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7795,
         "lng": 98.9858
@@ -2525,7 +2524,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -2548,7 +2547,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -2569,7 +2568,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2592,7 +2591,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2604,18 +2603,18 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-29",
         "time": "All day",
-        "category": "Culture",
-        "type": "culture",
+        "category": "Dance",
+        "type": "dance",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is an evening of social dancing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
             "festival:afro-latin-festival"
         ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "imageUrl": "./assets/images/opt/dance_latin-960.jpg",
         "source": "citylife"
     },
     {
@@ -2679,7 +2678,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2723,7 +2722,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -2746,7 +2745,7 @@
             "acro",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2769,7 +2768,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7877,
         "lng": 98.9933
@@ -2813,7 +2812,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -2836,7 +2835,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2848,18 +2847,18 @@
         "neighborhood": "Chiang Mai",
         "date": "2026-11-30",
         "time": "All day",
-        "category": "Culture",
-        "type": "culture",
+        "category": "Dance",
+        "type": "dance",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It takes place on Monday 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is an evening of social dancing in Chiang Mai. It takes place on Monday 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
             "festival:afro-latin-festival"
         ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "imageUrl": "./assets/images/opt/dance_latin-960.jpg",
         "source": "citylife"
     },
     {
@@ -2880,7 +2879,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -2947,7 +2946,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -2970,7 +2969,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2994,7 +2993,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3017,7 +3016,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3061,7 +3060,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3085,7 +3084,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3108,7 +3107,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3131,7 +3130,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3186,7 +3185,7 @@
         "neighborhood": "Nimman",
         "date": "2026-12-02",
         "time": "6:00 PM - 8:00 PM",
-        "category": "Language",
+        "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Upcoming",
@@ -3217,7 +3216,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3240,7 +3239,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3263,7 +3262,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3286,7 +3285,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3330,7 +3329,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3353,7 +3352,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3376,7 +3375,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3399,7 +3398,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3443,7 +3442,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -3489,7 +3488,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3512,7 +3511,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -3533,7 +3532,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3556,7 +3555,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3602,7 +3601,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3646,7 +3645,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -3669,7 +3668,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7795,
         "lng": 98.9858
@@ -3692,7 +3691,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3715,7 +3714,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring"
     },
     {
@@ -3736,7 +3735,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3759,7 +3758,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3805,7 +3804,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3849,7 +3848,7 @@
             "weekend-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.8,
         "lng": 98.9677
@@ -3872,7 +3871,7 @@
             "acro",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -3895,7 +3894,7 @@
             "night-market",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
         "source": "recurring",
         "lat": 18.7877,
         "lng": 98.9933
@@ -3939,7 +3938,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -3962,7 +3961,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3985,7 +3984,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -4052,7 +4051,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -4075,7 +4074,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4099,7 +4098,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -4122,7 +4121,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -4166,7 +4165,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -4190,7 +4189,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4213,7 +4212,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -4236,7 +4235,7 @@
             "yoga",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
         "source": "recurring",
         "lat": 18.782,
         "lng": 98.9793
@@ -4282,7 +4281,7 @@
             "live-band",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7907,
         "lng": 99.0035
@@ -4305,7 +4304,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4328,7 +4327,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003

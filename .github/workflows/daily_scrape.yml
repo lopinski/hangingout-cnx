@@ -38,6 +38,10 @@ jobs:
       - name: Aggregate events
         run: python scraper_engine/pipeline.py
 
+      # Refuse to publish a feed with broken times, links or pictures.
+      - name: Audit the listings
+        run: python scraper_engine/audit.py
+
       - name: Commit the refreshed listings
         id: commit
         run: |
