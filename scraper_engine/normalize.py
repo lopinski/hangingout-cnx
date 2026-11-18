@@ -91,8 +91,8 @@ NEIGHBORHOOD_HINTS: list[tuple[str, list[str]]] = [
 ]
 
 # -- Pictures ----------------------------------------------------------------
-# Every picture is a local, licence-checked file in assets/images/opt (see
-# assets/images/CREDITS.md). Rules are checked in order against the title; each
+# Every picture is a local, licence-checked, black-and-white file in
+# assets/images/opt (see assets/images/CREDITS.md). Rules are checked in order against the title; each
 # rule lists preferred pictures first, and the first one that exists on disk is
 # used, so a picture can be added or removed without touching this code.
 IMAGE_DIR = config.REPO_ROOT / "assets" / "images" / "opt"
@@ -104,13 +104,15 @@ IMAGE_RULES: list[tuple[tuple[str, ...], list[str]]] = [
                                 "afro-latin", "afro latin", "latin"]),
     (("markets",), ["farmers market", "farmers' market", "jing jai", "flea market", "thrift"]),
     (("night_market", "markets"), ["night market", "walking street", "bazaar", "kad mua", "market"]),
-    (("live_music", "music"), ["jazz", "blues", "jam session", "band", "bands", "concert", "live music", "open mic"]),
+    # Jazz and blues get the saxophone (also the Live Music default); bands and jams get the stage.
+    (("music",), ["jazz", "blues", "saxophone", "sax"]),
+    (("live_music", "music"), ["jam session", "band", "bands", "concert", "live music", "open mic"]),
     (("music",), ["karaoke", "handpan", "reggae", "acoustic"]),
     (("temple", "soul"), ["temple", "wat", "monk", "dhamma", "buddhis"]),
     (("soul",), ["meditation", "kirtan", "breathwork", "sound bath", "sound healing", "mindful"]),
     (("yoga_park", "workout"), ["yoga", "acro"]),
     (("workout",), ["pilates", "fitness", "circuit training", "hiit", "muay thai", "gym"]),
-    (("outdoors", "community"), ["running", "run club", "run", "hike", "hiking", "trek", "trail",
+    (("outdoors", "workout"), ["running", "run club", "run", "hike", "hiking", "trek", "trail",
                                  "walk", "cycling", "skate", "climbing"]),
     (("food", "night-out"), ["dinner", "brunch", "lunch", "food", "wine", "tasting", "thanksgiving",
                              "potluck", "cocktails"]),

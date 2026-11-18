@@ -126,7 +126,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -149,7 +149,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -483,7 +483,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -506,7 +506,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -745,7 +745,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -768,7 +768,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -813,7 +813,7 @@
         "tags": [
             "running"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/workout-960.jpg",
         "source": "meetup"
     },
     {
@@ -1068,7 +1068,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1091,7 +1091,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1241,7 +1241,7 @@
         "tags": [
             "skate"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/workout-960.jpg",
         "source": "meetup"
     },
     {
@@ -1374,7 +1374,7 @@
         "tags": [
             "walk"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/workout-960.jpg",
         "source": "meetup"
     },
     {
@@ -1439,7 +1439,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1595,7 +1595,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1619,7 +1619,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1777,7 +1777,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -1930,7 +1930,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -1953,7 +1953,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2083,7 +2083,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2106,7 +2106,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2304,7 +2304,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2327,7 +2327,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2568,7 +2568,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2591,7 +2591,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -2835,7 +2835,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2969,7 +2969,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -2993,7 +2993,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3107,7 +3107,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3239,7 +3239,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3262,7 +3262,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3352,7 +3352,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3375,7 +3375,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3532,7 +3532,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3555,7 +3555,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3735,7 +3735,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -3758,7 +3758,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -3961,7 +3961,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4074,7 +4074,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4098,7 +4098,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -4212,7 +4212,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
@@ -4304,7 +4304,7 @@
             "jazz",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7955,
         "lng": 98.9866
@@ -4327,7 +4327,7 @@
             "blues",
             "weekly"
         ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "imageUrl": "./assets/images/opt/music-960.jpg",
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003

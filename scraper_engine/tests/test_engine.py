@@ -174,7 +174,10 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(pick_image("Sunset Tubing Social for Solo Travellers", "language", social=True), "river_tubing")
         self.assertEqual(pick_image("Free Yoga in the Park", "workout"), "yoga_park")
         self.assertEqual(pick_image("Open Gym Hour", "workout"), "workout")
-        self.assertEqual(pick_image("Live Jazz at North Gate", "music"), "live_music")
+        self.assertEqual(pick_image("Live Jazz at North Gate", "music"), "music")              # the saxophone
+        self.assertEqual(pick_image("Blues Night at Boy Blues Bar", "music"), "music")
+        self.assertEqual(pick_image("Live Bands at The Riverside", "music"), "live_music")     # the stage
+        self.assertEqual(pick_image("Chiang Yai Fest 20+", "music"), "music")                  # section default
         self.assertEqual(pick_image("Sunday Walking Street Market", "markets"), "night_market")
         self.assertEqual(pick_image("Jing Jai Farmers' Market", "markets"), "markets")
         self.assertEqual(pick_image("Chiang Mai Afro-Latin Festival 2026", "dance"), "dance_latin")
