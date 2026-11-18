@@ -242,7 +242,8 @@ mark { background: var(--mark); color: var(--ink); padding: 0 1px; }
 /* One labelled row of pills; the row scrolls sideways rather than wrapping. */
 .frow { display: flex; align-items: center; gap: 12px; min-width: 0; margin-top: 8px; }
 .frow__label { flex: none; width: 46px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
-.frow__pills { display: flex; gap: 6px; min-width: 0; overflow-x: auto; scrollbar-width: none; padding-block: 2px; }
+/* min-height reserves the row before the pills are drawn, so nothing below shifts (CLS). */
+.frow__pills { display: flex; gap: 6px; min-width: 0; min-height: 48px; overflow-x: auto; scrollbar-width: none; padding-block: 2px; }
 .frow__pills::-webkit-scrollbar { display: none; }
 .frow-pair { display: flex; gap: 8px 36px; flex-wrap: wrap; }
 .frow-pair .frow { flex: 0 1 auto; }
@@ -601,6 +602,7 @@ a.media:hover img { transform: scale(1.03); }
   .frow, .discover__top .frow { margin-top: 6px; margin-inline: calc(var(--gutter) * -1); }
   .frow__pills { padding-inline: var(--gutter); scroll-snap-type: x proximity; }
   .pill { min-height: 48px; scroll-snap-align: start; }
+  .frow__pills { min-height: 52px; }
   .frow-pair { gap: 0; display: block; }
 
   /* Vibe, price and area fold away behind one button so results stay near the top. */
