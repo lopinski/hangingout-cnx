@@ -1,9 +1,11 @@
 name: Daily Scraper (El Cerebro)
 
 on:
-  schedule:
-    # Se ejecuta todos los días a las 20:00 UTC (3:00 AM en Tailandia)
-    - cron: '0 20 * * *'
+  # Nightly schedule paused: brain.py still returns mock events, so each run
+  # added duplicates to events.json. Restore these lines once it scrapes for real.
+  # schedule:
+  #   # Se ejecuta todos los días a las 20:00 UTC (3:00 AM en Tailandia)
+  #   - cron: '0 20 * * *'
   # Permite ejecutarlo manualmente desde GitHub
   workflow_dispatch:
 
