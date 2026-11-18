@@ -4083,4 +4083,4 @@ window.eventsData = [
         "source": "recurring"
     }
 ];
-window.eventsMeta = {"updated": "2026-11-18T16:33+07:00", "count": 196, "sources": {"luma": 0, "eventbrite": 11, "meetup": 35, "citylife": 11, "recurring": 146}};
+window.eventsMeta = {"updated": "2026-11-18T16:36+07:00", "count": 196, "sources": {"luma": 0, "eventbrite": 11, "meetup": 35, "citylife": 11, "recurring": 146}};
