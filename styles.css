@@ -283,8 +283,25 @@ mark { background: var(--mark); color: var(--ink); padding: 0 1px; }
 .results__sep { color: var(--ink-2); }
 .results__clear { flex: none; min-height: 44px; font-size: 13px; color: var(--accent-ink); }
 
-/* ---- Jump dock (phones) -------------------------------------------------- */
-.dock { display: none; }
+/* ---- Jump dock: back to top / next section, on every screen size --------- */
+.dock {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.dock__btn {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  color: var(--ink); border: 1.5px solid var(--ink);
+  /* Frosted paper: mostly opaque so the arrow stays legible over photographs. */
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2); backdrop-filter: blur(10px) saturate(1.2);
+  box-shadow: 0 6px 20px rgba(16, 17, 20, 0.22);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s, background-color 0.15s, color 0.15s;
+}
+.dock__btn:hover { background: var(--ink); color: var(--paper); }
+.dock__btn:active { transform: translateY(1px); }
+/* Faded out rather than removed, so the buttons ease in and out as the page scrolls. */
+.dock__btn.is-off { opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; }
+.footer { padding-bottom: 96px; }               /* room for the dock at the end of the page */
 
 /* ---- Day strip ---------------------------------------------------------- */
 .daystrip { margin-top: 8px; border: 1px solid var(--ink); }
@@ -622,17 +639,7 @@ a.media:hover img { transform: scale(1.03); }
   .lang-select, .footer__links .text-link, .sheet__report .text-link, .results__clear { min-height: 48px; }
   .footer__links .text-link, .sheet__report .text-link { display: inline-flex; align-items: center; }
 
-  .dock {
-    position: fixed; right: 12px; bottom: 16px; z-index: 60;
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .dock__btn {
-    display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
-    color: var(--paper); background: var(--ink); border: 1px solid var(--paper);
-    box-shadow: 0 6px 18px rgba(16, 17, 20, 0.35);
-  }
-  .dock__btn:active { transform: translateY(1px); }
-  .footer { padding-bottom: 96px; }                          /* room for the dock */
+  .dock { right: 12px; bottom: 16px; }
 
   .daystrip__nav { width: 40px; }
   .daystrip__row { padding-inline: 0; }

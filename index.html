@@ -39,12 +39,12 @@
     <!-- Self-hosted open fonts (SIL OFL): no third-party font requests -->
     <link rel="preload" href="./assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=32">
-    <script src="boot.js?v=32"></script>
+    <link rel="stylesheet" href="styles.css?v=33">
+    <script src="boot.js?v=33"></script>
     <!-- Deferred: the three files download in parallel while the page parses, then run in order. -->
-    <script defer src="i18n.js?v=32"></script>
-    <script defer src="events.js?v=32"></script>
-    <script defer src="app.js?v=32"></script>
+    <script defer src="i18n.js?v=33"></script>
+    <script defer src="events.js?v=33"></script>
+    <script defer src="app.js?v=33"></script>
 
     <!-- Structured data: WebSite + Place. Event entries are added to <head> by app.js from the live listings. -->
     <script type="application/ld+json">
@@ -222,12 +222,12 @@
         </div>
     </dialog>
 
-    <!-- JUMP DOCK (phones): back to top, and on to the next section -->
+    <!-- JUMP DOCK (every screen size): back to top, and on to the next section -->
     <div class="dock" id="dock">
-        <button type="button" class="dock__btn" id="dock-up" data-i18n-aria="back_to_top" aria-label="Back to top" hidden>
+        <button type="button" class="dock__btn is-off" id="dock-up" data-i18n-aria="back_to_top" aria-label="Back to top" title="Back to top">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
         </button>
-        <button type="button" class="dock__btn" id="dock-down" data-i18n-aria="next_section" aria-label="Next section" hidden>
+        <button type="button" class="dock__btn is-off" id="dock-down" data-i18n-aria="next_section" aria-label="Next section" title="Next section">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </button>
     </div>

@@ -713,6 +713,8 @@
         $('submit-link').href = submitUrl();
         $('q').placeholder = t('search_placeholder');
         $('q').setAttribute('aria-label', t('search_label'));
+        $('dock-up').title = t('back_to_top');                          // tooltips (aria-labels come from i18n.js)
+        $('dock-down').title = t('next_section');
         const notice = $('back-issue');
         notice.hidden = !isBackIssue;
         if (isBackIssue) {
@@ -789,7 +791,7 @@
         updateDock();
     }
 
-    // ---- Jump dock (phones) -----------------------------------------------
+    // ---- Jump dock (all screen sizes) -------------------------------------
     /** Section starts the down-arrow steps through: cover, each day or "also on" heading, the footer. */
     const jumpTargets = () => [$('cover'), ...document.querySelectorAll('#dossier .section-head, #dossier .pager'), document.querySelector('.footer')]
         .filter(el => el && el.offsetParent !== null);
@@ -801,9 +803,10 @@
     }
 
     function updateDock() {
-        $('dock-up').hidden = window.scrollY < 400;
-        $('dock-down').hidden = !nextTarget() ||
-            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40;
+        // Up: once the reader is more than 200px down. Down: while there is a section left to jump to.
+        $('dock-up').classList.toggle('is-off', window.scrollY <= 200);
+        $('dock-down').classList.toggle('is-off', !nextTarget() ||
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40);
     }
 
     // ---- Actions ---------------------------------------------------------
