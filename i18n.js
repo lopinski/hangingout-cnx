@@ -263,27 +263,182 @@ const translations = {
     }
 };
 
-let currentLang = localStorage.getItem('appLang') || 'en';
+// ---------------------------------------------------------------------------
+// Editorial UI strings (gazette redesign). Missing keys fall back to English.
+// {date}, {n}, {from}, {to} are placeholders filled in by app.js.
+// ---------------------------------------------------------------------------
+const editorialStrings = {
+    "en": {
+        "filter_saved": "Saved", "tagline": "The free guide to what's on in Chiang Mai", "skip": "Skip to listings",
+        "language": "Language", "theme_toggle": "Switch day / night edition", "editors_pick": "Editor's pick",
+        "all_dates": "All dates", "today": "Today", "free": "Free", "when": "When", "where": "Where", "entry": "Entry",
+        "all_day": "All day", "add_gcal": "Add to Google Calendar", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "Download .ics", "act_map": "Map", "act_save": "Save", "act_saved": "Saved", "act_share": "Share",
+        "open_map": "Open in Google Maps", "also_on": "Also on {date}", "agenda_all": "The full agenda",
+        "events_one": "1 event", "events_other": "{n} events", "next_up": "Next", "earlier": "Earlier",
+        "prev_days": "Earlier days", "next_days": "Later days", "empty_day": "Nothing listed for {date}.",
+        "empty_saved": "Nothing saved yet. Tap the heart on any event to keep it here.",
+        "show_all_dates": "See all dates", "show_all_sections": "Show every section", "link_copied": "Link copied",
+        "toast_saved": "Saved on this device", "toast_removed": "Removed from saved",
+        "back_issue": "Back issue: these listings ran {from} – {to}. New listings will appear here as soon as they are published.",
+        "privacy_pledge": "No cookies. No trackers. Your saved events, language and theme never leave this browser.",
+        "close": "Close", "date_tbc": "Date to be confirmed",
+        "no_desc": "The organiser hasn't shared more details yet. Check with the venue before you go.",
+        "credits": "Photography: Unsplash and original illustrations. Typefaces: Playfair Display and Plus Jakarta Sans (SIL Open Font License).",
+        "sections": "Sections", "choose_day": "Choose a day"
+    },
+    "es": {
+        "filter_saved": "Guardados", "tagline": "La guía gratuita de lo que pasa en Chiang Mai", "skip": "Ir a la agenda",
+        "language": "Idioma", "theme_toggle": "Cambiar edición de día / noche", "editors_pick": "Selección del editor",
+        "all_dates": "Todas las fechas", "today": "Hoy", "free": "Gratis", "when": "Cuándo", "where": "Dónde", "entry": "Entrada",
+        "all_day": "Todo el día", "add_gcal": "Añadir a Google Calendar", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "Descargar .ics", "act_map": "Mapa", "act_save": "Guardar", "act_saved": "Guardado", "act_share": "Compartir",
+        "open_map": "Abrir en Google Maps", "also_on": "También el {date}", "agenda_all": "La agenda completa",
+        "events_one": "1 evento", "events_other": "{n} eventos", "next_up": "Siguiente", "earlier": "Anterior",
+        "prev_days": "Días anteriores", "next_days": "Días siguientes", "empty_day": "No hay nada programado para el {date}.",
+        "empty_saved": "Aún no has guardado nada. Toca el corazón de cualquier evento para guardarlo aquí.",
+        "show_all_dates": "Ver todas las fechas", "show_all_sections": "Ver todas las secciones", "link_copied": "Enlace copiado",
+        "toast_saved": "Guardado en este dispositivo", "toast_removed": "Eliminado de guardados",
+        "back_issue": "Número atrasado: esta agenda corresponde al {from} – {to}. Los nuevos eventos aparecerán aquí en cuanto se publiquen.",
+        "privacy_pledge": "Sin cookies. Sin rastreadores. Tus eventos guardados, idioma y tema nunca salen de este navegador.",
+        "close": "Cerrar", "date_tbc": "Fecha por confirmar",
+        "no_desc": "El organizador aún no ha compartido más detalles. Consulta con el lugar antes de ir.",
+        "sections": "Secciones", "choose_day": "Elige un día"
+    },
+    "zh": {
+        "filter_saved": "已收藏", "tagline": "清迈免费活动指南", "skip": "跳到活动列表",
+        "language": "语言", "theme_toggle": "切换日间 / 夜间版", "editors_pick": "编辑精选",
+        "all_dates": "全部日期", "today": "今天", "free": "免费", "when": "时间", "where": "地点", "entry": "入场",
+        "all_day": "全天", "add_gcal": "添加到 Google 日历", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "下载 .ics", "act_map": "地图", "act_save": "收藏", "act_saved": "已收藏", "act_share": "分享",
+        "open_map": "在 Google 地图中打开", "also_on": "{date} 还有", "agenda_all": "完整日程",
+        "events_one": "1 场活动", "events_other": "{n} 场活动", "next_up": "下一天", "earlier": "前一天",
+        "prev_days": "更早的日期", "next_days": "更晚的日期", "empty_day": "{date} 暂无活动。",
+        "empty_saved": "还没有收藏。点按任意活动上的爱心即可保存到这里。",
+        "show_all_dates": "查看全部日期", "show_all_sections": "显示所有栏目", "link_copied": "链接已复制",
+        "toast_saved": "已保存在此设备", "toast_removed": "已取消收藏",
+        "back_issue": "往期内容：以下活动日期为 {from} – {to}。新活动发布后会立即显示在这里。",
+        "privacy_pledge": "无 Cookie，无追踪。你的收藏、语言和主题只保存在此浏览器中。",
+        "close": "关闭", "date_tbc": "日期待定",
+        "no_desc": "主办方尚未提供更多信息，出发前请先向场地确认。",
+        "sections": "栏目", "choose_day": "选择日期"
+    },
+    "yue": {
+        "filter_saved": "已收藏", "tagline": "清邁免費活動指南", "skip": "跳去活動列表",
+        "language": "語言", "theme_toggle": "切換日間 / 夜間版", "editors_pick": "編輯精選",
+        "all_dates": "全部日期", "today": "今日", "free": "免費", "when": "時間", "where": "地點", "entry": "入場",
+        "all_day": "全日", "add_gcal": "加入 Google 日曆", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "下載 .ics", "act_map": "地圖", "act_save": "收藏", "act_saved": "已收藏", "act_share": "分享",
+        "open_map": "喺 Google 地圖開啟", "also_on": "{date} 仲有", "agenda_all": "完整日程",
+        "events_one": "1 個活動", "events_other": "{n} 個活動", "next_up": "下一日", "earlier": "前一日",
+        "prev_days": "較早日期", "next_days": "較後日期", "empty_day": "{date} 暫時未有活動。",
+        "empty_saved": "仲未有收藏。㩒任何活動嘅心心就可以儲存喺度。",
+        "show_all_dates": "睇晒全部日期", "show_all_sections": "顯示所有欄目", "link_copied": "已複製連結",
+        "toast_saved": "已儲存喺呢部裝置", "toast_removed": "已取消收藏",
+        "back_issue": "往期內容：以下活動日期為 {from} – {to}。有新活動發佈就會即刻喺度顯示。",
+        "privacy_pledge": "冇 Cookie，冇追蹤。你嘅收藏、語言同主題只會留喺呢個瀏覽器。",
+        "close": "關閉", "date_tbc": "日期待定",
+        "no_desc": "主辦方仲未提供更多資料，出發前請先向場地確認。",
+        "sections": "欄目", "choose_day": "揀日子"
+    },
+    "it": {
+        "filter_saved": "Salvati", "tagline": "La guida gratuita a cosa succede a Chiang Mai", "skip": "Vai agli eventi",
+        "language": "Lingua", "theme_toggle": "Cambia edizione giorno / notte", "editors_pick": "Scelta della redazione",
+        "all_dates": "Tutte le date", "today": "Oggi", "free": "Gratis", "when": "Quando", "where": "Dove", "entry": "Ingresso",
+        "all_day": "Tutto il giorno", "add_gcal": "Aggiungi a Google Calendar", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "Scarica .ics", "act_map": "Mappa", "act_save": "Salva", "act_saved": "Salvato", "act_share": "Condividi",
+        "open_map": "Apri in Google Maps", "also_on": "Sempre {date}", "agenda_all": "L'agenda completa",
+        "events_one": "1 evento", "events_other": "{n} eventi", "next_up": "Successivo", "earlier": "Precedente",
+        "prev_days": "Giorni precedenti", "next_days": "Giorni successivi", "empty_day": "Nessun evento in programma per {date}.",
+        "empty_saved": "Non hai ancora salvato nulla. Tocca il cuore su un evento per ritrovarlo qui.",
+        "show_all_dates": "Vedi tutte le date", "show_all_sections": "Mostra tutte le sezioni", "link_copied": "Link copiato",
+        "toast_saved": "Salvato su questo dispositivo", "toast_removed": "Rimosso dai salvati",
+        "back_issue": "Numero arretrato: questi eventi si sono svolti dal {from} al {to}. I nuovi eventi appariranno qui appena pubblicati.",
+        "privacy_pledge": "Niente cookie. Niente tracciamento. Eventi salvati, lingua e tema non lasciano mai questo browser.",
+        "close": "Chiudi", "date_tbc": "Data da confermare",
+        "no_desc": "L'organizzatore non ha ancora condiviso altri dettagli. Verifica con il locale prima di andare.",
+        "sections": "Sezioni", "choose_day": "Scegli un giorno"
+    },
+    "pt": {
+        "filter_saved": "Guardados", "tagline": "O guia gratuito do que acontece em Chiang Mai", "skip": "Ir para a agenda",
+        "language": "Idioma", "theme_toggle": "Mudar edição de dia / noite", "editors_pick": "Escolha do editor",
+        "all_dates": "Todas as datas", "today": "Hoje", "free": "Grátis", "when": "Quando", "where": "Onde", "entry": "Entrada",
+        "all_day": "Todo o dia", "add_gcal": "Adicionar ao Google Calendar", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "Descarregar .ics", "act_map": "Mapa", "act_save": "Guardar", "act_saved": "Guardado", "act_share": "Partilhar",
+        "open_map": "Abrir no Google Maps", "also_on": "Também a {date}", "agenda_all": "A agenda completa",
+        "events_one": "1 evento", "events_other": "{n} eventos", "next_up": "Seguinte", "earlier": "Anterior",
+        "prev_days": "Dias anteriores", "next_days": "Dias seguintes", "empty_day": "Nada agendado para {date}.",
+        "empty_saved": "Ainda não guardou nada. Toque no coração de qualquer evento para o guardar aqui.",
+        "show_all_dates": "Ver todas as datas", "show_all_sections": "Mostrar todas as secções", "link_copied": "Link copiado",
+        "toast_saved": "Guardado neste dispositivo", "toast_removed": "Removido dos guardados",
+        "back_issue": "Edição anterior: esta agenda decorreu de {from} a {to}. Os novos eventos aparecem aqui assim que forem publicados.",
+        "privacy_pledge": "Sem cookies. Sem rastreadores. Os seus eventos guardados, idioma e tema nunca saem deste navegador.",
+        "close": "Fechar", "date_tbc": "Data por confirmar",
+        "no_desc": "O organizador ainda não partilhou mais detalhes. Confirme com o local antes de ir.",
+        "sections": "Secções", "choose_day": "Escolha um dia"
+    },
+    "ko": {
+        "filter_saved": "저장됨", "tagline": "치앙마이 무료 이벤트 가이드", "skip": "이벤트 목록으로 이동",
+        "language": "언어", "theme_toggle": "주간 / 야간판 전환", "editors_pick": "에디터 추천",
+        "all_dates": "전체 날짜", "today": "오늘", "free": "무료", "when": "일시", "where": "장소", "entry": "입장",
+        "all_day": "종일", "add_gcal": "Google 캘린더에 추가", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": ".ics 다운로드", "act_map": "지도", "act_save": "저장", "act_saved": "저장됨", "act_share": "공유",
+        "open_map": "Google 지도에서 열기", "also_on": "{date}의 다른 이벤트", "agenda_all": "전체 일정",
+        "events_one": "이벤트 1개", "events_other": "이벤트 {n}개", "next_up": "다음", "earlier": "이전",
+        "prev_days": "이전 날짜", "next_days": "다음 날짜", "empty_day": "{date}에는 등록된 이벤트가 없습니다.",
+        "empty_saved": "아직 저장한 이벤트가 없습니다. 이벤트의 하트를 눌러 여기에 보관하세요.",
+        "show_all_dates": "전체 날짜 보기", "show_all_sections": "모든 섹션 보기", "link_copied": "링크가 복사되었습니다",
+        "toast_saved": "이 기기에 저장했습니다", "toast_removed": "저장 목록에서 삭제했습니다",
+        "back_issue": "지난 호: 이 일정은 {from} – {to} 기간의 것입니다. 새 이벤트가 게시되면 바로 여기에 표시됩니다.",
+        "privacy_pledge": "쿠키 없음. 추적 없음. 저장한 이벤트, 언어, 테마는 이 브라우저에만 보관됩니다.",
+        "close": "닫기", "date_tbc": "날짜 미정",
+        "no_desc": "주최자가 아직 자세한 정보를 공유하지 않았습니다. 방문 전에 장소에 확인하세요.",
+        "sections": "섹션", "choose_day": "날짜 선택"
+    },
+    "th": {
+        "filter_saved": "ที่บันทึกไว้", "tagline": "คู่มือกิจกรรมฟรีในเชียงใหม่", "skip": "ข้ามไปยังรายการกิจกรรม",
+        "language": "ภาษา", "theme_toggle": "สลับฉบับกลางวัน / กลางคืน", "editors_pick": "บรรณาธิการแนะนำ",
+        "all_dates": "ทุกวัน", "today": "วันนี้", "free": "ฟรี", "when": "เวลา", "where": "สถานที่", "entry": "ค่าเข้า",
+        "all_day": "ทั้งวัน", "add_gcal": "เพิ่มใน Google ปฏิทิน", "gcal_short": "Google", "ical_short": "iCal",
+        "add_ical": "ดาวน์โหลด .ics", "act_map": "แผนที่", "act_save": "บันทึก", "act_saved": "บันทึกแล้ว", "act_share": "แชร์",
+        "open_map": "เปิดใน Google Maps", "also_on": "กิจกรรมอื่นใน{date}", "agenda_all": "กำหนดการทั้งหมด",
+        "events_one": "1 กิจกรรม", "events_other": "{n} กิจกรรม", "next_up": "ถัดไป", "earlier": "ก่อนหน้า",
+        "prev_days": "วันก่อนหน้า", "next_days": "วันถัดไป", "empty_day": "ไม่มีกิจกรรมใน{date}",
+        "empty_saved": "ยังไม่มีรายการที่บันทึก แตะรูปหัวใจที่กิจกรรมใดก็ได้เพื่อเก็บไว้ที่นี่",
+        "show_all_dates": "ดูทุกวัน", "show_all_sections": "แสดงทุกหมวด", "link_copied": "คัดลอกลิงก์แล้ว",
+        "toast_saved": "บันทึกไว้ในอุปกรณ์นี้แล้ว", "toast_removed": "นำออกจากรายการที่บันทึกแล้ว",
+        "back_issue": "ฉบับย้อนหลัง: กิจกรรมเหล่านี้จัดขึ้นช่วง {from} – {to} กิจกรรมใหม่จะแสดงที่นี่ทันทีที่เผยแพร่",
+        "privacy_pledge": "ไม่มีคุกกี้ ไม่มีการติดตาม กิจกรรมที่บันทึก ภาษา และธีมของคุณจะอยู่ในเบราว์เซอร์นี้เท่านั้น",
+        "close": "ปิด", "date_tbc": "รอยืนยันวันที่",
+        "no_desc": "ผู้จัดยังไม่ได้ให้รายละเอียดเพิ่มเติม โปรดตรวจสอบกับสถานที่ก่อนเดินทาง",
+        "sections": "หมวด", "choose_day": "เลือกวัน"
+    }
+};
+Object.keys(editorialStrings).forEach(lang => {
+    if (translations[lang]) Object.assign(translations[lang], editorialStrings[lang]);
+});
+
+
+let currentLang = 'en';
+try { currentLang = localStorage.getItem('appLang') || 'en'; } catch (e) { /* storage unavailable */ }
+if (!translations[currentLang]) currentLang = 'en';
 
 function setLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
-    localStorage.setItem('appLang', lang);
-    
-    // Update all static text with data-i18n attribute
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
-        }
+    try { localStorage.setItem('appLang', lang); } catch (e) { /* storage unavailable */ }
+    document.documentElement.lang = lang === 'yue' ? 'zh-HK' : lang;
+
+    // Static text: data-i18n sets the text, data-i18n-aria sets the aria-label.
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
     });
 
-    // We must re-render dynamic content (like events) to show translations
-    if (typeof renderEvents === 'function') renderEvents();
-    if (typeof renderCalendar === 'function' && document.getElementById('calendar-view').style.display !== 'none') {
-        renderCalendar();
-    }
+    // Dynamic content (events, calendar strip) is re-rendered by app.js.
+    if (typeof window.onLanguageChange === 'function') window.onLanguageChange();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
