@@ -5,7 +5,7 @@ The listing only carries dates, so each event page is read once for its start ti
 from datetime import timedelta
 
 from .. import config
-from ..extract import clean_text, json_ld_events, parse_when, place
+from ..extract import clean_text, coordinates, json_ld_events, parse_when, place
 from ..fetch import FetchError
 from ..models import RawEvent
 
@@ -36,11 +36,12 @@ def fetch(fetcher, today):
             except FetchError:
                 pass                              # keep the date-only listing
         venue, address, online = place(item.get("location"))
+        lat, lng = coordinates(item.get("location"))
         events.append(RawEvent(
             source=NAME,
             title=clean_text(item.get("name")),
             day=day, start=start, end=end if start else None,
-            venue=venue, address=address, online=online,
+            venue=venue, address=address, lat=lat, lng=lng, online=online,
             url=url,
             is_free=True,                         # this is Eventbrite's free-events listing
             source_text=clean_text(item.get("description")),

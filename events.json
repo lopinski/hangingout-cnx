@@ -1,7 +1,7 @@
 [
     {
-        "id": "melodies-and-motifs-in-the-mountains-a-m-4b0a5f-2026-11-18",
-        "title": "Melodies and Motifs in the Mountains: A Multimedia Exhibition",
+        "id": "melodies-and-motifs-in-the-mountains-ae3b19-2026-11-18",
+        "title": "Melodies and Motifs in the Mountains",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-18",
@@ -10,12 +10,10 @@
         "type": "culture",
         "is_free": false,
         "timeStatus": "Tonight",
-        "description": "Melodies and Motifs in the Mountains: A Multimedia Exhibition is an arts and culture outing in Chiang Mai. It runs until 10 January. Check the listing for cost and booking.",
+        "description": "Melodies and Motifs in the Mountains is an arts and culture outing in Chiang Mai. It runs until 10 January. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/melodies-and-motifs-in-the-mountains-an-experiential-multimedia-exhibition/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
-        "tags": [
-            "exhibition"
-        ],
+        "tags": [],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "citylife"
     },
@@ -38,7 +36,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "sunset-tubing-social-for-solo-travellers-dbcc2c-2026-11-18",
@@ -57,8 +57,10 @@
         "tags": [
             "tubing"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "eventbrite"
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "eventbrite",
+        "lat": 18.80625,
+        "lng": 98.9953
     },
     {
         "id": "monk-chat-at-wat-suan-dok-859550-2026-11-18",
@@ -79,7 +81,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-9e51dc-2026-11-18",
@@ -100,7 +104,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-401d5c-2026-11-18",
@@ -121,7 +127,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-bd6622-2026-11-18",
@@ -142,7 +150,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-838ed7-2026-11-19",
@@ -163,7 +173,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "the-best-thai-cooking-class-in-chiang-ma-c840da-2026-11-19",
@@ -202,7 +214,7 @@
         "tags": [
             "reading-club"
         ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "imageUrl": "./assets/images/opt/language-960.jpg",
         "source": "meetup"
     },
     {
@@ -283,7 +295,9 @@
         "mapsUrl": "https://maps.google.com/?q=Pa+Rang+Cafe+%26+Art+Stay+Chiang+Mai",
         "tags": [],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.79135,
+        "lng": 98.97956
     },
     {
         "id": "social-weaving-breathe-in-weave-out-576dfe-2026-11-19",
@@ -303,11 +317,13 @@
             "weaving"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.79135,
+        "lng": 98.97956
     },
     {
-        "id": "playground-exchange-a-space-for-skills-g-c24984-2026-11-19",
-        "title": "Playground Exchange: A Space for Skills, Goods, and Time Exchange",
+        "id": "playground-exchange-c0db5b-2026-11-19",
+        "title": "Playground Exchange",
         "venue": "Free Bird Cafe CNX Donation Center and Thrift Store",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-19",
@@ -316,7 +332,7 @@
         "type": "language",
         "is_free": false,
         "timeStatus": "Tomorrow",
-        "description": "Playground Exchange: A Space for Skills, Goods, and Time Exchange is a relaxed social meet-up at Free Bird Cafe CNX Donation Center and Thrift Store. It starts at 5:00 PM on Thursday 19 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "description": "Playground Exchange is an easy way to meet people in town at Free Bird Cafe CNX Donation Center and Thrift Store. It starts at 5:00 PM on Thursday 19 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317202310/",
         "mapsUrl": "https://maps.google.com/?q=Free+Bird+Cafe+CNX+Donation+Center+and+Thrift+Store+Chiang+Mai",
         "tags": [
@@ -383,7 +399,9 @@
             "art"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.79135,
+        "lng": 98.97956
     },
     {
         "id": "strategy-thursdays-6c00ae-2026-11-19",
@@ -424,7 +442,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "expat-karaoke-thursdays-extend-bar-3389c4-2026-11-19",
@@ -465,7 +485,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-85b4a6-2026-11-19",
@@ -486,7 +508,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-faac22-2026-11-20",
@@ -507,7 +531,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-4719b9-2026-11-20",
@@ -531,8 +557,8 @@
         "source": "recurring"
     },
     {
-        "id": "high-intensity-circuit-training-social-c-7bd80b-2026-11-20",
-        "title": "High-Intensity Circuit Training & Social Chat @ Decathlon – Central Festival",
+        "id": "high-intensity-circuit-training-social-c-10da8a-2026-11-20",
+        "title": "High-Intensity Circuit Training & Social Chat @ Decathlon",
         "venue": "Decathlon Chiang Mai",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-20",
@@ -541,7 +567,7 @@
         "type": "workout",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "High-Intensity Circuit Training & Social Chat @ Decathlon – Central Festival is an active meet-up at Decathlon Chiang Mai. It starts at 11:00 AM on Friday 20 November. Hosted by HIIT CNX. Check the listing for cost and booking.",
+        "description": "High-Intensity Circuit Training & Social Chat @ Decathlon is a get-moving session at Decathlon Chiang Mai. It starts at 11:00 AM on Friday 20 November. Hosted by HIIT CNX. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/hiit-cnx/events/317425479/",
         "mapsUrl": "https://maps.google.com/?q=Decathlon+Chiang+Mai+Chiang+Mai",
         "tags": [
@@ -569,7 +595,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "immersive-kirtan-at-360-art-center-54d1fd-2026-11-20",
@@ -589,7 +617,9 @@
             "kirtan"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.7135,
+        "lng": 98.91885
     },
     {
         "id": "monk-chat-at-wat-suan-dok-6c42bd-2026-11-20",
@@ -610,7 +640,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "exclusive-dinner-for-chiang-mai-longterm-0c1b14-2026-11-20",
@@ -629,12 +661,12 @@
         "tags": [
             "meetup"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
     },
     {
         "id": "team1-friday-social-attika-studio-6d5e56-2026-11-20",
-        "title": "Team1 FRIDAY SOCIAL @attika studio",
+        "title": "Team1 Friday Social @attika studio",
         "venue": "attika studio Café & Workshop",
         "neighborhood": "Riverside",
         "date": "2026-11-20",
@@ -643,7 +675,7 @@
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "Team1 FRIDAY SOCIAL @attika studio is an easy way to meet people in town at attika studio Café & Workshop in Riverside. It starts at 7:00 PM on Friday 20 November. Hosted by Attika Studio Chiangmai. Check the listing for cost and booking.",
+        "description": "Team1 Friday Social @attika studio is a relaxed social meet-up at attika studio Café & Workshop in Riverside. It starts at 7:00 PM on Friday 20 November. Hosted by Attika Studio Chiangmai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/attika-studio-chiangmai/events/316238246/",
         "mapsUrl": "https://maps.google.com/?q=attika+studio+Caf%C3%A9+%26+Workshop+Chiang+Mai",
         "tags": [
@@ -671,7 +703,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-8d3ead-2026-11-20",
@@ -713,7 +747,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-136e1d-2026-11-20",
@@ -734,7 +770,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "jing-jai-farmers-market-60093c-2026-11-21",
@@ -755,7 +793,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "slowcial-running-club-cm-2ea303-2026-11-21",
@@ -774,7 +814,7 @@
         "tags": [
             "running"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/community-960.jpg",
         "source": "meetup"
     },
     {
@@ -796,7 +836,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-aff310-2026-11-21",
@@ -836,7 +878,7 @@
         "tags": [
             "ai"
         ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
+        "imageUrl": "./assets/images/opt/language-960.jpg",
         "source": "meetup"
     },
     {
@@ -860,8 +902,8 @@
         "source": "meetup"
     },
     {
-        "id": "carl-jung-and-artificial-intelligence-sh-b1afaf-2026-11-21",
-        "title": "Carl Jung and Artificial Intelligence: Shadows and Governments Dr. Philip",
+        "id": "carl-jung-and-artificial-intelligence-c5bd7e-2026-11-21",
+        "title": "Carl Jung and Artificial Intelligence",
         "venue": "Hideaway cafe and restaurant",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-21",
@@ -870,7 +912,7 @@
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "Carl Jung and Artificial Intelligence: Shadows and Governments Dr. Philip is a relaxed social meet-up at Hideaway cafe and restaurant. It starts at 12:00 PM on Saturday 21 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
+        "description": "Carl Jung and Artificial Intelligence is an easy way to meet people in town at Hideaway cafe and restaurant. It starts at 12:00 PM on Saturday 21 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/socrates-cafe-chiang-mai/events/317236500/",
         "mapsUrl": "https://maps.google.com/?q=Hideaway+cafe+and+restaurant+Chiang+Mai",
         "tags": [
@@ -880,8 +922,8 @@
         "source": "meetup"
     },
     {
-        "id": "the-precision-of-language-how-freedom-is-4315d7-2026-11-21",
-        "title": "The Precision of Language: How Freedom is Lost in the Name of a \"Higher Purpose\"",
+        "id": "the-precision-of-language-a58c86-2026-11-21",
+        "title": "The Precision of Language",
         "venue": "Hideaway",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-21",
@@ -890,7 +932,7 @@
         "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "The Precision of Language: How Freedom is Lost in the Name of a \"Higher Purpose\" is a relaxed social meet-up at Hideaway. It starts at 2:00 PM on Saturday 21 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
+        "description": "The Precision of Language is a relaxed social meet-up at Hideaway. It starts at 2:00 PM on Saturday 21 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/socrates-cafe-chiang-mai/events/316437059/",
         "mapsUrl": "https://maps.google.com/?q=Hideaway+Chiang+Mai",
         "tags": [
@@ -918,7 +960,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "saturday-walking-street-wua-lai-53c5f6-2026-11-21",
@@ -939,7 +983,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7795,
+        "lng": 98.9858
     },
     {
         "id": "saturday-social-dinner-karaoke-at-spice-5a3850-2026-11-21",
@@ -980,7 +1026,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-7c836b-2026-11-21",
@@ -1022,7 +1070,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-a32812-2026-11-21",
@@ -1043,7 +1093,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "jing-jai-farmers-market-6bc592-2026-11-22",
@@ -1064,7 +1116,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "free-yoga-in-the-park-9be065-2026-11-22",
@@ -1085,7 +1139,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-85250d-2026-11-22",
@@ -1126,28 +1182,27 @@
             "robotics",
             "ai"
         ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
+        "imageUrl": "./assets/images/opt/language-960.jpg",
         "source": "meetup"
     },
     {
-        "id": "welcome-carbon-brunch-gemini-4-carbon-ma-1d42ba-2026-11-22",
-        "title": "Welcome Carbon Brunch: Gemini 4 Carbon Masterclass & AI Governance",
+        "id": "welcome-carbon-brunch-6f18a6-2026-11-22",
+        "title": "Welcome Carbon Brunch",
         "venue": "Hideaway cafe and restaurant",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-22",
         "time": "11:00 AM - 1:00 PM",
-        "category": "Courses",
-        "type": "courses",
+        "category": "Language",
+        "type": "language",
         "is_free": false,
         "timeStatus": "This Weekend",
-        "description": "Welcome Carbon Brunch: Gemini 4 Carbon Masterclass & AI Governance is a talk-and-learn session at Hideaway cafe and restaurant. It starts at 11:00 AM on Sunday 22 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "description": "Welcome Carbon Brunch is a relaxed social meet-up at Hideaway cafe and restaurant. It starts at 11:00 AM on Sunday 22 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317393156/",
         "mapsUrl": "https://maps.google.com/?q=Hideaway+cafe+and+restaurant+Chiang+Mai",
         "tags": [
-            "masterclass",
-            "ai"
+            "meetup"
         ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
     },
     {
@@ -1167,7 +1222,7 @@
         "tags": [
             "meetup"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
     },
     {
@@ -1187,7 +1242,7 @@
         "tags": [
             "skate"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/community-960.jpg",
         "source": "meetup"
     },
     {
@@ -1209,7 +1264,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "acro-yoga-jam-in-the-park-5ffff1-2026-11-22",
@@ -1230,7 +1287,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kirtan-and-music-circle-at-amaravati-chi-3766b9-2026-11-22",
@@ -1250,7 +1309,9 @@
             "kirtan"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.91856,
+        "lng": 98.93464
     },
     {
         "id": "solo-travellers-casual-hangout-in-chiang-b13e9b-2026-11-22",
@@ -1270,7 +1331,9 @@
             "meetup"
         ],
         "imageUrl": "./assets/images/opt/community-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.79023,
+        "lng": 98.98735
     },
     {
         "id": "sunday-walking-street-market-d15d8b-2026-11-22",
@@ -1291,7 +1354,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7877,
+        "lng": 98.9933
     },
     {
         "id": "sunday-sunset-walk-connect-at-cmu-e875f9-2026-11-22",
@@ -1310,7 +1375,7 @@
         "tags": [
             "walk"
         ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "imageUrl": "./assets/images/opt/community-960.jpg",
         "source": "meetup"
     },
     {
@@ -1353,7 +1418,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-2dbbf2-2026-11-22",
@@ -1374,7 +1441,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "free-yoga-in-the-park-35bb84-2026-11-23",
@@ -1395,7 +1464,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-818256-2026-11-23",
@@ -1435,8 +1506,10 @@
         "tags": [
             "ai"
         ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
-        "source": "eventbrite"
+        "imageUrl": "./assets/images/opt/language-960.jpg",
+        "source": "eventbrite",
+        "lat": 18.79589,
+        "lng": 98.96627
     },
     {
         "id": "loy-krathong-x-kad-mua-at-alt-pingriver-a91c1a-2026-11-23",
@@ -1456,7 +1529,7 @@
             "kad-mua",
             "festival:loy-krathong"
         ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "meetup"
     },
     {
@@ -1478,7 +1551,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-79d290-2026-11-23",
@@ -1499,7 +1574,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-39d758-2026-11-23",
@@ -1520,7 +1597,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "monday-open-mic-at-boy-blues-bar-25768d-2026-11-23",
@@ -1542,7 +1621,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "happy-loy-krathong-yi-peng-2026-39478d-2026-11-24",
@@ -1564,7 +1645,9 @@
             "festival:loy-krathong"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "eventbrite"
+        "source": "eventbrite",
+        "lat": 18.80535,
+        "lng": 98.98428
     },
     {
         "id": "free-yoga-in-the-park-de6316-2026-11-24",
@@ -1585,7 +1668,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-f73515-2026-11-24",
@@ -1609,8 +1694,8 @@
         "source": "recurring"
     },
     {
-        "id": "high-intensity-circuit-training-social-c-da5158-2026-11-24",
-        "title": "High-Intensity Circuit Training & Social Chat @ Decathlon – Central Festival",
+        "id": "high-intensity-circuit-training-social-c-434467-2026-11-24",
+        "title": "High-Intensity Circuit Training & Social Chat @ Decathlon",
         "venue": "Decathlon Chiang Mai",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-24",
@@ -1619,7 +1704,7 @@
         "type": "workout",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "High-Intensity Circuit Training & Social Chat @ Decathlon – Central Festival is an active meet-up at Decathlon Chiang Mai. It starts at 11:00 AM on Tuesday 24 November. Hosted by HIIT CNX. Check the listing for cost and booking.",
+        "description": "High-Intensity Circuit Training & Social Chat @ Decathlon is a get-moving session at Decathlon Chiang Mai. It starts at 11:00 AM on Tuesday 24 November. Hosted by HIIT CNX. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/hiit-cnx/events/317190957/",
         "mapsUrl": "https://maps.google.com/?q=Decathlon+Chiang+Mai+Chiang+Mai",
         "tags": [
@@ -1647,7 +1732,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "tuesday-jam-session-at-north-gate-a26560-2026-11-24",
@@ -1669,7 +1756,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-a5721e-2026-11-24",
@@ -1690,7 +1779,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-30352a-2026-11-25",
@@ -1711,7 +1802,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "sketch-club-attika-studio-cea6be-2026-11-25",
@@ -1752,7 +1845,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "ai-business-focused-weekly-chiang-mai-f8b480-2026-11-25",
@@ -1772,7 +1867,7 @@
             "business",
             "ai"
         ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
+        "imageUrl": "./assets/images/opt/language-960.jpg",
         "source": "meetup"
     },
     {
@@ -1790,8 +1885,10 @@
         "link": "https://www.eventbrite.com/e/cocktails-for-a-cause-tickets-2004276043600",
         "mapsUrl": "https://maps.google.com/?q=Food4Thought+%28Original+Flagship+Location%29+Chiang+Mai",
         "tags": [],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "eventbrite"
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
+        "source": "eventbrite",
+        "lat": 18.80611,
+        "lng": 98.96142
     },
     {
         "id": "live-bands-at-the-riverside-fb55b0-2026-11-25",
@@ -1812,7 +1909,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-529c47-2026-11-25",
@@ -1833,7 +1932,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-b8664b-2026-11-25",
@@ -1854,7 +1955,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-3f197f-2026-11-26",
@@ -1875,7 +1978,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-e1e3bc-2026-11-26",
@@ -1899,24 +2004,24 @@
         "source": "recurring"
     },
     {
-        "id": "manifestation-lab-in-chiang-mai-a-free-t-12609f-2026-11-26",
-        "title": "Manifestation Lab in Chiang Mai: a free talk with Cameron Quin",
+        "id": "manifestation-lab-in-chiang-mai-79c680-2026-11-26",
+        "title": "Manifestation Lab in Chiang Mai",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-26",
         "time": "3:00 PM - 6:00 PM",
-        "category": "Courses",
-        "type": "courses",
+        "category": "Culture",
+        "type": "culture",
         "is_free": true,
         "timeStatus": "Upcoming",
-        "description": "Manifestation Lab in Chiang Mai: a free talk with Cameron Quin is a talk-and-learn session in Chiang Mai. It starts at 3:00 PM on Thursday 26 November. Entry is free.",
+        "description": "Manifestation Lab in Chiang Mai is an arts and culture outing in Chiang Mai. It starts at 3:00 PM on Thursday 26 November. Entry is free.",
         "link": "https://www.eventbrite.com/e/manifestation-lab-in-chiang-mai-a-free-talk-with-cameron-quin-tickets-2004891526526",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
-        "tags": [
-            "talk"
-        ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
-        "source": "eventbrite"
+        "tags": [],
+        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "source": "eventbrite",
+        "lat": 18.79523,
+        "lng": 98.93557
     },
     {
         "id": "thanksgiving-dinner-a-night-of-gratitude-d4854a-2026-11-26",
@@ -1935,7 +2040,7 @@
         "tags": [
             "meetup"
         ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
         "source": "meetup"
     },
     {
@@ -1957,7 +2062,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-79bfec-2026-11-26",
@@ -1978,7 +2085,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-73091d-2026-11-26",
@@ -1999,11 +2108,13 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
-        "id": "chiang-mai-afro-latin-festival-2026-the-487f4c-2026-11-27",
-        "title": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture…",
+        "id": "chiang-mai-afro-latin-festival-2026-88c2cb-2026-11-27",
+        "title": "Chiang Mai Afro-Latin Festival 2026",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-27",
@@ -2012,12 +2123,11 @@
         "type": "culture",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture is an arts and culture outing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
-            "dance",
             "festival:afro-latin-festival"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
@@ -2042,7 +2152,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-4f994a-2026-11-27",
@@ -2084,7 +2196,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "monk-chat-at-wat-suan-dok-1adee4-2026-11-27",
@@ -2105,7 +2219,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "poetry-night-attika-studio-149621-2026-11-27",
@@ -2146,7 +2262,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-c8ddbe-2026-11-27",
@@ -2188,7 +2306,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-41100c-2026-11-27",
@@ -2209,11 +2329,13 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
-        "id": "chiang-mai-afro-latin-festival-2026-the-aa3ebd-2026-11-28",
-        "title": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture…",
+        "id": "chiang-mai-afro-latin-festival-2026-2fcbc9-2026-11-28",
+        "title": "Chiang Mai Afro-Latin Festival 2026",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-28",
@@ -2222,20 +2344,19 @@
         "type": "culture",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture is an arts and culture outing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
-            "dance",
             "festival:afro-latin-festival"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "citylife"
     },
     {
-        "id": "chiang-yai-fest-20-unveils-new-experienc-bb99fe-2026-11-28",
-        "title": "Chiang Yai Fest 20+ Unveils New Experiences Ahead of Ticket Sales",
+        "id": "chiang-yai-fest-20-ff0bb7-2026-11-28",
+        "title": "Chiang Yai Fest 20+",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-28",
@@ -2244,7 +2365,7 @@
         "type": "music",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Yai Fest 20+ Unveils New Experiences Ahead of Ticket Sales is a live music night in Chiang Mai. It runs until 29 November. Check the listing for cost and booking.",
+        "description": "Chiang Yai Fest 20+ is a live music night in Chiang Mai. It runs until 29 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/chiang-yai-fest-20-unveils-new-experiences-ahead-of-ticket-sales/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
@@ -2272,7 +2393,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "free-yoga-in-the-park-efb937-2026-11-28",
@@ -2293,7 +2416,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-947257-2026-11-28",
@@ -2317,8 +2442,8 @@
         "source": "recurring"
     },
     {
-        "id": "rural-brutal-reality-vs-the-long-dead-ci-b59c00-2026-11-28",
-        "title": "Rural Brutal Reality vs. The Long Dead City Dream: The Economics of Isolation",
+        "id": "rural-brutal-reality-vs-the-long-dead-ci-648cca-2026-11-28",
+        "title": "Rural Brutal Reality vs. The Long Dead City Dream",
         "venue": "The Hideaway Cafe & Restaurant",
         "neighborhood": "Hang Dong",
         "date": "2026-11-28",
@@ -2327,7 +2452,7 @@
         "type": "language",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Rural Brutal Reality vs. The Long Dead City Dream: The Economics of Isolation is a relaxed social meet-up at The Hideaway Cafe & Restaurant in Hang Dong. It starts at 12:00 PM on Saturday 28 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
+        "description": "Rural Brutal Reality vs. The Long Dead City Dream is an easy way to meet people in town at The Hideaway Cafe & Restaurant in Hang Dong. It starts at 12:00 PM on Saturday 28 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/socrates-cafe-chiang-mai/events/316365755/",
         "mapsUrl": "https://maps.google.com/?q=The+Hideaway+Cafe+%26+Restaurant+Chiang+Mai",
         "tags": [
@@ -2355,7 +2480,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "saturday-walking-street-wua-lai-1f8c6e-2026-11-28",
@@ -2376,7 +2503,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7795,
+        "lng": 98.9858
     },
     {
         "id": "live-bands-at-the-riverside-662feb-2026-11-28",
@@ -2397,7 +2526,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-aa8784-2026-11-28",
@@ -2439,7 +2570,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-2c770c-2026-11-28",
@@ -2460,11 +2593,13 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
-        "id": "chiang-mai-afro-latin-festival-2026-the-da218a-2026-11-29",
-        "title": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture…",
+        "id": "chiang-mai-afro-latin-festival-2026-2f5623-2026-11-29",
+        "title": "Chiang Mai Afro-Latin Festival 2026",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-29",
@@ -2473,20 +2608,19 @@
         "type": "culture",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture is an arts and culture outing in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It runs until 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
-            "dance",
             "festival:afro-latin-festival"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "citylife"
     },
     {
-        "id": "chiang-yai-fest-20-unveils-new-experienc-d3966c-2026-11-29",
-        "title": "Chiang Yai Fest 20+ Unveils New Experiences Ahead of Ticket Sales",
+        "id": "chiang-yai-fest-20-7868f9-2026-11-29",
+        "title": "Chiang Yai Fest 20+",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-29",
@@ -2495,7 +2629,7 @@
         "type": "music",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Yai Fest 20+ Unveils New Experiences Ahead of Ticket Sales is a live music night in Chiang Mai. It takes place on Sunday 29 November. Check the listing for cost and booking.",
+        "description": "Chiang Yai Fest 20+ is a live music night in Chiang Mai. It takes place on Sunday 29 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/chiang-yai-fest-20-unveils-new-experiences-ahead-of-ticket-sales/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
@@ -2523,7 +2657,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "free-yoga-in-the-park-bb7d35-2026-11-29",
@@ -2544,7 +2680,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-e498f2-2026-11-29",
@@ -2586,7 +2724,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "acro-yoga-jam-in-the-park-a91e78-2026-11-29",
@@ -2607,7 +2747,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "sunday-walking-street-market-d7e904-2026-11-29",
@@ -2628,7 +2770,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7877,
+        "lng": 98.9933
     },
     {
         "id": "sunday-night-meditation-d6653e-2026-11-29",
@@ -2670,7 +2814,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-b439f9-2026-11-29",
@@ -2691,11 +2837,13 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
-        "id": "chiang-mai-afro-latin-festival-2026-the-8ff241-2026-11-30",
-        "title": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture…",
+        "id": "chiang-mai-afro-latin-festival-2026-a760f1-2026-11-30",
+        "title": "Chiang Mai Afro-Latin Festival 2026",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
         "date": "2026-11-30",
@@ -2704,12 +2852,11 @@
         "type": "culture",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Chiang Mai Afro-Latin Festival 2026: The 5th International Afro-Latin Dance & Culture is an arts and culture outing in Chiang Mai. It takes place on Monday 30 November. Check the listing for cost and booking.",
+        "description": "Chiang Mai Afro-Latin Festival 2026 is a cultural event in Chiang Mai. It takes place on Monday 30 November. Check the listing for cost and booking.",
         "link": "https://www.chiangmaicitylife.com/citynow/whats-on/arts-and-exhibitions/chiang-mai-afro-latin-festival-2026-the-5th-international-afro-latin-dance-culture-festival-in-chiang-mai/",
         "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
         "tags": [
             "afro-latin",
-            "dance",
             "festival:afro-latin-festival"
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
@@ -2734,7 +2881,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-2f6682-2026-11-30",
@@ -2776,7 +2925,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-bc907a-2026-11-30",
@@ -2797,7 +2948,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-44f244-2026-11-30",
@@ -2818,7 +2971,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "monday-open-mic-at-boy-blues-bar-876c11-2026-11-30",
@@ -2840,7 +2995,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-1fdd75-2026-12-01",
@@ -2861,7 +3018,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-655cbe-2026-12-01",
@@ -2903,7 +3062,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "tuesday-jam-session-at-north-gate-e74180-2026-12-01",
@@ -2925,7 +3086,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-aa8326-2026-12-01",
@@ -2946,7 +3109,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-27932a-2026-12-02",
@@ -2967,7 +3132,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "monk-chat-at-wat-suan-dok-bc4924-2026-12-02",
@@ -2988,7 +3155,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "beginner-handpan-workshop-chiang-mai-7d7067-2026-12-02",
@@ -3049,7 +3218,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-99c5a5-2026-12-02",
@@ -3070,7 +3241,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-4c0a66-2026-12-02",
@@ -3091,7 +3264,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-eb0031-2026-12-03",
@@ -3112,7 +3287,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-439116-2026-12-03",
@@ -3154,7 +3331,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-146eac-2026-12-03",
@@ -3175,7 +3354,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-65254d-2026-12-03",
@@ -3196,7 +3377,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-e3856c-2026-12-04",
@@ -3217,7 +3400,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-2f2f8c-2026-12-04",
@@ -3259,7 +3444,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "monk-chat-at-wat-suan-dok-4e9b31-2026-12-04",
@@ -3280,7 +3467,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-ee35df-2026-12-04",
@@ -3301,7 +3490,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-031739-2026-12-04",
@@ -3343,7 +3534,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-2142d2-2026-12-04",
@@ -3364,7 +3557,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "jing-jai-farmers-market-878191-2026-12-05",
@@ -3385,7 +3580,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "free-yoga-in-the-park-214af6-2026-12-05",
@@ -3406,7 +3603,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-570d78-2026-12-05",
@@ -3448,7 +3647,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "saturday-walking-street-wua-lai-fa4e03-2026-12-05",
@@ -3469,7 +3670,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7795,
+        "lng": 98.9858
     },
     {
         "id": "live-bands-at-the-riverside-94b5bb-2026-12-05",
@@ -3490,7 +3693,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-music-at-thapae-east-b28b5b-2026-12-05",
@@ -3532,7 +3737,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-a83e7f-2026-12-05",
@@ -3553,7 +3760,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "jing-jai-farmers-market-6ff127-2026-12-06",
@@ -3574,7 +3783,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
     },
     {
         "id": "free-yoga-in-the-park-08f2d1-2026-12-06",
@@ -3595,7 +3806,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-fa3e50-2026-12-06",
@@ -3637,7 +3850,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
     },
     {
         "id": "acro-yoga-jam-in-the-park-a0fe3d-2026-12-06",
@@ -3658,7 +3873,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "sunday-walking-street-market-3f2bd4-2026-12-06",
@@ -3679,7 +3896,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7877,
+        "lng": 98.9933
     },
     {
         "id": "sunday-night-meditation-8e1824-2026-12-06",
@@ -3721,7 +3940,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-5f5d92-2026-12-06",
@@ -3742,7 +3963,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "free-yoga-in-the-park-77dda3-2026-12-07",
@@ -3763,7 +3986,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-721112-2026-12-07",
@@ -3805,7 +4030,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-96a461-2026-12-07",
@@ -3826,7 +4053,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-733d7a-2026-12-07",
@@ -3847,7 +4076,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "monday-open-mic-at-boy-blues-bar-229c16-2026-12-07",
@@ -3869,7 +4100,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-a8f247-2026-12-08",
@@ -3890,7 +4123,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "kalm-village-craft-galleries-70fc69-2026-12-08",
@@ -3932,7 +4167,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "tuesday-jam-session-at-north-gate-edf5d9-2026-12-08",
@@ -3954,7 +4191,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-478007-2026-12-08",
@@ -3975,7 +4214,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     },
     {
         "id": "free-yoga-in-the-park-122ddf-2026-12-09",
@@ -3996,7 +4237,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
     },
     {
         "id": "monk-chat-at-wat-suan-dok-8cb0ba-2026-12-09",
@@ -4017,7 +4260,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7882,
+        "lng": 98.9677
     },
     {
         "id": "live-bands-at-the-riverside-f44d1b-2026-12-09",
@@ -4038,7 +4283,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
     },
     {
         "id": "live-jazz-at-north-gate-288b9d-2026-12-09",
@@ -4059,7 +4306,9 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     },
     {
         "id": "blues-night-at-boy-blues-bar-1f7fa4-2026-12-09",
@@ -4080,6 +4329,8 @@
             "weekly"
         ],
         "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring"
+        "source": "recurring",
+        "lat": 18.7853,
+        "lng": 99.0003
     }
 ]

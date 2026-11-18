@@ -69,6 +69,22 @@ def place(location) -> tuple[str, str, bool]:
     return clean_text(location.get("name")), clean_text(address), False
 
 
+def coordinates(location) -> tuple[float | None, float | None]:
+    """schema.org location -> (latitude, longitude), only if plausibly near Chiang Mai."""
+    if isinstance(location, list):
+        location = location[0] if location else None
+    geo = location.get("geo") if isinstance(location, dict) else None
+    if not isinstance(geo, dict):
+        return None, None
+    try:
+        lat, lng = float(geo.get("latitude")), float(geo.get("longitude"))
+    except (TypeError, ValueError):
+        return None, None
+    if not (17.5 <= lat <= 20.5 and 97.5 <= lng <= 100.5):      # northern Thailand
+        return None, None
+    return round(lat, 5), round(lng, 5)
+
+
 def clean_text(value) -> str:
     """Unescape entities, strip tags and collapse whitespace."""
     text = html.unescape(str(value or ""))

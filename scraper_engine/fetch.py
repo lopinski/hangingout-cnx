@@ -1,4 +1,10 @@
-"""A polite HTTP client: obeys robots.txt, rate-limits per host, never retries hard."""
+"""A polite HTTP client.
+
+It identifies itself with one fixed, honest User-Agent, obeys robots.txt and
+rate-limits per host. Temporary failures (timeouts, 429, 5xx) are retried with
+a growing pause. A site that refuses the request outright (401/403/405) is not
+retried and not worked around: that is the site saying no.
+"""
 from __future__ import annotations
 
 import gzip
@@ -16,13 +22,19 @@ class FetchError(Exception):
     """The page could not be fetched, or robots.txt does not allow it."""
 
 
+TRANSIENT_STATUS = {408, 425, 429, 500, 502, 503, 504}
+
+
 class Fetcher:
     def __init__(self, delay: float = config.REQUEST_DELAY_SECONDS,
                  timeout: float = config.REQUEST_TIMEOUT_SECONDS,
-                 user_agent: str = config.USER_AGENT):
+                 user_agent: str = config.USER_AGENT,
+                 retries: int = 2, backoff: float = 4.0):
         self.delay = delay
         self.timeout = timeout
         self.user_agent = user_agent
+        self.retries = retries
+        self.backoff = backoff
         self._robots: dict[str, RobotFileParser | None] = {}
         self._last_hit: dict[str, float] = {}
 
@@ -34,14 +46,21 @@ class Fetcher:
             "Accept-Language": "en",
             "Accept-Encoding": "gzip",
         })
-        try:
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                body = response.read()
-                if response.headers.get("Content-Encoding") == "gzip":
-                    body = gzip.decompress(body)
-                return body.decode(response.headers.get_content_charset() or "utf-8", errors="replace")
-        except (urllib.error.URLError, TimeoutError, OSError, ValueError) as error:
-            raise FetchError(f"{url}: {error}") from error
+        for attempt in range(self.retries + 1):
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                    body = response.read()
+                    if response.headers.get("Content-Encoding") == "gzip":
+                        body = gzip.decompress(body)
+                    return body.decode(response.headers.get_content_charset() or "utf-8", errors="replace")
+            except urllib.error.HTTPError as error:
+                if error.code not in TRANSIENT_STATUS or attempt == self.retries:
+                    raise FetchError(f"{url}: HTTP {error.code} {error.reason}") from error
+            except (urllib.error.URLError, TimeoutError, OSError, ValueError) as error:
+                if attempt == self.retries:
+                    raise FetchError(f"{url}: {error}") from error
+            time.sleep(self.backoff * (attempt + 1))
+        raise FetchError(f"{url}: gave up")              # unreachable; keeps type-checkers happy
 
     def _robots_for(self, url: str) -> RobotFileParser | None:
         parts = urlsplit(url)

@@ -3,7 +3,7 @@
 Meetup's robots.txt disallows its search URLs (?source=, ?keywords= ...), so only
 the canonical city page is read.
 """
-from ..extract import clean_text, json_ld_events, parse_when, place
+from ..extract import clean_text, coordinates, json_ld_events, parse_when, place
 from ..models import RawEvent
 
 NAME = "meetup"
@@ -18,12 +18,13 @@ def fetch(fetcher, today):
             continue
         _, end = parse_when(item.get("endDate"))
         venue, address, online = place(item.get("location"))
+        lat, lng = coordinates(item.get("location"))
         organizer = item.get("organizer") or {}
         events.append(RawEvent(
             source=NAME,
             title=clean_text(item.get("name")),
             day=day, start=start, end=end,
-            venue=venue, address=address,
+            venue=venue, address=address, lat=lat, lng=lng,
             online=online or "Online" in str(item.get("eventAttendanceMode", "")),
             url=str(item.get("url") or ""),
             organizer=clean_text(organizer.get("name")) if isinstance(organizer, dict) else "",

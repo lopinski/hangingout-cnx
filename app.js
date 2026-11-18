@@ -20,15 +20,8 @@
     };
     const TYPE_FILTER = Object.fromEntries(Object.entries(FILTER_TYPE).map(([k, v]) => [v, k]));
 
-    // Every picture is served from this site. A listing's imageUrl is only used as a
-    // hint: known files map to their optimised local copy, anything else (including
-    // remote URLs from the scraper) falls back to the section picture.
-    const KNOWN_IMAGES = {
-        yoga_class: 'workout', lanna_art: 'culture', language_exchange: 'language',
-        salsa_dance: 'dance', meditation_buddha: 'soul', generic_event: 'night-out',
-        '1511192336575': 'music', '1533900298318': 'markets',
-        '1556910103': 'courses', '1517486808906': 'community'
-    };
+    // Every picture is a local file chosen by the pipeline's matcher (imageUrl);
+    // anything else, including a remote URL, falls back to the section picture.
     const SECTION_IMAGES = ['music', 'workout', 'language', 'culture', 'soul', 'dance', 'markets', 'courses'];
 
     const LOCALES = { en: 'en-GB', es: 'es', zh: 'zh-CN', yue: 'zh-HK', th: 'th', it: 'it', pt: 'pt', ko: 'ko' };
@@ -41,7 +34,10 @@
         map: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
         heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>',
         share: '<path d="M12 15V3M8 7l4-4 4 4M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/>',
-        out: '<path d="M7 17L17 7M9 7h8v8"/>'
+        out: '<path d="M7 17L17 7M9 7h8v8"/>',
+        link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+        chat: '<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/>',
+        send: '<path d="M21 4L3 11l6 2.5M21 4l-3.5 15-5.5-5M21 4L9 13.5V19l3-5"/>'
     };
     const icon = (name, extra = '') =>
         `<svg class="icon ${extra}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
@@ -118,7 +114,8 @@
 
     function imageKey(raw, type) {
         const src = String(raw.imageUrl || '');
-        for (const hint in KNOWN_IMAGES) if (src.includes(hint)) return KNOWN_IMAGES[hint];
+        const local = src.match(/^(?:\.\/)?assets\/images\/opt\/([a-z-]+)-960\.jpg$/);
+        if (local) return local[1];                                // chosen by the pipeline's matcher
         return SECTION_IMAGES.includes(type) ? type : 'night-out';
     }
 
@@ -161,6 +158,8 @@
             neighborhood: NEIGHBORHOODS.includes(raw.neighborhood) ? raw.neighborhood : '',
             mapsUrl: safeMapsUrl(raw.mapsUrl),
             source: String(raw.source || '').toLowerCase(),
+            lat: Number.isFinite(raw.lat) && Number.isFinite(raw.lng) ? raw.lat : null,
+            lng: Number.isFinite(raw.lat) && Number.isFinite(raw.lng) ? raw.lng : null,
             price,
             // New feeds state is_free outright; older ones only had an optional price.
             isFree: typeof raw.is_free === 'boolean' ? raw.is_free : (!price || /^(free|gratis|0)\b/i.test(price)),
@@ -347,17 +346,47 @@
     const priceClass = e => (e.isFree ? 'free' : 'paid');
     const whenText = e => (e.date ? `${fmtLong(e.date)} · ${timeText(e)}` : t('date_tbc'));
 
-    function picture(e, cls, sizes, eager) {
+    /**
+     * Pictures are 3:2 files at 480, 720 and 960px. Cards never need the largest;
+     * the cover and the detail sheet (`large`) may. Fixed width/height plus the
+     * CSS aspect-ratio boxes mean nothing shifts while a picture loads.
+     */
+    function picture(e, sizes, large) {
         const base = IMG_DIR + e.img;
-        return `<img src="${base}-480.jpg" srcset="${base}-480.jpg 480w, ${base}-960.jpg 960w" sizes="${sizes}"
-            alt="" width="960" height="640" decoding="async" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
+        const widths = large ? [480, 720, 960] : [480, 720];
+        return `<img src="${base}-480.jpg" srcset="${widths.map(w => `${base}-${w}.jpg ${w}w`).join(', ')}" sizes="${sizes}"
+            alt="" width="960" height="640" decoding="async" ${large ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
+    }
+
+    /** Minutes since midnight in Chiang Mai, right now. */
+    function nowMinutes() {
+        const parts = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+            .formatToParts(new Date());
+        const get = type => +parts.find(p => p.type === type).value;
+        return get('hour') * 60 + get('minute');
+    }
+
+    /** 'now' while an event is running, 'soon' in the two hours before it starts, else ''. */
+    function liveState(e) {
+        if (e.date !== todayStr() || e.start == null) return '';
+        const now = nowMinutes();
+        let end = e.end != null ? e.end : e.start + DEFAULT_DURATION_MIN;
+        if (end <= e.start) end += 24 * 60;
+        if (now >= e.start && now < end) return 'now';
+        return now < e.start && e.start - now <= 120 ? 'soon' : '';
+    }
+
+    function liveBadge(e) {
+        const live = liveState(e);
+        if (!live) return '';
+        return `<span class="live live--${live}"><span class="live__dot" aria-hidden="true"></span>${esc(t(live === 'now' ? 'live_now' : 'starting_soon'))}</span>`;
     }
 
     function kicker(e, lead) {
         const tag = e.tags[0] ? `<span class="kicker__tag">${esc(titleCase(e.tags[0]))}</span>` : '';
         const section = e.festival ? `${festivalLabel(e.festival)} · ${sectionLabel(e)}` : sectionLabel(e);
         const label = lead ? `${esc(t('editors_pick'))} · ${esc(section)}` : esc(section);
-        return `<p class="kicker"><span>${label}</span>${tag}</p>`;
+        return `<p class="kicker">${liveBadge(e)}<span>${label}</span>${tag}</p>`;
     }
 
     function facts(e, withTags) {
@@ -379,7 +408,7 @@
     }
 
     /** Labelled buttons for the cover story and the detail sheet. */
-    function ctaRow(e) {
+    function ctaRow(e, withShare = true) {
         const on = isSaved(e.uid);
         const cal = e.date ? `
             <a class="btn btn--primary" href="${esc(gcalUrl(e))}" target="_blank" rel="noopener noreferrer">${icon('gcal')}${esc(t('add_gcal'))}</a>
@@ -389,7 +418,7 @@
         return `<div class="cta">${cal}
             <a class="btn" href="${esc(mapsUrl(e))}" target="_blank" rel="noopener noreferrer">${icon('map')}${esc(t('act_map'))}</a>
             <button type="button" class="btn" data-act="save" data-uid="${e.uid}" aria-pressed="${on}">${icon('heart', 'icon--heart')}<span data-save-label>${esc(t(on ? 'act_saved' : 'act_save'))}</span></button>
-            <button type="button" class="btn" data-act="share" data-uid="${e.uid}">${icon('share')}${esc(t('act_share'))}</button>
+            ${withShare ? `<button type="button" class="btn" data-act="share" data-uid="${e.uid}">${icon('share')}${esc(t('act_share'))}</button>` : ''}
             ${more}
         </div>`;
     }
@@ -412,7 +441,7 @@
         const when = showDate && e.date ? `${fmtShort(e.date)} · ${timeText(e)}` : timeText(e);
         return `<article class="card" data-uid="${e.uid}">
             <a class="media card__media" href="#e=${e.uid}" data-open="${e.uid}" tabindex="-1" aria-hidden="true">
-                ${picture(e, '', '(max-width: 640px) 92px, (max-width: 960px) 46vw, 360px')}
+                ${picture(e, '(max-width: 640px) 92px, (max-width: 960px) 46vw, 360px')}
             </a>
             <div class="card__body">
                 ${kicker(e)}
@@ -478,7 +507,7 @@
             const showMonth = i === 0 || date.endsWith('-01');
             const dow = isToday ? t('today') : fmt(date, { weekday: 'short' });
             const cls = ['day', active && 'is-active', isToday && 'is-today', !n && 'is-empty'].filter(Boolean).join(' ');
-            cells.push(`<button type="button" class="${cls}" data-day="${date}" aria-pressed="${active}"
+            cells.push(`<button type="button" class="${cls}" data-day="${date}" aria-pressed="${active}"${isToday ? ' aria-current="date"' : ''}
                 aria-label="${esc(fmtLong(date))}, ${esc(countLabel(n))}">
                 <span class="day__dow">${esc(dow)}</span>
                 <span class="day__num">${toUTC(date).getUTCDate()}</span>
@@ -512,7 +541,7 @@
         if (!lead) { box.innerHTML = ''; return; }
         box.innerHTML = `<article class="cover__grid" data-uid="${lead.uid}">
             <a class="media cover__media" href="#e=${lead.uid}" data-open="${lead.uid}" tabindex="-1" aria-hidden="true">
-                ${picture(lead, '', '(max-width: 640px) 100vw, (max-width: 960px) 50vw, 660px', true)}
+                ${picture(lead, '(max-width: 640px) 100vw, (max-width: 960px) 50vw, 660px', true)}
                 <span class="badge">${esc(sectionLabel(lead))}</span>
             </a>
             <div class="cover__body">
@@ -644,12 +673,30 @@
         });
     }
 
+    const shareText = e => `${e.title} — ${whenText(e)}, ${e.venue}`;
+
+    /** Copy / WhatsApp / Telegram, shown in the detail sheet. Plain links: nothing loads until tapped. */
+    function shareRow(e) {
+        const url = encodeURIComponent(shareUrl(e));
+        const text = encodeURIComponent(shareText(e));
+        return `<div class="share" role="group" aria-label="${esc(t('act_share'))}">
+            <span class="share__label">${esc(t('act_share'))}</span>
+            <button type="button" class="share__btn" data-act="copy" data-uid="${e.uid}">${icon('link')}<span data-copy-label>${esc(t('copy_link'))}</span></button>
+            <a class="share__btn" href="https://wa.me/?text=${text}%20${url}" target="_blank" rel="noopener noreferrer">${icon('chat')}WhatsApp</a>
+            <a class="share__btn" href="https://t.me/share/url?url=${url}&amp;text=${text}" target="_blank" rel="noopener noreferrer">${icon('send')}Telegram</a>
+        </div>`;
+    }
+
     async function share(e) {
-        const url = shareUrl(e);
         if (navigator.share) {
-            try { await navigator.share({ title: e.title, text: `${e.title} — ${whenText(e)}, ${e.venue}`, url }); } catch (err) { /* dismissed */ }
+            try { await navigator.share({ title: e.title, text: shareText(e), url: shareUrl(e) }); } catch (err) { /* dismissed */ }
             return;
         }
+        copyLink(e);
+    }
+
+    async function copyLink(e, button) {
+        const url = shareUrl(e);
         try {
             await navigator.clipboard.writeText(url);
         } catch (err) {
@@ -663,6 +710,12 @@
             field.remove();
         }
         toast(t('link_copied'));
+        const label = button && button.querySelector('[data-copy-label]');
+        if (label) {                                               // brief "Copied" confirmation on the button itself
+            label.textContent = t('copied');
+            button.classList.add('is-done');
+            setTimeout(() => { label.textContent = t('copy_link'); button.classList.remove('is-done'); }, 2000);
+        }
     }
 
     // ---- Detail sheet ----------------------------------------------------
@@ -674,7 +727,7 @@
     function fillEventDialog(e) {
         $('event-dialog-body').innerHTML = `
             <div class="media sheet__media">
-                ${picture(e, '', '(max-width: 720px) 100vw, 720px', true)}
+                ${picture(e, '(max-width: 720px) 100vw, 720px', true)}
                 <span class="badge">${esc(sectionLabel(e))}</span>
             </div>
             <div class="sheet__content">
@@ -682,7 +735,8 @@
                 <h2 class="sheet__title" id="sheet-title">${esc(e.title)}</h2>
                 <p class="standfirst">${esc(e.desc || t('no_desc'))}</p>
                 ${facts(e, true)}
-                ${ctaRow(e)}
+                ${ctaRow(e, false)}
+                ${shareRow(e)}
                 <p class="sheet__report"><a class="text-link" href="${esc(reportUrl(e))}" target="_blank" rel="noopener noreferrer">${esc(t('report_listing'))}</a></p>
             </div>`;
     }
@@ -774,12 +828,18 @@
                         address: { '@type': 'PostalAddress', addressLocality: 'Chiang Mai', addressCountry: 'TH' }
                     },
                 image: [new URL(`${IMG_DIR}${e.img}-960.jpg`, base).href],
-                description: e.desc || `${e.title} at ${e.venue}, Chiang Mai. ${sectionLabelEn(e)}.`,
+                description: e.desc || `${e.title} at ${e.venue}, Chiang Mai.`,
                 inLanguage: 'en',
                 isAccessibleForFree: e.isFree,
                 url: e.link || url
             };
             if (e.start != null && e.end != null) item.endDate = iso(e.date, e.end <= e.start ? e.end + 1440 : e.end);
+            if (e.lat != null && !online) {
+                item.location.geo = { '@type': 'GeoCoordinates', latitude: e.lat, longitude: e.lng };
+            }
+            if (!e.isFree && e.link) {                                 // price unknown: point at the booking page
+                item.offers = { '@type': 'Offer', url: e.link, availability: 'https://schema.org/InStock' };
+            }
             if (e.isFree) {
                 item.offers = {
                     '@type': 'Offer', price: '0', priceCurrency: 'THB',
@@ -795,7 +855,6 @@
         script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
         document.head.appendChild(script);
     }
-    const sectionLabelEn = e => e.category || 'Event';
 
     // ---- Wiring ----------------------------------------------------------
     document.addEventListener('click', ev => {
@@ -812,6 +871,7 @@
             if (el.dataset.act === 'save') toggleSave(e.uid);
             else if (el.dataset.act === 'ics') downloadIcs(e);
             else if (el.dataset.act === 'share') share(e);
+            else if (el.dataset.act === 'copy') copyLink(e, el);
         } else if (el.dataset.day) {
             state.day = el.dataset.day;
             showDay(state.day);
@@ -831,6 +891,19 @@
             if (fillPageDialog(el.dataset.page)) { openPage = el.dataset.page; pageDialog.showModal(); }
         }
     });
+
+    /** Left/Right (and Home/End) move focus along a row of buttons, like a toolbar. */
+    function arrowKeys(container, selector) {
+        container.addEventListener('keydown', ev => {
+            const step = { ArrowLeft: -1, ArrowRight: 1, Home: -Infinity, End: Infinity }[ev.key];
+            if (!step) return;
+            const items = [...container.querySelectorAll(selector)].filter(el => !el.hidden && !el.disabled);
+            const index = items.indexOf(document.activeElement);
+            if (index < 0) return;
+            ev.preventDefault();
+            items[Math.max(0, Math.min(items.length - 1, index + step))].focus();
+        });
+    }
 
     function shiftStrip(days) {
         let start = addDays(state.stripStart, days);
@@ -852,6 +925,8 @@
         $('days-prev').addEventListener('click', () => shiftStrip(-7));
         $('days-next').addEventListener('click', () => shiftStrip(7));
         $('theme-toggle').addEventListener('click', toggleTheme);
+        arrowKeys($('day-list'), '.day');
+        arrowKeys($('section-nav'), '.section-link');
         $('home-link').addEventListener('click', ev => {
             ev.preventDefault();
             state.filter = 'filter_all';

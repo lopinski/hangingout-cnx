@@ -1,16 +1,16 @@
 // HangingOut CNX service worker.
 // Bump VERSION (and the ?v= query strings in index.html) on every release.
-const VERSION = 'v27';
+const VERSION = 'v28';
 const CACHE = `hangingout-${VERSION}`;
 
 const SHELL = [
   './',
   './index.html',
-  `./styles.css?v=27`,
-  `./boot.js?v=27`,
-  `./i18n.js?v=27`,
-  `./events.js?v=27`,
-  `./app.js?v=27`,
+  `./styles.css?v=28`,
+  `./boot.js?v=28`,
+  `./i18n.js?v=28`,
+  `./events.js?v=28`,
+  `./app.js?v=28`,
   './manifest.json',
   './assets/fonts/playfair-display-latin.woff2',
   './assets/fonts/playfair-display-italic-latin.woff2',
@@ -36,19 +36,29 @@ self.addEventListener('activate', event => {
 
 const isStatic = url => /\/assets\/(fonts|images|icons)\//.test(url.pathname);
 
+// On a slow or dead connection, stop waiting after a few seconds and use the cached copy.
+const NETWORK_TIMEOUT_MS = 4000;
+
 async function networkFirst(request) {
   const cache = await caches.open(CACHE);
-  try {
-    const fresh = await fetch(request);
+  const fromCache = async () =>
+    (await cache.match(request, { ignoreSearch: true })) ||
+    (request.mode === 'navigate' ? cache.match('./index.html') : undefined);
+
+  const fromNetwork = fetch(request).then(fresh => {
     if (fresh.ok) cache.put(request, fresh.clone());
     return fresh;
+  });
+  fromNetwork.catch(() => {});                       // handled below; avoids an unhandled rejection
+
+  const timeout = new Promise(resolve => setTimeout(resolve, NETWORK_TIMEOUT_MS, 'timeout'));
+  try {
+    const first = await Promise.race([fromNetwork, timeout]);
+    if (first !== 'timeout') return first;
+    return (await fromCache()) || fromNetwork;       // nothing cached yet: keep waiting for the network
   } catch (err) {
-    const cached = await cache.match(request, { ignoreSearch: true });
+    const cached = await fromCache();
     if (cached) return cached;
-    if (request.mode === 'navigate') {
-      const shell = await cache.match('./index.html');
-      if (shell) return shell;
-    }
     throw err;
   }
 }
@@ -57,9 +67,15 @@ async function cacheFirst(request) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(request);
   if (cached) return cached;
-  const fresh = await fetch(request);
-  if (fresh.ok) cache.put(request, fresh.clone());
-  return fresh;
+  try {
+    const fresh = await fetch(request);
+    if (fresh.ok) cache.put(request, fresh.clone());
+    return fresh;
+  } catch (err) {
+    // Offline and never seen: answer with "no content" so pictures fail quietly
+    // (their containers keep their size and paper tint).
+    return new Response('', { status: 504, statusText: 'Offline' });
+  }
 }
 
 self.addEventListener('fetch', event => {

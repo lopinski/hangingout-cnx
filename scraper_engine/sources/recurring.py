@@ -32,5 +32,6 @@ def fetch(fetcher, today):
                 tags=[*entry.get("tags", []), "weekly"],
                 blurb=entry.get("blurb", ""),
                 time_label=entry["time"],
+                lat=entry.get("lat"), lng=entry.get("lng"),
             ))
     return events

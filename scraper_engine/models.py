@@ -19,6 +19,8 @@ class RawEvent:
     is_free: bool | None = None       # None = the source does not say
     online: bool = False
     until: date | None = None         # last day of a multi-day run
+    lat: float | None = None          # venue coordinates, when the source publishes them
+    lng: float | None = None
     # Source wording is used ONLY to classify the event. It is never published.
     source_text: str = ""
     # Optional overrides, used by the hand-curated recurring schedule.

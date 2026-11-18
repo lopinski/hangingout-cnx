@@ -1,131 +1,210 @@
 {
-  "_readme": "Weekly fixtures that venues do not publish in a machine-readable form. weekdays: 0 = Monday ... 6 = Sunday. Set \"enabled\": false to pause an entry. \"confidence\" records how sure we are of the day and time; review anything marked medium with the venue.",
+  "_readme": "Weekly fixtures that venues do not publish in a machine-readable form. weekdays: 0 = Monday ... 6 = Sunday. Set \"enabled\": false to pause an entry. \"confidence\" records how sure we are of the day and time; review anything marked medium with the venue. lat/lng are approximate venue coordinates used for structured data; leave them out if unsure.",
   "events": [
     {
       "title": "Sunday Walking Street Market",
       "venue": "Ratchadamnoen Road (Tha Phae Gate)",
       "neighborhood": "Old City",
-      "weekdays": [6],
+      "weekdays": [
+        6
+      ],
       "time": "4:00 PM - 10:00 PM",
       "type": "markets",
-      "tags": ["night-market"],
+      "tags": [
+        "night-market"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "The Old City's main street closes to traffic and fills with craft stalls, street food and buskers from Tha Phae Gate westwards",
-      "confidence": "high"
+      "confidence": "high",
+      "lat": 18.7877,
+      "lng": 98.9933
     },
     {
       "title": "Saturday Walking Street (Wua Lai)",
       "venue": "Wua Lai Road",
       "neighborhood": "Old City",
-      "weekdays": [5],
+      "weekdays": [
+        5
+      ],
       "time": "4:00 PM - 10:00 PM",
       "type": "markets",
-      "tags": ["night-market"],
+      "tags": [
+        "night-market"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "The silver-makers' street south of the moat turns into a Saturday night market of handicrafts and snacks",
-      "confidence": "high"
+      "confidence": "high",
+      "lat": 18.7795,
+      "lng": 98.9858
     },
     {
       "title": "Jing Jai Farmers' Market",
       "venue": "Jing Jai Market",
       "neighborhood": "Santitham",
-      "weekdays": [5, 6],
+      "weekdays": [
+        5,
+        6
+      ],
       "time": "6:30 AM - 1:00 PM",
       "type": "markets",
-      "tags": ["weekend-market"],
+      "tags": [
+        "weekend-market"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "A weekend morning market of organic produce, local coffee, breakfast stalls and handmade goods",
-      "confidence": "high"
+      "confidence": "high",
+      "lat": 18.8066,
+      "lng": 98.9966
     },
     {
       "title": "One Nimman White Market",
       "venue": "One Nimman",
       "neighborhood": "Nimman",
-      "weekdays": [4, 5, 6],
+      "weekdays": [
+        4,
+        5,
+        6
+      ],
       "time": "3:00 PM - 10:00 PM",
       "type": "markets",
-      "tags": ["weekend-market"],
+      "tags": [
+        "weekend-market"
+      ],
       "is_free": true,
       "link": "https://www.onenimman.com/",
       "blurb": "Independent designers and makers set up white-canopied stalls around the One Nimman courtyard",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.8,
+      "lng": 98.9677
     },
     {
       "title": "Live Jazz at North Gate",
       "venue": "North Gate Jazz Co-Op",
       "neighborhood": "Old City",
-      "weekdays": [0, 2, 3, 4, 5, 6],
+      "weekdays": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "time": "8:30 PM",
       "type": "music",
-      "tags": ["jazz"],
+      "tags": [
+        "jazz"
+      ],
       "is_free": true,
       "link": "https://www.facebook.com/northgate.jazzcoop",
       "blurb": "Chiang Mai's best-known jazz room hosts a different band most nights, with the crowd spilling onto the pavement by Chang Phueak Gate",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7955,
+      "lng": 98.9866
     },
     {
       "title": "Tuesday Jam Session at North Gate",
       "venue": "North Gate Jazz Co-Op",
       "neighborhood": "Old City",
-      "weekdays": [1],
+      "weekdays": [
+        1
+      ],
       "time": "8:30 PM",
       "type": "music",
-      "tags": ["jam-session", "jazz"],
+      "tags": [
+        "jam-session",
+        "jazz"
+      ],
       "is_free": true,
       "link": "https://www.facebook.com/northgate.jazzcoop",
       "blurb": "The long-running open jam where visiting and local musicians sit in together",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7955,
+      "lng": 98.9866
     },
     {
       "title": "Blues Night at Boy Blues Bar",
       "venue": "Boy Blues Bar (Kalare Night Bazaar)",
       "neighborhood": "Riverside",
-      "weekdays": [1, 2, 3, 4, 5],
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "time": "9:30 PM",
       "type": "music",
-      "tags": ["blues"],
+      "tags": [
+        "blues"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "An upstairs open-air bar in the Night Bazaar where the house band plays blues and rock late into the evening",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7853,
+      "lng": 99.0003
     },
     {
       "title": "Monday Open Mic at Boy Blues Bar",
       "venue": "Boy Blues Bar (Kalare Night Bazaar)",
       "neighborhood": "Riverside",
-      "weekdays": [0],
+      "weekdays": [
+        0
+      ],
       "time": "9:00 PM",
       "type": "music",
-      "tags": ["open-mic", "blues"],
+      "tags": [
+        "open-mic",
+        "blues"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "Anyone can sign up to play a few songs with or without the house band",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7853,
+      "lng": 99.0003
     },
     {
       "title": "Live Bands at The Riverside",
       "venue": "The Riverside Bar & Restaurant",
       "neighborhood": "Riverside",
-      "weekdays": [0, 1, 2, 3, 4, 5, 6],
+      "weekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "time": "8:00 PM",
       "type": "music",
-      "tags": ["live-band"],
+      "tags": [
+        "live-band"
+      ],
       "is_free": true,
       "link": "https://riverside1984.com/",
       "blurb": "Cover bands play nightly on both sides of the road at this long-standing spot on the Ping River",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7907,
+      "lng": 99.0035
     },
     {
       "title": "Live Music at Thapae East",
       "venue": "Thapae East",
       "neighborhood": "Riverside",
-      "weekdays": [4, 5],
+      "weekdays": [
+        4,
+        5
+      ],
       "time": "8:00 PM",
       "type": "music",
-      "tags": ["live-band"],
+      "tags": [
+        "live-band"
+      ],
       "is_free": true,
       "link": "https://www.facebook.com/ThapaeEast/",
       "blurb": "A converted brick warehouse off Tha Phae Road with weekend sets ranging from jazz and folk to experimental",
@@ -135,36 +214,63 @@
       "title": "Free Yoga in the Park",
       "venue": "Nong Buak Haad Park",
       "neighborhood": "Old City",
-      "weekdays": [0, 1, 2, 3, 4, 5, 6],
+      "weekdays": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "time": "9:00 AM",
       "type": "workout",
-      "tags": ["yoga"],
+      "tags": [
+        "yoga"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "Volunteer teachers lead a donation-free morning class on the grass; bring a mat or rent one at the gate",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.782,
+      "lng": 98.9793
     },
     {
       "title": "Acro Yoga Jam in the Park",
       "venue": "Nong Buak Haad Park",
       "neighborhood": "Old City",
-      "weekdays": [6],
+      "weekdays": [
+        6
+      ],
       "time": "4:00 PM",
       "type": "workout",
-      "tags": ["acro"],
+      "tags": [
+        "acro"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "An informal afternoon meet-up for partner acrobatics, slacklining and juggling, open to beginners",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.782,
+      "lng": 98.9793
     },
     {
       "title": "Kalm Village Craft Galleries",
       "venue": "Kalm Village",
       "neighborhood": "Old City",
-      "weekdays": [0, 1, 3, 4, 5, 6],
+      "weekdays": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
       "time": "9:30 AM - 6:30 PM",
       "type": "culture",
-      "tags": ["art-exhibition"],
+      "tags": [
+        "art-exhibition"
+      ],
       "is_free": true,
       "link": "https://www.kalmvillage.com/",
       "blurb": "A quiet compound of textile and craft galleries, a library and courtyards inside the Old City",
@@ -174,23 +280,35 @@
       "title": "Monk Chat at Wat Suan Dok",
       "venue": "Wat Suan Dok",
       "neighborhood": "Nimman",
-      "weekdays": [0, 2, 4],
+      "weekdays": [
+        0,
+        2,
+        4
+      ],
       "time": "5:00 PM - 7:00 PM",
       "type": "soul",
-      "tags": ["monk-chat"],
+      "tags": [
+        "monk-chat"
+      ],
       "is_free": true,
       "link": "",
       "blurb": "Monks from the Buddhist university sit down with visitors for open conversation about monastic life and practice",
-      "confidence": "medium"
+      "confidence": "medium",
+      "lat": 18.7882,
+      "lng": 98.9677
     },
     {
       "title": "Sunday Night Meditation",
       "venue": "Wat Tung Yu",
       "neighborhood": "Old City",
-      "weekdays": [6],
+      "weekdays": [
+        6
+      ],
       "time": "7:00 PM",
       "type": "soul",
-      "tags": ["meditation"],
+      "tags": [
+        "meditation"
+      ],
       "is_free": true,
       "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
       "blurb": "A weekly guided meditation and talk in English at a temple in the centre of the Old City",

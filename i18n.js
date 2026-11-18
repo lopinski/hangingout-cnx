@@ -507,6 +507,61 @@ Object.keys(feedStrings).forEach(lang => {
     if (translations[lang]) Object.assign(translations[lang], feedStrings[lang]);
 });
 
+// Live indicator and share strings.
+const liveStrings = {
+    "en": {
+        "live_now": "Happening now",
+        "starting_soon": "Starting soon",
+        "copy_link": "Copy link",
+        "copied": "Copied"
+    },
+    "es": {
+        "live_now": "En curso ahora",
+        "starting_soon": "Empieza pronto",
+        "copy_link": "Copiar enlace",
+        "copied": "Copiado"
+    },
+    "zh": {
+        "live_now": "正在进行",
+        "starting_soon": "即将开始",
+        "copy_link": "复制链接",
+        "copied": "已复制"
+    },
+    "yue": {
+        "live_now": "進行緊",
+        "starting_soon": "就快開始",
+        "copy_link": "複製連結",
+        "copied": "已複製"
+    },
+    "it": {
+        "live_now": "In corso ora",
+        "starting_soon": "Inizia a breve",
+        "copy_link": "Copia link",
+        "copied": "Copiato"
+    },
+    "pt": {
+        "live_now": "A decorrer agora",
+        "starting_soon": "Começa em breve",
+        "copy_link": "Copiar link",
+        "copied": "Copiado"
+    },
+    "ko": {
+        "live_now": "지금 진행 중",
+        "starting_soon": "곧 시작",
+        "copy_link": "링크 복사",
+        "copied": "복사됨"
+    },
+    "th": {
+        "live_now": "กำลังจัดอยู่ตอนนี้",
+        "starting_soon": "ใกล้เริ่มแล้ว",
+        "copy_link": "คัดลอกลิงก์",
+        "copied": "คัดลอกแล้ว"
+    }
+};
+Object.keys(liveStrings).forEach(lang => {
+    if (translations[lang]) Object.assign(translations[lang], liveStrings[lang]);
+});
+
 let currentLang = 'en';
 try { currentLang = localStorage.getItem('appLang') || 'en'; } catch (e) { /* storage unavailable */ }
 if (!translations[currentLang]) currentLang = 'en';

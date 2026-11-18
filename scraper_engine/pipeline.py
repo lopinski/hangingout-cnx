@@ -28,14 +28,14 @@ if __package__ in (None, ""):                       # allow `python scraper_engi
 from scraper_engine import config, sources          # noqa: E402
 from scraper_engine.dedupe import dedupe            # noqa: E402
 from scraper_engine.fetch import Fetcher            # noqa: E402
-from scraper_engine.normalize import expand, normalize  # noqa: E402
+from scraper_engine.normalize import expand, normalize, time_status  # noqa: E402
 
 
-def collect(today: date, fetcher: Fetcher) -> tuple[list[dict], dict]:
+def collect(today: date, fetcher: Fetcher, source_list=None) -> tuple[list[dict], dict]:
     """Run every source. Returns (normalised events, per-source report)."""
     events: list[dict] = []
     report: dict[str, dict] = {}
-    for source in sources.ALL:
+    for source in (sources.ALL if source_list is None else source_list):
         try:
             raw = source.fetch(fetcher, today)
             listed = [event for item in raw for day_item in expand(item, today)
@@ -59,6 +59,8 @@ def carry_over(report: dict, today: date) -> list[dict]:
     kept = [event for event in previous
             if isinstance(event, dict) and event.get("source") in failed
             and str(event.get("date", "")) >= today.isoformat()]
+    for event in kept:                               # "Tomorrow" may have become "Tonight"
+        event["timeStatus"] = time_status(date.fromisoformat(event["date"]), today)
     for name in failed:
         report[name]["carried_over"] = sum(1 for event in kept if event["source"] == name)
     return kept
@@ -95,11 +97,29 @@ def sitemap(today: date) -> str:
     )
 
 
-def run(dry_run: bool = False, today: date | None = None) -> int:
+def github_summary(report: dict, total: int) -> None:
+    """On GitHub Actions: a results table on the run page, and a warning per failed source."""
+    for name, result in report.items():
+        if not result["ok"]:
+            print(f"::warning title=Source failed: {name}::{result['error']} "
+                  f"(kept {result.get('carried_over', 0)} earlier listings)")
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if not summary_path:
+        return
+    rows = ["| Source | Status | Listed |", "|---|---|---|"]
+    for name, result in report.items():
+        status = "ok" if result["ok"] else f"failed: {result['error']}"
+        listed = result.get("listed", 0) if result["ok"] else f"{result.get('carried_over', 0)} carried over"
+        rows.append(f"| {name} | {status} | {listed} |")
+    with open(summary_path, "a", encoding="utf-8") as handle:
+        handle.write(f"### Listings refresh: {total} events\n\n" + "\n".join(rows) + "\n")
+
+
+def run(dry_run: bool = False, today: date | None = None, source_list=None) -> int:
     now = datetime.now(config.BANGKOK)
     today = today or now.date()
 
-    events, report = collect(today, Fetcher())
+    events, report = collect(today, Fetcher(), source_list)
     events.extend(carry_over(report, today))
     events = sorted(dedupe(events), key=sort_key)
 
@@ -115,6 +135,7 @@ def run(dry_run: bool = False, today: date | None = None) -> int:
     if not events:
         print("Nothing to publish; the existing feed was left untouched.")
         return 1
+    github_summary(report, len(events))
     if dry_run:
         print(json.dumps(events[:3], indent=2, ensure_ascii=False))
         return 0
@@ -124,11 +145,14 @@ def run(dry_run: bool = False, today: date | None = None) -> int:
         "count": len(events),
         "sources": {name: (result.get("listed", 0) if result["ok"] else result.get("carried_over", 0))
                     for name, result in report.items()},
+        "failed": sorted(name for name, result in report.items() if not result["ok"]),
     }
     payload = json.dumps(events, indent=4, ensure_ascii=False)
     write_atomic(config.EVENTS_JSON, payload + "\n")
+    # events.json stays readable for review; events.js is what browsers download, so it is compact.
+    compact = json.dumps(events, ensure_ascii=False, separators=(",", ":"))
     write_atomic(config.EVENTS_JS,
-                 f"window.eventsData = {payload};\n"
+                 f"window.eventsData = {compact};\n"
                  f"window.eventsMeta = {json.dumps(meta, ensure_ascii=False)};\n")
     write_atomic(config.SITEMAP, sitemap(today))
     print(f"Wrote {config.EVENTS_JSON.name}, {config.EVENTS_JS.name} and {config.SITEMAP.name}.")

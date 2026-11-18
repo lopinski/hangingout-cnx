@@ -43,6 +43,8 @@ TYPE_KEYWORDS: list[tuple[str, list[str]]] = [
 ]
 SOCIAL_KEYWORDS = {"new in town", "networking", "social", "meetup", "hangout", "dinner", "brunch",
                    "solo traveller", "solo traveler", "nomad", "board game", "game night"}
+# Sources that publish news-style headlines rather than event names.
+HEADLINE_SOURCES = {"citylife"}
 # Community platforms whose uncategorised listings are, in practice, social meet-ups.
 SOCIAL_SOURCES = {"meetup", "luma"}
 
@@ -81,7 +83,49 @@ NEIGHBORHOOD_HINTS: list[tuple[str, list[str]]] = [
                   "wua lai", "phra singh", "sri phum", "si phum", "ศรีภูมิ", "พระสิงห์"]),
 ]
 
-IMAGE_BY_TYPE = {key: key for key in config.CATEGORIES}
+# -- Pictures ----------------------------------------------------------------
+# Every picture is a local, licence-checked file in assets/images/opt (see
+# assets/images/CREDITS.md). Rules are checked in order against the title; each
+# rule lists preferred pictures first, and the first one that exists on disk is
+# used, so a picture can be added or removed without touching this code.
+IMAGE_DIR = config.REPO_ROOT / "assets" / "images" / "opt"
+IMAGE_RULES: list[tuple[tuple[str, ...], list[str]]] = [
+    (("lantern", "culture"), ["loy krathong", "loi krathong", "yi peng", "yee peng", "lantern"]),
+    (("courses",), ["cooking", "cookery"]),
+    (("river", "community"), ["tubing", "river", "rafting", "kayak", "paddle"]),
+    (("dance",), ["salsa", "bachata", "kizomba", "tango", "zouk", "swing", "dance"]),
+    (("markets",), ["market", "walking street", "bazaar", "kad mua"]),
+    (("music",), ["jazz", "blues", "karaoke", "open mic", "jam session", "band", "concert",
+                  "live music", "handpan", "reggae", "acoustic"]),
+    (("temple", "soul"), ["temple", "wat", "monk", "dhamma", "buddhis"]),
+    (("soul",), ["meditation", "kirtan", "breathwork", "sound bath", "sound healing", "mindful"]),
+    (("workout",), ["yoga", "pilates", "acro", "fitness", "circuit training", "hiit", "muay thai"]),
+    (("outdoors", "community"), ["running", "run club", "run", "hike", "hiking", "trek", "trail",
+                                 "walk", "cycling", "skate", "climbing"]),
+    (("food", "night-out"), ["dinner", "brunch", "lunch", "food", "wine", "tasting", "thanksgiving",
+                             "potluck", "cocktails"]),
+    (("art", "culture"), ["art", "craft", "sketch", "painting", "weaving", "pottery", "terracotta",
+                          "exhibition", "gallery", "poetry"]),
+    (("language",), ["language exchange", "conversation club", "thai lesson", "english class"]),
+    (("talk", "language"), ["talk", "lecture", "ai", "crypto", "business", "startup", "pechakucha",
+                            "seminar", "conference", "coding", "engineers", "robotics", "masterclass",
+                            "workshop", "reading club", "book club"]),
+]
+
+
+def _available(keys: tuple[str, ...]) -> str | None:
+    return next((key for key in keys if (IMAGE_DIR / f"{key}-960.jpg").exists()), None)
+
+
+def pick_image(title: str, kind: str, social: bool = False) -> str:
+    """Choose the picture that best matches what the event actually is."""
+    lowered = title.lower()
+    for keys, keywords in IMAGE_RULES:
+        if any(_contains(lowered, keyword) for keyword in keywords):
+            match = _available(keys)
+            if match:
+                return match
+    return _available(("community",) if social else (kind,)) or "night-out"
 
 KIND_PHRASE = {
     "music": ["a live music night", "an evening of live sets"],
@@ -96,7 +140,14 @@ KIND_PHRASE = {
 }
 
 SMALL_WORDS = {"a", "an", "and", "at", "by", "for", "in", "of", "on", "the", "to", "with", "x"}
-KEEP_UPPER = {"CNX", "DJ", "AI", "DTV", "CMU", "JJ", "NYE", "BBQ"}
+KEEP_UPPER = {"CNX", "DJ", "AI", "DTV", "CMU", "JJ", "NYE", "BBQ", "HIIT", "LGBTQ", "USA", "UK"}
+
+# Press-release habits to trim from headlines.
+_LEAD_IN = re.compile(r"^(?:get ready for|join us for|don't miss|celebrate|experience|discover)\s+(?:the\s+)?", re.I)
+_EDITION = re.compile(r"^\d+(?:st|nd|rd|th) edition of\s+(?:the\s+)?", re.I)
+# "Chiang Yai Fest 20+ Unveils New Experiences ..." -> "Chiang Yai Fest 20+"
+_NEWS_VERB = re.compile(r"\s+(?:unveils|brings|returns|announces|kicks off|launches|set to|invites|"
+                        r"welcomes|reveals|promises|is back)\b.*$", re.I)
 
 
 # -- Small text helpers ------------------------------------------------------
@@ -105,25 +156,42 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-")
 
 
-def clean_title(raw: str) -> str:
+def _calm_caps(title: str) -> str:
+    """Title-case shouting: a fully upper-case title, or single SHOUTED words in a mixed one."""
+    letters = [ch for ch in title if ch.isalpha() and ch.isascii()]
+    whole = bool(letters) and all(ch.isupper() for ch in letters)
+    words = []
+    for index, word in enumerate(title.split(" ")):
+        core = re.sub(r"[^A-Za-z]", "", word)
+        if core.upper() in KEEP_UPPER and core.isupper():
+            words.append(word)
+        elif whole or (len(core) > 3 and core.isupper()):
+            lowered = word.lower()
+            words.append(lowered if index and lowered in SMALL_WORDS else lowered[:1].upper() + lowered[1:])
+        else:
+            words.append(word)
+    return " ".join(words)
+
+
+def clean_title(raw: str, headline: bool = False) -> str:
+    """Tidy a title. `headline=True` also trims news-story phrasing (used for press listings)."""
     title = "".join(ch for ch in raw if unicodedata.category(ch) not in ("So", "Sk", "Cs", "Co"))
     title = title.replace("️", "").replace("‍", "")
     title = re.sub(r"【[^】]*】", "", title)
     title = re.sub(r"\((?:every ?day|daily|\d{1,2}(?::\d{2})?\s*(?:am|pm))\)", "", title, flags=re.I)
-    title = re.sub(r"^(?:get ready for|join us for|don't miss)\s+(?:the\s+)?", "", title, flags=re.I)
     title = re.sub(r"\s+", " ", title).strip(" -–—:|·")
-    letters = [ch for ch in title if ch.isalpha() and ch.isascii()]
-    if letters and all(ch.isupper() for ch in letters):         # tame ALL CAPS
-        words = []
-        for index, word in enumerate(title.lower().split(" ")):
-            if word.upper() in KEEP_UPPER:
-                words.append(word.upper())
-            elif index and word in SMALL_WORDS:
-                words.append(word)
-            else:
-                words.append(word[:1].upper() + word[1:])
-        title = " ".join(words)
-    elif title and title[0].islower():
+    title = _EDITION.sub("", _LEAD_IN.sub("", title))
+    if headline:
+        trimmed = _NEWS_VERB.sub("", title)
+        if len(trimmed.split()) >= 2:
+            title = trimmed
+    # A long "Name: explanatory subtitle" keeps just the name.
+    if len(title) > 60:
+        head = re.split(r":\s+|\s+[–—|]\s+", title, maxsplit=1)[0]
+        if len(head) >= 15:
+            title = head
+    title = _calm_caps(title).strip(" -–—:|·")
+    if title and title[0].islower():
         title = title[0].upper() + title[1:]
     if len(title) > 90:
         title = title[:87].rsplit(" ", 1)[0] + "…"
@@ -224,7 +292,7 @@ def describe(raw: RawEvent, title: str, venue: str, hood: str, kind: str, social
 # -- The normaliser ----------------------------------------------------------
 def normalize(raw: RawEvent, today: date) -> dict | None:
     """RawEvent -> schema dict, or None when the event should not be listed."""
-    title = clean_title(raw.title)
+    title = clean_title(raw.title, headline=raw.source in HEADLINE_SOURCES)
     if not title or raw.online:
         return None
     haystack = f"{raw.title} {raw.source_text}".lower()
@@ -259,9 +327,9 @@ def normalize(raw: RawEvent, today: date) -> dict | None:
 
     is_free = bool(raw.is_free) or (raw.is_free is None and re.search(r"\bfree\b", raw.title, re.I) is not None)
     digest = hashlib.sha1(f"{title}|{venue}|{day}|{time_label}".lower().encode()).hexdigest()[:6]
-    image = "community" if social else IMAGE_BY_TYPE[kind]
+    image = pick_image(title, kind, social)
 
-    return {
+    event = {
         "id": f"{slugify(title)[:40].strip('-') or 'event'}-{digest}-{day.isoformat()}",
         "title": title,
         "venue": venue,
@@ -281,6 +349,9 @@ def normalize(raw: RawEvent, today: date) -> dict | None:
         # pipeline keep a source's events if that source is down on the next run.
         "source": raw.source,
     }
+    if raw.lat is not None and raw.lng is not None:
+        event["lat"], event["lng"] = raw.lat, raw.lng
+    return event
 
 
 def expand(raw: RawEvent, today: date, max_days: int = 10) -> list[RawEvent]:
