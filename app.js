@@ -72,13 +72,17 @@
     const fmtLong = s => fmt(s, { weekday: 'long', day: 'numeric', month: 'long' });
     const fmtShort = s => fmt(s, { weekday: 'short', day: 'numeric', month: 'short' });
 
-    // "9:00 PM", "10:00 AM - 5:00 PM", "19:30", "5 - 7 PM" -> minutes from midnight
+    // "9:00 PM", "10:00 AM - 5:00 PM", "19:30", "5:00 - 7:00 PM" -> minutes from midnight
     function parseTime(label) {
         const found = [];
-        const re = /(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?/gi;
+        // A number only counts as a time with a colon ("19:30") or am/pm ("7 pm"),
+        // so labels like "Until 10 Jan" are not mistaken for 10 o'clock.
+        const re = /(\d{1,2})[:.](\d{2})\s*(am|pm)?|(\d{1,2})\s*(am|pm)/gi;
         let m;
         while ((m = re.exec(label || '')) && found.length < 2) {
-            found.push({ h: +m[1], min: +(m[2] || 0), ap: (m[3] || '').toLowerCase() });
+            found.push(m[1] !== undefined
+                ? { h: +m[1], min: +m[2], ap: (m[3] || '').toLowerCase() }
+                : { h: +m[4], min: 0, ap: m[5].toLowerCase() });
         }
         if (found.length === 2 && !found[0].ap && found[1].ap) found[0].ap = found[1].ap;
         const toMin = f => {
@@ -119,14 +123,27 @@
     }
 
     // ---- Data ------------------------------------------------------------
+    const NEIGHBORHOODS = ['Old City', 'Nimman', 'Riverside', 'Santitham', 'Hang Dong'];
+    const usedUids = new Set();
+
+    function safeMapsUrl(url) {
+        return /^https:\/\/(maps\.google\.com|www\.google\.com\/maps)[/?]/.test(String(url || '')) ? String(url) : '';
+    }
+
     function normalise(raw) {
         const type = String(raw.type || '').toLowerCase();
+        const allTags = Array.isArray(raw.tags) ? raw.tags.map(x => String(x).trim()).filter(Boolean) : [];
+        const festival = (allTags.find(x => x.startsWith('festival:')) || '').slice(9);
+        // The feed's own slug ids are stable and readable; older feeds repeat ids,
+        // so anything else (or a clash) falls back to a content hash.
+        let uid = typeof raw.id === 'string' && /^[a-z0-9-]{8,}$/.test(raw.id) ? raw.id : '';
+        if (!uid || usedUids.has(uid)) uid = 'e' + hash([raw.id, raw.date, raw.title, raw.venue].join('|'));
+        usedUids.add(uid);
         const date = /^\d{4}-\d{2}-\d{2}$/.test(raw.date || '') && !isNaN(toUTC(raw.date)) ? raw.date : null;
         const time = parseTime(raw.time);
         const price = String(raw.price || '').trim();
         return {
-            // ids repeat in the feed, so favourites and links use a content hash instead
-            uid: 'e' + hash([raw.id, raw.date, raw.title, raw.venue].join('|')),
+            uid,
             id: raw.id,
             title: prettyTitle(raw.title) || 'Untitled event',
             venue: String(raw.venue || '').trim(),
@@ -138,9 +155,15 @@
             category: String(raw.category || '').trim(),
             desc: String(raw.description || '').trim(),
             link: safeLink(raw.link),
-            tags: Array.isArray(raw.tags) ? raw.tags.map(x => String(x).trim()).filter(Boolean) : [],
+            tags: allTags.filter(x => !x.startsWith('festival:')).map(x => x.replace(/-/g, ' ')),
+            festival,
+            weekly: allTags.includes('weekly'),
+            neighborhood: NEIGHBORHOODS.includes(raw.neighborhood) ? raw.neighborhood : '',
+            mapsUrl: safeMapsUrl(raw.mapsUrl),
+            source: String(raw.source || '').toLowerCase(),
             price,
-            isFree: !price || /^(free|gratis|0)\b/i.test(price),
+            // New feeds state is_free outright; older ones only had an optional price.
+            isFree: typeof raw.is_free === 'boolean' ? raw.is_free : (!price || /^(free|gratis|0)\b/i.test(price)),
             featured: raw.featured === true,
             img: imageKey(raw, type)
         };
@@ -197,6 +220,7 @@
     function matchesSection(e) {
         if (state.filter === 'filter_all') return true;
         if (state.filter === 'filter_saved') return isSaved(e.uid);
+        if (state.filter.startsWith('festival:')) return e.festival === state.filter.slice(9);
         const type = FILTER_TYPE[state.filter];
         return e.type === type || e.category.toLowerCase().includes(type);
     }
@@ -235,7 +259,13 @@
     // ---- Links & calendar files -----------------------------------------
     const pageUrl = () => location.origin + location.pathname;
     const shareUrl = e => `${pageUrl()}#e=${e.uid}`;
-    const mapsUrl = e => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(`${e.venue}, Chiang Mai`);
+    const mapsUrl = e => e.mapsUrl || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(`${e.venue}, Chiang Mai`);
+    const REPO_ISSUES = 'https://github.com/lopinski/hangingout-cnx/issues/new';
+    const issueUrl = (title, body) => `${REPO_ISSUES}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    const submitUrl = () => issueUrl('Submit an event: ', 'Event name:\nDate and time:\nVenue:\nFree entry? (yes/no):\nLink:\nAnything else:');
+    const reportUrl = e => issueUrl(
+        e ? `Report a listing: ${e.title}` : 'Report a listing: ',
+        (e ? `Listing: ${e.title}\nDate: ${e.date || ''}\nVenue: ${e.venue}\nId: ${e.id}\n\n` : '') + 'What is wrong with it?\n');
 
     /** Start/end of an event as UTC milliseconds. */
     function span(e) {
@@ -309,8 +339,12 @@
 
     // ---- Markup pieces ---------------------------------------------------
     const sectionLabel = e => (TYPE_FILTER[e.type] ? t(TYPE_FILTER[e.type]) : e.category);
-    const priceLabel = e => (e.isFree ? t('free') : e.price);
-    const timeText = e => e.timeLabel || t('all_day');
+    const priceLabel = e => (e.isFree ? t('free') : (e.price || t('see_listing')));
+    const timeText = e => (!e.timeLabel || /^all day$/i.test(e.timeLabel) ? t('all_day') : e.timeLabel);
+    const placeText = e => (e.neighborhood && !e.venue.includes(e.neighborhood) ? `${e.venue}, ${e.neighborhood}` : e.venue);
+    const festivalLabel = slug => titleCase(slug.replace(/-/g, ' '));
+    const SOURCE_NAMES = { meetup: 'Meetup', eventbrite: 'Eventbrite', luma: 'Luma', citylife: 'Chiang Mai Citylife' };
+    const priceClass = e => (e.isFree ? 'free' : 'paid');
     const whenText = e => (e.date ? `${fmtLong(e.date)} · ${timeText(e)}` : t('date_tbc'));
 
     function picture(e, cls, sizes, eager) {
@@ -321,20 +355,26 @@
 
     function kicker(e, lead) {
         const tag = e.tags[0] ? `<span class="kicker__tag">${esc(titleCase(e.tags[0]))}</span>` : '';
-        const label = lead ? `${esc(t('editors_pick'))} · ${esc(sectionLabel(e))}` : esc(sectionLabel(e));
+        const section = e.festival ? `${festivalLabel(e.festival)} · ${sectionLabel(e)}` : sectionLabel(e);
+        const label = lead ? `${esc(t('editors_pick'))} · ${esc(section)}` : esc(section);
         return `<p class="kicker"><span>${label}</span>${tag}</p>`;
     }
 
     function facts(e, withTags) {
         const where = e.venue
-            ? `<a href="${esc(mapsUrl(e))}" target="_blank" rel="noopener noreferrer" title="${esc(t('open_map'))}">${esc(e.venue)}</a>` : '—';
+            ? `<a href="${esc(mapsUrl(e))}" target="_blank" rel="noopener noreferrer" title="${esc(t('open_map'))}">${esc(placeText(e))}</a>` : '—';
+        const origin = !withTags ? '' : e.weekly ? esc(t('weekly_note'))
+            : SOURCE_NAMES[e.source] ? (e.link
+                ? `<a href="${esc(e.link)}" target="_blank" rel="noopener noreferrer">${esc(SOURCE_NAMES[e.source])}</a>`
+                : esc(SOURCE_NAMES[e.source])) : '';
         const tags = withTags && e.tags.length
             ? `<div><dt>${esc(t('sections'))}</dt><dd class="tags">${e.tags.map(x => `<span class="tag">${esc(titleCase(x))}</span>`).join('')}</dd></div>` : '';
         return `<dl class="facts">
             <div><dt>${esc(t('when'))}</dt><dd>${e.date ? `<time datetime="${e.date}">${esc(whenText(e))}</time>` : esc(whenText(e))}</dd></div>
             <div><dt>${esc(t('where'))}</dt><dd>${where}</dd></div>
-            <div><dt>${esc(t('entry'))}</dt><dd><span class="free">${esc(priceLabel(e))}</span></dd></div>
+            <div><dt>${esc(t('entry'))}</dt><dd><span class="${priceClass(e)}">${esc(priceLabel(e))}</span></dd></div>
             ${tags}
+            ${origin ? `<div><dt>${esc(t('source'))}</dt><dd>${origin}</dd></div>` : ''}
         </dl>`;
     }
 
@@ -377,7 +417,7 @@
             <div class="card__body">
                 ${kicker(e)}
                 <h3 class="card__title"><a href="#e=${e.uid}" data-open="${e.uid}">${esc(e.title)}</a></h3>
-                <p class="card__meta"><strong>${esc(when)}</strong> · ${esc(e.venue)} · <span class="free">${esc(priceLabel(e))}</span></p>
+                <p class="card__meta"><strong>${esc(when)}</strong> · ${esc(placeText(e))} · <span class="${priceClass(e)}">${esc(priceLabel(e))}</span></p>
             </div>
             ${actionBar(e)}
         </article>`;
@@ -385,10 +425,25 @@
 
     // ---- Render: sections nav -------------------------------------------
     function renderNav() {
+        // A festival with at least two upcoming listings gets its own chip, first in line (two at most).
+        const festivals = new Map();
+        events.forEach(e => { if (e.festival && e.date >= stripMin) festivals.set(e.festival, (festivals.get(e.festival) || 0) + 1); });
+        $('festival-chips').innerHTML = [...festivals].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([slug]) =>
+            `<button type="button" class="section-link section-link--festival" data-filter="festival:${esc(slug)}" aria-pressed="false"><span aria-hidden="true">★</span> <span>${esc(festivalLabel(slug))}</span></button>`
+        ).join('');
+
+        // Sections with nothing in the feed are hidden; sections with nothing on the chosen day are quietened.
+        const inFeed = new Set(events.map(e => e.type));
+        const onDay = new Set(events.filter(e => state.day === 'all' || e.date === state.day).map(e => e.type));
         document.querySelectorAll('[data-filter]').forEach(btn => {
             const active = btn.dataset.filter === state.filter;
+            const type = FILTER_TYPE[btn.dataset.filter];
             btn.classList.toggle('is-active', active);
             btn.setAttribute('aria-pressed', active);
+            if (type) {
+                btn.hidden = !inFeed.has(type) && !active;
+                btn.classList.toggle('is-quiet', !onDay.has(type));
+            }
         });
         $('saved-count').textContent = saved.length;
 
@@ -398,6 +453,7 @@
         if (FILTER_TYPE[state.filter]) {
             events.filter(matchesSection).forEach(e => e.tags.forEach(tag => {
                 const key = tag.toLowerCase();
+                if (key === 'weekly') return;                           // a schedule note, not a genre
                 tags.set(key, (tags.get(key) || 0) + 1);
             }));
         }
@@ -444,7 +500,10 @@
     function pickLead(list) {
         if (!list.length) return null;
         const firstDay = list.filter(e => e.date === list[0].date);
-        const score = e => (e.featured ? 8 : 0) + (e.desc ? 4 : 0) + (e.start != null ? 2 : 0);
+        // "Most exciting" in order: hand-picked, festival, a one-off rather than a weekly
+        // fixture, free entry, an evening start. Ties go to the earliest.
+        const score = e => (e.featured ? 32 : 0) + (e.festival ? 8 : 0) + (e.weekly ? 0 : 4) +
+            (e.isFree ? 2 : 0) + (e.start != null && e.start >= 17 * 60 ? 1 : 0);
         return firstDay.reduce((best, e) => (score(e) > score(best) ? e : best));
     }
 
@@ -528,6 +587,10 @@
     function renderChrome() {
         $('today-line').textContent = fmt(today, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         $('today-line').dateTime = today;
+        const meta = window.eventsMeta;
+        const stamp = meta && /^\d{4}-\d{2}-\d{2}/.test(meta.updated || '') ? meta.updated.slice(0, 10) : '';
+        $('updated-line').textContent = stamp ? tf('updated', { date: fmt(stamp, { day: 'numeric', month: 'long', year: 'numeric' }) }) : '';
+        $('submit-link').href = submitUrl();
         const notice = $('back-issue');
         notice.hidden = !isBackIssue;
         if (isBackIssue) {
@@ -620,6 +683,7 @@
                 <p class="standfirst">${esc(e.desc || t('no_desc'))}</p>
                 ${facts(e, true)}
                 ${ctaRow(e)}
+                <p class="sheet__report"><a class="text-link" href="${esc(reportUrl(e))}" target="_blank" rel="noopener noreferrer">${esc(t('report_listing'))}</a></p>
             </div>`;
     }
 
@@ -637,12 +701,19 @@
     function fillPageDialog(page) {
         const copy = {
             about: ['about_title', 'about_desc'],
-            terms: ['terms', 'legal_terms'],
+            terms: ['directory_title', 'legal_terms'],
             privacy: ['privacy', 'legal_privacy']
         }[page];
         if (!copy) return false;
+        const isTerms = page === 'terms';
         $('page-title').textContent = t(copy[0]);
+        $('page-notice').hidden = !isTerms;
+        $('page-notice').textContent = t('directory_notice');
         $('page-text').textContent = t(copy[1]);
+        $('page-actions').hidden = !isTerms;
+        $('page-actions').innerHTML = isTerms ? `
+            <a class="btn btn--primary" href="${esc(submitUrl())}" target="_blank" rel="noopener noreferrer">${esc(t('submit_event'))}</a>
+            <a class="btn" href="${esc(reportUrl(null))}" target="_blank" rel="noopener noreferrer">${esc(t('report_listing'))}</a>` : '';
         return true;
     }
 
@@ -683,7 +754,9 @@
             const m = ((minutes % 1440) + 1440) % 1440;
             return `${day}T${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}:00+07:00`;
         };
-        const graph = datedEvents.slice(0, 100).map(e => {
+        // The coming week is what searchers ask about ("today", "tonight", "this weekend").
+        const horizon = addDays(stripMin, 7);
+        const graph = datedEvents.filter(e => e.date >= stripMin && e.date <= horizon).slice(0, 150).map(e => {
             const url = `${base}#e=${e.uid}`;
             const online = /online/i.test(e.venue);
             const item = {
@@ -697,11 +770,12 @@
                     ? { '@type': 'VirtualLocation', url: e.link || url }
                     : {
                         '@type': 'Place',
-                        name: e.venue || 'Chiang Mai',
+                        name: (e.venue || 'Chiang Mai').replace(/\s*\(see listing\)$/, ''),
                         address: { '@type': 'PostalAddress', addressLocality: 'Chiang Mai', addressCountry: 'TH' }
                     },
                 image: [new URL(`${IMG_DIR}${e.img}-960.jpg`, base).href],
                 description: e.desc || `${e.title} at ${e.venue}, Chiang Mai. ${sectionLabelEn(e)}.`,
+                inLanguage: 'en',
                 isAccessibleForFree: e.isFree,
                 url: e.link || url
             };

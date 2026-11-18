@@ -211,6 +211,12 @@ main:focus { outline: none; }
   border-bottom: 3px solid transparent; border-top: 3px solid transparent;
 }
 .section-link:hover { color: var(--ink); }
+/* Sections with events on the chosen day read in full ink; the rest step back. */
+.section-link[data-filter^="filter_"]:not(.is-quiet):not(.is-active) { color: var(--ink); }
+.section-link.is-quiet { font-weight: 500; }
+.festival-chips { display: contents; }
+.section-link--festival { color: var(--accent-ink); }
+.section-link--festival:hover { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 4px; }
 .section-link.is-active { color: var(--accent-ink); border-bottom-color: var(--accent); }
 .section-link--saved { margin-left: auto; }
 .section-link .icon { width: 16px; height: 16px; }
@@ -308,6 +314,7 @@ main:focus { outline: none; }
   color: var(--on-accent); background: var(--accent-ink);
 }
 
+.paid { font-weight: 600; }
 .free { color: var(--free); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85em; }
 
 .media { position: relative; display: block; overflow: hidden; background: var(--paper-tint); }
@@ -452,6 +459,9 @@ a.media:hover img { transform: scale(1.03); }
 .footer__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .footer__links .text-link { min-height: 32px; color: var(--ink); }
 .footer__credits { text-align: right; }
+.footer__updated { margin-top: 4px; }
+.footer__blurb { grid-column: 1 / -1; max-width: 90ch; padding-top: 14px; border-top: 1px solid var(--rule); }
+.footer__links a.text-link { display: inline-flex; align-items: center; }
 
 /* ---- Dialogs ------------------------------------------------------------ */
 .sheet {
@@ -481,6 +491,8 @@ a.media:hover img { transform: scale(1.03); }
 .sheet__text { margin-top: 14px; white-space: pre-wrap; color: var(--ink-2); max-width: 65ch; }
 .sheet--text { width: min(600px, calc(100vw - 24px)); }
 .sheet--text .sheet__title { margin-top: 20px; }
+.sheet--text .notice { font-weight: 600; }
+.sheet__report { margin-top: 18px; font-size: 13px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag { padding: 2px 8px; font-size: 12px; font-weight: 600; border: 1px solid var(--rule); border-radius: 2px; }
 

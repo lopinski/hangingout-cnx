@@ -1,0 +1,8 @@
+# HangingOut CNX: everything public may be crawled.
+User-agent: *
+Allow: /
+Disallow: /scraper_engine/
+Disallow: /brain.py
+Disallow: /scraper.py
+
+Sitemap: https://hangingoutasia.netlify.app/sitemap.xml

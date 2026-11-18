@@ -419,6 +419,94 @@ Object.keys(editorialStrings).forEach(lang => {
 });
 
 
+// Strings for the automated feed: sources, disclaimer and community links.
+const feedStrings = {
+    "en": {
+        "see_listing": "See listing",
+        "source": "Source",
+        "weekly_note": "Weekly schedule: confirm with the venue",
+        "updated": "Listings updated {date}",
+        "directory_title": "Terms & Community Directory Disclaimer",
+        "directory_notice": "HangingOut CNX is a non-profit community bulletin and aggregator. All event details are subject to change by hosts. Please verify with the venue.",
+        "submit_event": "Submit an event",
+        "report_listing": "Report a listing",
+        "seo_blurb": "HangingOut CNX is a daily guide to events in Chiang Mai today, tonight and this weekend. Find free things to do in Chiang Mai, live music tonight at jazz and blues bars, night markets and walking streets, yoga in the park, festivals such as Loy Krathong, workshops, language exchanges and community meetups across the Old City, Nimman, Riverside, Santitham and Hang Dong."
+    },
+    "es": {
+        "see_listing": "Ver anuncio",
+        "source": "Fuente",
+        "weekly_note": "Programación semanal: confirma con el lugar",
+        "updated": "Agenda actualizada el {date}",
+        "directory_title": "Términos y aviso del directorio comunitario",
+        "directory_notice": "HangingOut CNX es un tablón comunitario y agregador sin ánimo de lucro. Los organizadores pueden cambiar cualquier detalle de los eventos. Por favor, verifica con el lugar.",
+        "submit_event": "Enviar un evento",
+        "report_listing": "Reportar un anuncio"
+    },
+    "zh": {
+        "see_listing": "查看详情页",
+        "source": "来源",
+        "weekly_note": "每周固定活动：请向场地确认",
+        "updated": "活动更新于 {date}",
+        "directory_title": "条款与社区目录免责声明",
+        "directory_notice": "HangingOut CNX 是非营利的社区公告栏和信息聚合平台。所有活动信息可能由主办方更改，请向场地核实。",
+        "submit_event": "提交活动",
+        "report_listing": "举报信息"
+    },
+    "yue": {
+        "see_listing": "睇詳情",
+        "source": "來源",
+        "weekly_note": "每週固定活動：請向場地確認",
+        "updated": "活動更新於 {date}",
+        "directory_title": "條款及社區目錄免責聲明",
+        "directory_notice": "HangingOut CNX 係非牟利嘅社區佈告板同資訊整合平台。所有活動資料可能會由主辦方更改，請向場地核實。",
+        "submit_event": "提交活動",
+        "report_listing": "舉報資料"
+    },
+    "it": {
+        "see_listing": "Vedi annuncio",
+        "source": "Fonte",
+        "weekly_note": "Appuntamento settimanale: verifica con il locale",
+        "updated": "Eventi aggiornati il {date}",
+        "directory_title": "Termini e avvertenza sulla directory comunitaria",
+        "directory_notice": "HangingOut CNX è una bacheca comunitaria e un aggregatore senza scopo di lucro. Tutti i dettagli degli eventi possono essere modificati dagli organizzatori. Verifica con il locale.",
+        "submit_event": "Proponi un evento",
+        "report_listing": "Segnala un annuncio"
+    },
+    "pt": {
+        "see_listing": "Ver anúncio",
+        "source": "Fonte",
+        "weekly_note": "Programação semanal: confirme com o local",
+        "updated": "Agenda atualizada a {date}",
+        "directory_title": "Termos e aviso do diretório comunitário",
+        "directory_notice": "O HangingOut CNX é um mural comunitário e agregador sem fins lucrativos. Todos os detalhes dos eventos podem ser alterados pelos organizadores. Confirme com o local.",
+        "submit_event": "Submeter um evento",
+        "report_listing": "Denunciar um anúncio"
+    },
+    "ko": {
+        "see_listing": "상세 페이지 보기",
+        "source": "출처",
+        "weekly_note": "매주 열리는 일정: 장소에 확인하세요",
+        "updated": "{date} 업데이트됨",
+        "directory_title": "이용약관 및 커뮤니티 디렉터리 고지",
+        "directory_notice": "HangingOut CNX는 비영리 커뮤니티 게시판이자 정보 모음 서비스입니다. 모든 이벤트 정보는 주최자에 의해 변경될 수 있으니 장소에 확인하세요.",
+        "submit_event": "이벤트 제보",
+        "report_listing": "게시물 신고"
+    },
+    "th": {
+        "see_listing": "ดูรายละเอียด",
+        "source": "ที่มา",
+        "weekly_note": "กิจกรรมประจำสัปดาห์: โปรดยืนยันกับสถานที่",
+        "updated": "อัปเดตรายการเมื่อ {date}",
+        "directory_title": "ข้อตกลงและข้อสงวนสิทธิ์ของไดเรกทอรีชุมชน",
+        "directory_notice": "HangingOut CNX เป็นกระดานข่าวชุมชนและแหล่งรวบรวมข้อมูลที่ไม่แสวงหากำไร รายละเอียดกิจกรรมทั้งหมดอาจเปลี่ยนแปลงได้โดยผู้จัด โปรดตรวจสอบกับสถานที่",
+        "submit_event": "ส่งกิจกรรม",
+        "report_listing": "รายงานรายการ"
+    }
+};
+Object.keys(feedStrings).forEach(lang => {
+    if (translations[lang]) Object.assign(translations[lang], feedStrings[lang]);
+});
+
 let currentLang = 'en';
 try { currentLang = localStorage.getItem('appLang') || 'en'; } catch (e) { /* storage unavailable */ }
 if (!translations[currentLang]) currentLang = 'en';

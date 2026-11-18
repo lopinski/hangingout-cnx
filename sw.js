@@ -1,16 +1,16 @@
 // HangingOut CNX service worker.
 // Bump VERSION (and the ?v= query strings in index.html) on every release.
-const VERSION = 'v26';
+const VERSION = 'v27';
 const CACHE = `hangingout-${VERSION}`;
 
 const SHELL = [
   './',
   './index.html',
-  `./styles.css?v=26`,
-  `./boot.js?v=26`,
-  `./i18n.js?v=26`,
-  `./events.js?v=26`,
-  `./app.js?v=26`,
+  `./styles.css?v=27`,
+  `./boot.js?v=27`,
+  `./i18n.js?v=27`,
+  `./events.js?v=27`,
+  `./app.js?v=27`,
   './manifest.json',
   './assets/fonts/playfair-display-latin.woff2',
   './assets/fonts/playfair-display-italic-latin.woff2',

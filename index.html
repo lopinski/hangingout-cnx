@@ -8,21 +8,25 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <title>HangingOut CNX | Free Events in Chiang Mai Today: Live Music, Markets &amp; Meetups</title>
-    <meta name="description" content="HangingOut CNX is the free, independent guide to what's on in Chiang Mai: live music, night markets, yoga, language exchanges, culture and meetups. Pick a day, save an event, add it to your calendar.">
+    <title>Events in Chiang Mai Today &amp; This Weekend | Free Things to Do, Live Music Tonight | HangingOut CNX</title>
+    <meta name="description" content="What's on in Chiang Mai today, tonight and this weekend: free things to do, live music, night markets, yoga, festivals, workshops and meetups. Updated daily, no tracking.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://hangingoutasia.netlify.app/">
 
     <!-- OpenGraph / Twitter -->
     <meta property="og:site_name" content="HangingOut CNX">
-    <meta property="og:title" content="HangingOut CNX | The free guide to what's on in Chiang Mai">
-    <meta property="og:description" content="Live music, markets, workouts, culture and meetups in Chiang Mai, day by day. Free and tracker-free.">
+    <meta property="og:title" content="Events in Chiang Mai today and this weekend | HangingOut CNX">
+    <meta property="og:description" content="Free things to do, live music tonight, markets, festivals and meetups in Chiang Mai, day by day. Updated daily, tracker-free.">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="960">
+    <meta property="og:image:alt" content="Friends at a night market in Chiang Mai">
     <meta property="og:image" content="https://hangingoutasia.netlify.app/assets/images/opt/night-out-960.jpg">
     <meta property="og:url" content="https://hangingoutasia.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_GB">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HangingOut CNX | The free guide to what's on in Chiang Mai">
-    <meta name="twitter:description" content="Live music, markets, workouts, culture and meetups in Chiang Mai, day by day.">
+    <meta name="twitter:title" content="Events in Chiang Mai today and this weekend | HangingOut CNX">
+    <meta name="twitter:description" content="Free things to do, live music tonight, markets, festivals and meetups in Chiang Mai, day by day.">
     <meta name="twitter:image" content="https://hangingoutasia.netlify.app/assets/images/opt/night-out-960.jpg">
 
     <!-- Icons, PWA -->
@@ -35,8 +39,8 @@
     <!-- Self-hosted open fonts (SIL OFL): no third-party font requests -->
     <link rel="preload" href="./assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=26">
-    <script src="boot.js?v=26"></script>
+    <link rel="stylesheet" href="styles.css?v=27">
+    <script src="boot.js?v=27"></script>
 
     <!-- Structured data: WebSite + Place. Event entries are added to <head> by app.js from the live listings. -->
     <script type="application/ld+json">
@@ -107,6 +111,7 @@
     <nav class="sections" data-i18n-aria="sections" aria-label="Sections">
         <div class="wrap sections__scroll" id="section-nav">
             <button type="button" class="section-link is-active" data-filter="filter_all" aria-pressed="true"><span data-i18n="filter_all">All</span></button>
+            <span class="festival-chips" id="festival-chips"></span>
             <button type="button" class="section-link" data-filter="filter_music" aria-pressed="false"><span data-i18n="filter_music">Live Music</span></button>
             <button type="button" class="section-link" data-filter="filter_markets" aria-pressed="false"><span data-i18n="filter_markets">Markets</span></button>
             <button type="button" class="section-link" data-filter="filter_art" aria-pressed="false"><span data-i18n="filter_art">Culture</span></button>
@@ -148,13 +153,18 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="wrap footer__grid">
-            <p class="footer__pledge" data-i18n="privacy_pledge">No cookies. No trackers. Your saved events, language and theme never leave this browser.</p>
+            <div>
+                <p class="footer__pledge" data-i18n="privacy_pledge">No cookies. No trackers. Your saved events, language and theme never leave this browser.</p>
+                <p class="footer__updated" id="updated-line"></p>
+            </div>
             <nav class="footer__links" aria-label="HangingOut CNX">
                 <button type="button" class="text-link" data-page="about" data-i18n="about">About</button>
                 <button type="button" class="text-link" data-page="terms" data-i18n="terms">Terms of Service</button>
+                <a class="text-link" id="submit-link" href="https://github.com/lopinski/hangingout-cnx/issues/new" target="_blank" rel="noopener noreferrer" data-i18n="submit_event">Submit an event</a>
                 <button type="button" class="text-link" data-page="privacy" data-i18n="privacy">Privacy Policy</button>
             </nav>
             <p class="footer__credits" data-i18n="credits">Photography: Unsplash and original illustrations. Typefaces: Playfair Display and Plus Jakarta Sans (SIL Open Font License).</p>
+            <p class="footer__blurb" data-i18n="seo_blurb">HangingOut CNX is a daily guide to events in Chiang Mai today, tonight and this weekend. Find free things to do in Chiang Mai, live music tonight at jazz and blues bars, night markets and walking streets, yoga in the park, festivals such as Loy Krathong, workshops, language exchanges and community meetups across the Old City, Nimman, Riverside, Santitham and Hang Dong.</p>
         </div>
     </footer>
 
@@ -173,14 +183,16 @@
         </button>
         <div class="sheet__inner sheet__content">
             <h2 class="sheet__title" id="page-title"></h2>
+            <p class="notice" id="page-notice" hidden></p>
             <p class="sheet__text" id="page-text"></p>
+            <div class="cta" id="page-actions" hidden></div>
         </div>
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="i18n.js?v=26"></script>
-    <script src="events.js?v=26"></script>
-    <script src="app.js?v=26"></script>
+    <script src="i18n.js?v=27"></script>
+    <script src="events.js?v=27"></script>
+    <script src="app.js?v=27"></script>
 </body>
 </html>

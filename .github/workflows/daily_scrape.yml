@@ -1,43 +1,62 @@
-name: Daily Scraper (El Cerebro)
+name: Daily listings refresh
 
 on:
-  # Nightly schedule paused: brain.py still returns mock events, so each run
-  # added duplicates to events.json. Restore these lines once it scrapes for real.
-  # schedule:
-  #   # Se ejecuta todos los días a las 20:00 UTC (3:00 AM en Tailandia)
-  #   - cron: '0 20 * * *'
-  # Permite ejecutarlo manualmente desde GitHub
+  schedule:
+    # 05:00 UTC = 12:00 noon in Chiang Mai (ICT, UTC+7)
+    - cron: '0 5 * * *'
+  # Run it by hand from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-scrape
+  cancel-in-progress: false
+
 jobs:
-  scrape_and_deploy:
+  refresh:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+    env:
+      # Optional. Add this repository secret to let the workflow publish to Netlify.
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
     steps:
-      - name: Descargar el código (Checkout)
+      - name: Check out the repository
         uses: actions/checkout@v4
-        
-      - name: Configurar Python
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          
-      - name: Instalar Dependencias
-        run: pip install -r requirements.txt
-        
-      - name: Ejecutar la Inteligencia Artificial (brain.py)
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python brain.py
-        
-      - name: Guardar los nuevos eventos en GitHub
+          python-version: '3.12'
+
+      # The engine uses the standard library only, so there is nothing to install.
+      - name: Run the unit tests
+        run: python -m unittest discover -s scraper_engine/tests -t .
+
+      - name: Aggregate events
+        run: python scraper_engine/pipeline.py
+
+      - name: Commit the refreshed listings
+        id: commit
         run: |
-          git config --global user.name 'HangingOut Bot'
-          git config --global user.email 'bot@hangingoutcnx.com'
-          git add events.json events.js
-          # Hacemos commit solo si hay cambios reales
-          git commit -m "🤖 Actualización automática de eventos diarios" || echo "No hay eventos nuevos hoy"
-          git push
-          
-      # Al hacer 'git push', Netlify (donde tenemos la web hospedada) detectará el cambio automáticamente 
-      # y actualizará la página web en menos de 1 minuto sin que nosotros hagamos nada.
+          git config user.name 'HangingOut Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add events.json events.js sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Refresh listings $(date -u +%Y-%m-%d)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The Netlify site is not linked to this repository, so the workflow deploys it
+      # directly. This step is skipped until a NETLIFY_AUTH_TOKEN secret exists.
+      - name: Deploy to Netlify
+        if: steps.commit.outputs.changed == 'true' && env.NETLIFY_AUTH_TOKEN != ''
+        env:
+          NETLIFY_SITE_ID: 437dca3b-9632-499e-829e-c8f97d5ce372
+        run: npx --yes netlify-cli deploy --prod --dir=. --site "$NETLIFY_SITE_ID" --message "Daily listings refresh"
