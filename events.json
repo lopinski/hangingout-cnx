@@ -1,10 +1,10 @@
 [
     {
-        "id": "melodies-and-motifs-in-the-mountains-83faf5-2026-11-21",
+        "id": "melodies-and-motifs-in-the-mountains-947d0b-2026-11-22",
         "title": "Melodies and Motifs in the Mountains",
         "venue": "Chiang Mai (see listing)",
         "neighborhood": "Chiang Mai",
-        "date": "2026-11-21",
+        "date": "2026-11-22",
         "time": "All day",
         "category": "Culture",
         "type": "culture",
@@ -18,209 +18,6 @@
         "source": "citylife"
     },
     {
-        "id": "jing-jai-farmers-market-60093c-2026-11-21",
-        "title": "Jing Jai Farmers' Market",
-        "venue": "Jing Jai Market",
-        "neighborhood": "Santitham",
-        "date": "2026-11-21",
-        "time": "6:30 AM - 1:00 PM",
-        "category": "Markets",
-        "type": "markets",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "A weekend morning market of organic produce, local coffee, breakfast stalls and handmade goods. It starts at 6:30 AM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "",
-        "mapsUrl": "https://maps.google.com/?q=Jing+Jai+Market+Chiang+Mai",
-        "tags": [
-            "weekend-market",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/markets-960.jpg",
-        "source": "recurring",
-        "lat": 18.8066,
-        "lng": 98.9966
-    },
-    {
-        "id": "free-yoga-in-the-park-fd91d8-2026-11-21",
-        "title": "Free Yoga in the Park",
-        "venue": "Nong Buak Haad Park",
-        "neighborhood": "Old City",
-        "date": "2026-11-21",
-        "time": "9:00 AM",
-        "category": "Workouts",
-        "type": "workout",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "Volunteer teachers lead a donation-free morning class on the grass; bring a mat or rent one at the gate. It starts at 9:00 AM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "",
-        "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
-        "tags": [
-            "yoga",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
-        "source": "recurring",
-        "lat": 18.782,
-        "lng": 98.9793
-    },
-    {
-        "id": "kalm-village-craft-galleries-aff310-2026-11-21",
-        "title": "Kalm Village Craft Galleries",
-        "venue": "Kalm Village",
-        "neighborhood": "Old City",
-        "date": "2026-11-21",
-        "time": "9:30 AM - 6:30 PM",
-        "category": "Culture",
-        "type": "culture",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "A quiet compound of textile and craft galleries, a library and courtyards inside the Old City. It starts at 9:30 AM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "https://www.kalmvillage.com/",
-        "mapsUrl": "https://maps.google.com/?q=Kalm+Village+Chiang+Mai",
-        "tags": [
-            "art-exhibition",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "recurring"
-    },
-    {
-        "id": "one-nimman-white-market-937da2-2026-11-21",
-        "title": "One Nimman White Market",
-        "venue": "One Nimman",
-        "neighborhood": "Nimman",
-        "date": "2026-11-21",
-        "time": "3:00 PM - 10:00 PM",
-        "category": "Markets",
-        "type": "markets",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "Independent designers and makers set up white-canopied stalls around the One Nimman courtyard. It starts at 3:00 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "https://www.onenimman.com/",
-        "mapsUrl": "https://maps.google.com/?q=One+Nimman+Chiang+Mai",
-        "tags": [
-            "weekend-market",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/night_market-960.jpg",
-        "source": "recurring",
-        "lat": 18.8,
-        "lng": 98.9677
-    },
-    {
-        "id": "saturday-walking-street-wua-lai-53c5f6-2026-11-21",
-        "title": "Saturday Walking Street (Wua Lai)",
-        "venue": "Wua Lai Road",
-        "neighborhood": "Old City",
-        "date": "2026-11-21",
-        "time": "4:00 PM - 10:00 PM",
-        "category": "Markets",
-        "type": "markets",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "The silver-makers' street south of the moat turns into a Saturday night market of handicrafts and snacks. It starts at 4:00 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "",
-        "mapsUrl": "https://maps.google.com/?q=Wua+Lai+Road+Chiang+Mai",
-        "tags": [
-            "night-market",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/night_market-960.jpg",
-        "source": "recurring",
-        "lat": 18.7795,
-        "lng": 98.9858
-    },
-    {
-        "id": "live-bands-at-the-riverside-d0e733-2026-11-21",
-        "title": "Live Bands at The Riverside",
-        "venue": "The Riverside Bar & Restaurant",
-        "neighborhood": "Riverside",
-        "date": "2026-11-21",
-        "time": "8:00 PM",
-        "category": "Live Music",
-        "type": "music",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "Cover bands play nightly on both sides of the road at this long-standing spot on the Ping River. It starts at 8:00 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "https://riverside1984.com/",
-        "mapsUrl": "https://maps.google.com/?q=The+Riverside+Bar+%26+Restaurant+Chiang+Mai",
-        "tags": [
-            "live-band",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
-        "source": "recurring",
-        "lat": 18.7907,
-        "lng": 99.0035
-    },
-    {
-        "id": "live-music-at-thapae-east-7c836b-2026-11-21",
-        "title": "Live Music at Thapae East",
-        "venue": "Thapae East",
-        "neighborhood": "Riverside",
-        "date": "2026-11-21",
-        "time": "8:00 PM",
-        "category": "Live Music",
-        "type": "music",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "A converted brick warehouse off Tha Phae Road with weekend sets ranging from jazz and folk to experimental. It starts at 8:00 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "https://www.facebook.com/ThapaeEast/",
-        "mapsUrl": "https://maps.google.com/?q=Thapae+East+Chiang+Mai",
-        "tags": [
-            "live-band",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/live_music-960.jpg",
-        "source": "recurring"
-    },
-    {
-        "id": "live-jazz-at-north-gate-c8a9c7-2026-11-21",
-        "title": "Live Jazz at North Gate",
-        "venue": "North Gate Jazz Co-Op",
-        "neighborhood": "Old City",
-        "date": "2026-11-21",
-        "time": "8:30 PM",
-        "category": "Live Music",
-        "type": "music",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "Chiang Mai's best-known jazz room hosts a different band most nights, with the crowd spilling onto the pavement by Chang Phueak Gate. It starts at 8:30 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "https://www.facebook.com/northgate.jazzcoop",
-        "mapsUrl": "https://maps.google.com/?q=North+Gate+Jazz+Co-Op+Chiang+Mai",
-        "tags": [
-            "jazz",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring",
-        "lat": 18.7955,
-        "lng": 98.9866
-    },
-    {
-        "id": "blues-night-at-boy-blues-bar-a32812-2026-11-21",
-        "title": "Blues Night at Boy Blues Bar",
-        "venue": "Boy Blues Bar (Kalare Night Bazaar)",
-        "neighborhood": "Riverside",
-        "date": "2026-11-21",
-        "time": "9:30 PM",
-        "category": "Live Music",
-        "type": "music",
-        "is_free": true,
-        "timeStatus": "Tonight",
-        "description": "An upstairs open-air bar in the Night Bazaar where the house band plays blues and rock late into the evening. It starts at 9:30 PM on Saturday 21 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
-        "link": "",
-        "mapsUrl": "https://maps.google.com/?q=Boy+Blues+Bar+%28Kalare+Night+Bazaar%29+Chiang+Mai",
-        "tags": [
-            "blues",
-            "weekly"
-        ],
-        "imageUrl": "./assets/images/opt/music-960.jpg",
-        "source": "recurring",
-        "lat": 18.7853,
-        "lng": 99.0003
-    },
-    {
         "id": "jing-jai-farmers-market-6bc592-2026-11-22",
         "title": "Jing Jai Farmers' Market",
         "venue": "Jing Jai Market",
@@ -230,7 +27,7 @@
         "category": "Markets",
         "type": "markets",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "A weekend morning market of organic produce, local coffee, breakfast stalls and handmade goods. It starts at 6:30 AM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Jing+Jai+Market+Chiang+Mai",
@@ -253,7 +50,7 @@
         "category": "Workouts",
         "type": "workout",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Volunteer teachers lead a donation-free morning class on the grass; bring a mat or rent one at the gate. It starts at 9:00 AM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
@@ -267,46 +64,6 @@
         "lng": 98.9793
     },
     {
-        "id": "group-learning-program-wat-tung-yu-9e9843-2026-11-22",
-        "title": "Group Learning Program @ Wat Tung Yu",
-        "venue": "Wat Tung Yu",
-        "neighborhood": "Old City",
-        "date": "2026-11-22",
-        "time": "9:00 AM - 10:30 AM",
-        "category": "Language & Social",
-        "type": "language",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Group Learning Program @ Wat Tung Yu is a relaxed social meet-up at Wat Tung Yu in Old City. It starts at 9:00 AM on Sunday 22 November. Hosted by Chiang Mai Meditation & Buddhist Study Community. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-meditation-buddhist-study-community/events/317448256/",
-        "mapsUrl": "https://maps.google.com/?q=Wat+Tung+Yu+Chiang+Mai",
-        "tags": [
-            "meetup"
-        ],
-        "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "the-best-thai-cooking-class-in-chiang-ma-03194c-2026-11-22",
-        "title": "The Best Thai Cooking Class in Chiang Mai (Half-Day)",
-        "venue": "Chiang Mai (see listing)",
-        "neighborhood": "Chiang Mai",
-        "date": "2026-11-22",
-        "time": "9:00 AM - 1:30 PM",
-        "category": "Courses",
-        "type": "courses",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "The Best Thai Cooking Class in Chiang Mai (Half-Day) is a talk-and-learn session in Chiang Mai. It starts at 9:00 AM on Sunday 22 November. Hosted by Things to Do & Tours in South East Asia. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/things-to-do-tours-in-south-east-asia/events/317448300/",
-        "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
-        "tags": [
-            "class"
-        ],
-        "imageUrl": "./assets/images/opt/courses-960.jpg",
-        "source": "meetup"
-    },
-    {
         "id": "kalm-village-craft-galleries-85250d-2026-11-22",
         "title": "Kalm Village Craft Galleries",
         "venue": "Kalm Village",
@@ -316,7 +73,7 @@
         "category": "Culture",
         "type": "culture",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "A quiet compound of textile and craft galleries, a library and courtyards inside the Old City. It starts at 9:30 AM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.kalmvillage.com/",
         "mapsUrl": "https://maps.google.com/?q=Kalm+Village+Chiang+Mai",
@@ -328,87 +85,6 @@
         "source": "recurring"
     },
     {
-        "id": "founders-meetup-605cf8-2026-11-22",
-        "title": "Founders Meetup",
-        "venue": "The Story 106 Co-Working Space &Cafe",
-        "neighborhood": "Riverside",
-        "date": "2026-11-22",
-        "time": "11:00 AM - 12:30 PM",
-        "category": "Language & Social",
-        "type": "language",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Founders Meetup is an easy way to meet people in town at The Story 106 Co-Working Space &Cafe in Riverside. It starts at 11:00 AM on Sunday 22 November. Hosted by AI Fusion Labs Chiang Mai. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/ai-fusion-labs-chiang-mai/events/317510978/",
-        "mapsUrl": "https://maps.google.com/?q=The+Story+106+Co-Working+Space+%26Cafe+Chiang+Mai",
-        "tags": [
-            "meetup"
-        ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "every-other-sunday-brunch-with-fran-lady-e55ecf-2026-11-22",
-        "title": "Every Other Sunday Brunch with Fran – Lady & the Fox",
-        "venue": "Lady and The Fox - Brunch & Eatery",
-        "neighborhood": "Santitham",
-        "date": "2026-11-22",
-        "time": "11:30 AM - 1:30 PM",
-        "category": "Language & Social",
-        "type": "language",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Every Other Sunday Brunch with Fran – Lady & the Fox is an easy way to meet people in town at Lady and The Fox - Brunch & Eatery in Santitham. It starts at 11:30 AM on Sunday 22 November. Hosted by Beyond Small Talks Chiang Mai. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/meetup-group-cadpaxaq/events/317215514/",
-        "mapsUrl": "https://maps.google.com/?q=Lady+and+The+Fox+-+Brunch+%26+Eatery+Chiang+Mai",
-        "tags": [
-            "brunch"
-        ],
-        "imageUrl": "./assets/images/opt/night-out-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "ecstatic-dance-cnx-weekly-07b482-2026-11-22",
-        "title": "Ecstatic Dance CNX! (weekly)",
-        "venue": "Vivid Dance Studios",
-        "neighborhood": "Chiang Mai",
-        "date": "2026-11-22",
-        "time": "1:00 PM - 3:00 PM",
-        "category": "Dance",
-        "type": "dance",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Ecstatic Dance CNX! (weekly) is an evening of social dancing at Vivid Dance Studios. It starts at 1:00 PM on Sunday 22 November. Hosted by Chiang Mai Conscious Dance Meetup Group. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-conscious-dance-meetup-group/events/317449506/",
-        "mapsUrl": "https://maps.google.com/?q=Vivid+Dance+Studios+Chiang+Mai",
-        "tags": [
-            "ecstatic-dance",
-            "dance"
-        ],
-        "imageUrl": "./assets/images/opt/dance_latin-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "skate-x-create-b65b31-2026-11-22",
-        "title": "Skate X Create",
-        "venue": "Chiang Mai Railway Station",
-        "neighborhood": "Riverside",
-        "date": "2026-11-22",
-        "time": "2:00 PM - 6:00 PM",
-        "category": "Workouts",
-        "type": "workout",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Skate X Create is a get-moving session at Chiang Mai Railway Station in Riverside. It starts at 2:00 PM on Sunday 22 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317171982/",
-        "mapsUrl": "https://maps.google.com/?q=Chiang+Mai+Railway+Station+Chiang+Mai",
-        "tags": [
-            "skate"
-        ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "meetup"
-    },
-    {
         "id": "one-nimman-white-market-efd2d1-2026-11-22",
         "title": "One Nimman White Market",
         "venue": "One Nimman",
@@ -418,7 +94,7 @@
         "category": "Markets",
         "type": "markets",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Independent designers and makers set up white-canopied stalls around the One Nimman courtyard. It starts at 3:00 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.onenimman.com/",
         "mapsUrl": "https://maps.google.com/?q=One+Nimman+Chiang+Mai",
@@ -441,7 +117,7 @@
         "category": "Workouts",
         "type": "workout",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "An informal afternoon meet-up for partner acrobatics, slacklining and juggling, open to beginners. It starts at 4:00 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
@@ -464,7 +140,7 @@
         "category": "Soul",
         "type": "soul",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Kirtan and Music Circle at Amaravati, Chiang Mai is a slower-paced gathering for mind and spirit at Amaravati Healing Center. It starts at 4:00 PM on Sunday 22 November. Entry is free.",
         "link": "https://www.eventbrite.com/e/kirtan-and-music-circle-at-amaravati-chiang-mai-tickets-2004896183455",
         "mapsUrl": "https://maps.google.com/?q=Amaravati+Healing+Center+Chiang+Mai",
@@ -486,7 +162,7 @@
         "category": "Language & Social",
         "type": "language",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Solo travellers: casual hangout in Chiang Mai is an easy way to meet people in town at Three Kings Monument in Old City. It starts at 4:00 PM on Sunday 22 November. Entry is free.",
         "link": "https://www.eventbrite.co.uk/e/solo-travellers-casual-hangout-in-chiang-mai-4pm-tickets-1857764937939",
         "mapsUrl": "https://maps.google.com/?q=Three+Kings+Monument+Chiang+Mai",
@@ -508,7 +184,7 @@
         "category": "Markets",
         "type": "markets",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "The Old City's main street closes to traffic and fills with craft stalls, street food and buskers from Tha Phae Gate westwards. It starts at 4:00 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Ratchadamnoen+Road+%28Tha+Phae+Gate%29+Chiang+Mai",
@@ -522,86 +198,6 @@
         "lng": 98.9933
     },
     {
-        "id": "floating-lantern-workshop-079c36-2026-11-22",
-        "title": "Floating lantern workshop",
-        "venue": "full stop.",
-        "neighborhood": "Nimman",
-        "date": "2026-11-22",
-        "time": "4:30 PM - 6:00 PM",
-        "category": "Culture",
-        "type": "culture",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Floating lantern workshop is an arts and culture outing at full stop. in Nimman. It starts at 4:30 PM on Sunday 22 November. Hosted by comma, full stop. community chiang mai. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-nature-crafts-meetup-group/events/317465969/",
-        "mapsUrl": "https://maps.google.com/?q=full+stop.+Chiang+Mai",
-        "tags": [
-            "lantern"
-        ],
-        "imageUrl": "./assets/images/opt/culture-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "sunday-sunset-walk-connect-at-cmu-e875f9-2026-11-22",
-        "title": "Sunday Sunset Walk & Connect at CMU",
-        "venue": "Chiang Mai University",
-        "neighborhood": "Nimman",
-        "date": "2026-11-22",
-        "time": "5:00 PM - 7:00 PM",
-        "category": "Workouts",
-        "type": "workout",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Sunday Sunset Walk & Connect at CMU is an active meet-up at Chiang Mai University in Nimman. It starts at 5:00 PM on Sunday 22 November. Hosted by Beyond Small Talks Chiang Mai. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/meetup-group-cadpaxaq/events/317215515/",
-        "mapsUrl": "https://maps.google.com/?q=Chiang+Mai+University+Chiang+Mai",
-        "tags": [
-            "walk"
-        ],
-        "imageUrl": "./assets/images/opt/workout-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "guided-loving-kindness-meditation-and-st-73ae67-2026-11-22",
-        "title": "Guided Loving-kindness Meditation and Student Questions at Wat Tung Yu",
-        "venue": "Wat Tung Yu",
-        "neighborhood": "Old City",
-        "date": "2026-11-22",
-        "time": "6:30 PM - 7:30 PM",
-        "category": "Soul",
-        "type": "soul",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "Guided Loving-kindness Meditation and Student Questions at Wat Tung Yu is a slower-paced gathering for mind and spirit at Wat Tung Yu in Old City. It starts at 6:30 PM on Sunday 22 November. Hosted by Chiang Mai Meditation & Buddhist Study Community. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-meditation-buddhist-study-community/events/317451960/",
-        "mapsUrl": "https://maps.google.com/?q=Wat+Tung+Yu+Chiang+Mai",
-        "tags": [
-            "meditation"
-        ],
-        "imageUrl": "./assets/images/opt/soul-960.jpg",
-        "source": "meetup"
-    },
-    {
-        "id": "all-day-gaming-b4b91c-2026-11-22",
-        "title": "All Day Gaming",
-        "venue": "Game Tree Cafe",
-        "neighborhood": "Nimman",
-        "date": "2026-11-22",
-        "time": "7:00 PM - 9:00 PM",
-        "category": "Language & Social",
-        "type": "language",
-        "is_free": false,
-        "timeStatus": "Tomorrow",
-        "description": "All Day Gaming is a relaxed social meet-up at Game Tree Cafe in Nimman. It starts at 7:00 PM on Sunday 22 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
-        "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317452257/",
-        "mapsUrl": "https://maps.google.com/?q=Game+Tree+Cafe+Chiang+Mai",
-        "tags": [
-            "meetup"
-        ],
-        "imageUrl": "./assets/images/opt/community-960.jpg",
-        "source": "meetup"
-    },
-    {
         "id": "sunday-night-meditation-821e28-2026-11-22",
         "title": "Sunday Night Meditation",
         "venue": "Wat Tung Yu",
@@ -611,7 +207,7 @@
         "category": "Soul",
         "type": "soul",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "A weekly guided meditation and talk in English at a temple in the centre of the Old City. It starts at 7:00 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
         "mapsUrl": "https://maps.google.com/?q=Wat+Tung+Yu+Chiang+Mai",
@@ -632,7 +228,7 @@
         "category": "Live Music",
         "type": "music",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Cover bands play nightly on both sides of the road at this long-standing spot on the Ping River. It starts at 8:00 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://riverside1984.com/",
         "mapsUrl": "https://maps.google.com/?q=The+Riverside+Bar+%26+Restaurant+Chiang+Mai",
@@ -655,7 +251,7 @@
         "category": "Live Music",
         "type": "music",
         "is_free": true,
-        "timeStatus": "Tomorrow",
+        "timeStatus": "Tonight",
         "description": "Chiang Mai's best-known jazz room hosts a different band most nights, with the crowd spilling onto the pavement by Chang Phueak Gate. It starts at 8:30 PM on Sunday 22 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.facebook.com/northgate.jazzcoop",
         "mapsUrl": "https://maps.google.com/?q=North+Gate+Jazz+Co-Op+Chiang+Mai",
@@ -678,7 +274,7 @@
         "category": "Workouts",
         "type": "workout",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Volunteer teachers lead a donation-free morning class on the grass; bring a mat or rent one at the gate. It starts at 9:00 AM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
@@ -692,6 +288,26 @@
         "lng": 98.9793
     },
     {
+        "id": "the-best-thai-cooking-class-in-chiang-ma-315bfa-2026-11-23",
+        "title": "The Best Thai Cooking Class in Chiang Mai (Half-Day)",
+        "venue": "Chiang Mai (see listing)",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-11-23",
+        "time": "9:00 AM - 1:30 PM",
+        "category": "Courses",
+        "type": "courses",
+        "is_free": false,
+        "timeStatus": "Tomorrow",
+        "description": "The Best Thai Cooking Class in Chiang Mai (Half-Day) is a talk-and-learn session in Chiang Mai. It starts at 9:00 AM on Monday 23 November. Hosted by Things to Do & Tours in South East Asia. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/things-to-do-tours-in-south-east-asia/events/317464806/",
+        "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
+        "tags": [
+            "class"
+        ],
+        "imageUrl": "./assets/images/opt/courses-960.jpg",
+        "source": "meetup"
+    },
+    {
         "id": "kalm-village-craft-galleries-818256-2026-11-23",
         "title": "Kalm Village Craft Galleries",
         "venue": "Kalm Village",
@@ -701,7 +317,7 @@
         "category": "Culture",
         "type": "culture",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "A quiet compound of textile and craft galleries, a library and courtyards inside the Old City. It starts at 9:30 AM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.kalmvillage.com/",
         "mapsUrl": "https://maps.google.com/?q=Kalm+Village+Chiang+Mai",
@@ -722,7 +338,7 @@
         "category": "Language & Social",
         "type": "language",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "AI for Women: Create, Learn & Connect - AI Goddesses Meetup Chiang Mai is an easy way to meet people in town at 4Seas Nimman Coliving Coworking Space. It starts at 10:00 AM on Monday 23 November. Entry is free.",
         "link": "https://www.eventbrite.sg/e/ai-for-women-create-learn-connect-ai-goddesses-meetup-chiang-mai-tickets-1989192542442",
         "mapsUrl": "https://maps.google.com/?q=4Seas+Nimman+Coliving+Coworking+Space+Chiang+Mai",
@@ -744,7 +360,7 @@
         "category": "Markets",
         "type": "markets",
         "is_free": false,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Loy Krathong x Kad Mua at Alt_PingRiver (by Alt Coliving) is a market of stalls, street food and local makers at Alt_PingRiver - coliving & coworking space in Riverside. It starts at 5:00 PM on Monday 23 November. Hosted by Bangkok Digital Nomads. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/bangkok-digital-nomads/events/317288457/",
         "mapsUrl": "https://maps.google.com/?q=Alt_PingRiver+-+coliving+%26+coworking+space+Chiang+Mai",
@@ -765,7 +381,7 @@
         "category": "Soul",
         "type": "soul",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Monks from the Buddhist university sit down with visitors for open conversation about monastic life and practice. It starts at 5:00 PM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Wat+Suan+Dok+Chiang+Mai",
@@ -788,7 +404,7 @@
         "category": "Live Music",
         "type": "music",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Cover bands play nightly on both sides of the road at this long-standing spot on the Ping River. It starts at 8:00 PM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://riverside1984.com/",
         "mapsUrl": "https://maps.google.com/?q=The+Riverside+Bar+%26+Restaurant+Chiang+Mai",
@@ -811,7 +427,7 @@
         "category": "Live Music",
         "type": "music",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Chiang Mai's best-known jazz room hosts a different band most nights, with the crowd spilling onto the pavement by Chang Phueak Gate. It starts at 8:30 PM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "https://www.facebook.com/northgate.jazzcoop",
         "mapsUrl": "https://maps.google.com/?q=North+Gate+Jazz+Co-Op+Chiang+Mai",
@@ -834,7 +450,7 @@
         "category": "Live Music",
         "type": "music",
         "is_free": true,
-        "timeStatus": "Upcoming",
+        "timeStatus": "Tomorrow",
         "description": "Anyone can sign up to play a few songs with or without the house band. It starts at 9:00 PM on Monday 23 November. Free to join. A regular fixture, so confirm times with the venue before you go.",
         "link": "",
         "mapsUrl": "https://maps.google.com/?q=Boy+Blues+Bar+%28Kalare+Night+Bazaar%29+Chiang+Mai",
@@ -934,6 +550,28 @@
             "circuit-training"
         ],
         "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "yi-peng-lanterns-at-skugga-farm-round-tr-1fbe18-2026-11-24",
+        "title": "YI Peng Lanterns AT Skugga Farm (Round-Trip Van Included",
+        "venue": "Central Festival Chiangmai",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-11-24",
+        "time": "5:00 PM - 10:00 PM",
+        "category": "Culture",
+        "type": "culture",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "YI Peng Lanterns AT Skugga Farm (Round-Trip Van Included is a cultural event at Central Festival Chiangmai. It starts at 5:00 PM on Tuesday 24 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317525096/",
+        "mapsUrl": "https://maps.google.com/?q=Central+Festival+Chiangmai+Chiang+Mai",
+        "tags": [
+            "yi-peng",
+            "lantern",
+            "festival:loy-krathong"
+        ],
+        "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "meetup"
     },
     {
@@ -1300,6 +938,26 @@
         "description": "New In Town Meetup: Welcome to Chiang Mai is an easy way to meet people in town at SHINE ON – Social Bar & Restaurant in Nimman. It starts at 6:00 PM on Thursday 26 November. Hosted by Make New Friends in Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/makenewfriendsinchiangmai/events/317022506/",
         "mapsUrl": "https://maps.google.com/?q=SHINE+ON+%E2%80%93+Social+Bar+%26+Restaurant+Chiang+Mai",
+        "tags": [
+            "meetup"
+        ],
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "strategy-thursdays-0de781-2026-11-26",
+        "title": "Strategy Thursdays",
+        "venue": "Game Tree Cafe",
+        "neighborhood": "Nimman",
+        "date": "2026-11-26",
+        "time": "6:00 PM - 11:00 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Strategy Thursdays is an easy way to meet people in town at Game Tree Cafe in Nimman. It starts at 6:00 PM on Thursday 26 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317311812/",
+        "mapsUrl": "https://maps.google.com/?q=Game+Tree+Cafe+Chiang+Mai",
         "tags": [
             "meetup"
         ],
@@ -1803,6 +1461,26 @@
         "source": "recurring"
     },
     {
+        "id": "ai-engineers-weekly-chiang-mai-e55544-2026-11-28",
+        "title": "AI Engineers Weekly Chiang Mai",
+        "venue": "The Kannas Hotel",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-11-28",
+        "time": "10:00 AM - 12:00 PM",
+        "category": "Courses",
+        "type": "courses",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "AI Engineers Weekly Chiang Mai is a talk-and-learn session at The Kannas Hotel. It starts at 10:00 AM on Saturday 28 November. Hosted by AI Engineers in Thailand. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/coding-in-bangkok/events/317407830/",
+        "mapsUrl": "https://maps.google.com/?q=The+Kannas+Hotel+Chiang+Mai",
+        "tags": [
+            "ai"
+        ],
+        "imageUrl": "./assets/images/opt/language-960.jpg",
+        "source": "meetup"
+    },
+    {
         "id": "rural-brutal-reality-vs-the-long-dead-ci-648cca-2026-11-28",
         "title": "Rural Brutal Reality vs. The Long Dead City Dream",
         "venue": "The Hideaway Cafe & Restaurant",
@@ -1816,6 +1494,26 @@
         "description": "Rural Brutal Reality vs. The Long Dead City Dream is an easy way to meet people in town at The Hideaway Cafe & Restaurant in Hang Dong. It starts at 12:00 PM on Saturday 28 November. Hosted by Socrates Café - Chiang Mai. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/socrates-cafe-chiang-mai/events/316365755/",
         "mapsUrl": "https://maps.google.com/?q=The+Hideaway+Cafe+%26+Restaurant+Chiang+Mai",
+        "tags": [
+            "meetup"
+        ],
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "thai-why-b4066a-2026-11-28",
+        "title": "Thai&why",
+        "venue": "Zuzalu Library",
+        "neighborhood": "Nimman",
+        "date": "2026-11-28",
+        "time": "2:00 PM - 3:30 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Thai&why is a relaxed social meet-up at Zuzalu Library in Nimman. It starts at 2:00 PM on Saturday 28 November. Hosted by Community Space CM. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/cmcomcollective/events/317524915/",
+        "mapsUrl": "https://maps.google.com/?q=Zuzalu+Library+Chiang+Mai",
         "tags": [
             "meetup"
         ],
@@ -2067,19 +1765,19 @@
         "source": "recurring"
     },
     {
-        "id": "community-brunch-by-nomads-chiang-mai-ea-03843b-2026-11-29",
-        "title": "Community Brunch by Nomads Chiang Mai @ Early Owls",
-        "venue": "Early Owls",
-        "neighborhood": "Santitham",
+        "id": "community-brunch-by-nomads-chiang-mai-no-1bf9e7-2026-11-29",
+        "title": "Community Brunch by Nomads Chiang Mai @ No.39 Cafe",
+        "venue": "No.39 Cafe",
+        "neighborhood": "Chiang Mai",
         "date": "2026-11-29",
         "time": "11:11 AM - 2:11 PM",
         "category": "Language & Social",
         "type": "language",
         "is_free": false,
         "timeStatus": "Upcoming",
-        "description": "Community Brunch by Nomads Chiang Mai @ Early Owls is a relaxed social meet-up at Early Owls in Santitham. It starts at 11:11 AM on Sunday 29 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "description": "Community Brunch by Nomads Chiang Mai @ No.39 Cafe is a relaxed social meet-up at No.39 Cafe. It starts at 11:11 AM on Sunday 29 November. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
         "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317447494/",
-        "mapsUrl": "https://maps.google.com/?q=Early+Owls+Chiang+Mai",
+        "mapsUrl": "https://maps.google.com/?q=No.39+Cafe+Chiang+Mai",
         "tags": [
             "brunch"
         ],
@@ -2154,6 +1852,26 @@
         "source": "recurring",
         "lat": 18.7877,
         "lng": 98.9933
+    },
+    {
+        "id": "sunday-sunset-walk-connect-at-cmu-128fda-2026-11-29",
+        "title": "Sunday Sunset Walk & Connect at CMU",
+        "venue": "Chiang Mai (see listing)",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-11-29",
+        "time": "5:00 PM - 7:00 PM",
+        "category": "Workouts",
+        "type": "workout",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Sunday Sunset Walk & Connect at CMU is an active meet-up in Chiang Mai. It starts at 5:00 PM on Sunday 29 November. Hosted by Beyond Small Talk, Chiang Mai. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/317521302/",
+        "mapsUrl": "https://maps.google.com/?q=Chiang+Mai",
+        "tags": [
+            "walk"
+        ],
+        "imageUrl": "./assets/images/opt/workout-960.jpg",
+        "source": "meetup"
     },
     {
         "id": "sunday-night-meditation-d6653e-2026-11-29",
@@ -2833,6 +2551,66 @@
         "lng": 98.9677
     },
     {
+        "id": "poetry-night-attika-studio-03ac32-2026-12-04",
+        "title": "Poetry night @attika studio",
+        "venue": "attika studio",
+        "neighborhood": "Riverside",
+        "date": "2026-12-04",
+        "time": "5:00 PM - 7:00 PM",
+        "category": "Culture",
+        "type": "culture",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Poetry night @attika studio is a cultural event at attika studio in Riverside. It starts at 5:00 PM on Friday 4 December. Hosted by Attika Studio Chiangmai. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/attika-studio-chiangmai/events/317425204/",
+        "mapsUrl": "https://maps.google.com/?q=attika+studio+Chiang+Mai",
+        "tags": [
+            "poetry"
+        ],
+        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "temple-game-fun-night-wat-tung-yu-868f5b-2026-12-04",
+        "title": "Temple Game Fun Night @ Wat Tung Yu",
+        "venue": "Wat Tung Yu",
+        "neighborhood": "Old City",
+        "date": "2026-12-04",
+        "time": "6:00 PM - 8:00 PM",
+        "category": "Culture",
+        "type": "culture",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Temple Game Fun Night @ Wat Tung Yu is an arts and culture outing at Wat Tung Yu in Old City. It starts at 6:00 PM on Friday 4 December. Hosted by Chiang Mai Meditation & Buddhist Study Community. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/chiang-mai-meditation-buddhist-study-community/events/317426705/",
+        "mapsUrl": "https://maps.google.com/?q=Wat+Tung+Yu+Chiang+Mai",
+        "tags": [
+            "temple"
+        ],
+        "imageUrl": "./assets/images/opt/soul-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "nomad-friday-social-attika-studio-897b3f-2026-12-04",
+        "title": "Nomad Friday Social @attika studio",
+        "venue": "attika studio Café & Workshop",
+        "neighborhood": "Riverside",
+        "date": "2026-12-04",
+        "time": "7:00 PM - 11:00 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Nomad Friday Social @attika studio is an easy way to meet people in town at attika studio Café & Workshop in Riverside. It starts at 7:00 PM on Friday 4 December. Hosted by Attika Studio Chiangmai. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/attika-studio-chiangmai/events/316238249/",
+        "mapsUrl": "https://maps.google.com/?q=attika+studio+Caf%C3%A9+%26+Workshop+Chiang+Mai",
+        "tags": [
+            "meetup"
+        ],
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "meetup"
+    },
+    {
         "id": "live-bands-at-the-riverside-ee35df-2026-12-04",
         "title": "Live Bands at The Riverside",
         "venue": "The Riverside Bar & Restaurant",
@@ -2988,6 +2766,46 @@
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "recurring"
+    },
+    {
+        "id": "men-are-cluelessare-you-why-showing-up-u-40f015-2026-12-05",
+        "title": "Men Are Clueless—Are You? Why Showing Up Unprepared Wrecks the Room",
+        "venue": "Hideaway cafe and restaurant",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-12-05",
+        "time": "10:00 AM - 12:00 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Men Are Clueless—Are You? Why Showing Up Unprepared Wrecks the Room is a relaxed social meet-up at Hideaway cafe and restaurant. It starts at 10:00 AM on Saturday 5 December. Hosted by Chiang Mai Mens Support Meetup Group. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/chiang-mai-mens-support-meetup-group/events/317137715/",
+        "mapsUrl": "https://maps.google.com/?q=Hideaway+cafe+and+restaurant+Chiang+Mai",
+        "tags": [
+            "meetup"
+        ],
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "meetup"
+    },
+    {
+        "id": "wired-differently-neurodivergent-meetup-8fcbfb-2026-12-05",
+        "title": "Wired Differently - Neurodivergent Meetup",
+        "venue": "Happy Allergy Bakery",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-12-05",
+        "time": "12:00 PM - 2:00 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Wired Differently - Neurodivergent Meetup is a relaxed social meet-up at Happy Allergy Bakery. It starts at 12:00 PM on Saturday 5 December. Hosted by Community Space CM. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/cmcomcollective/events/317523053/",
+        "mapsUrl": "https://maps.google.com/?q=Happy+Allergy+Bakery+Chiang+Mai",
+        "tags": [
+            "meetup"
+        ],
+        "imageUrl": "./assets/images/opt/community-960.jpg",
+        "source": "meetup"
     },
     {
         "id": "one-nimman-white-market-898943-2026-12-05",
@@ -3211,6 +3029,26 @@
         ],
         "imageUrl": "./assets/images/opt/culture-960.jpg",
         "source": "recurring"
+    },
+    {
+        "id": "welcome-carbon-brunch-2a135c-2026-12-06",
+        "title": "Welcome Carbon Brunch",
+        "venue": "Hideaway cafe and restaurant",
+        "neighborhood": "Chiang Mai",
+        "date": "2026-12-06",
+        "time": "11:00 AM - 1:00 PM",
+        "category": "Language & Social",
+        "type": "language",
+        "is_free": false,
+        "timeStatus": "Upcoming",
+        "description": "Welcome Carbon Brunch is a relaxed social meet-up at Hideaway cafe and restaurant. It starts at 11:00 AM on Sunday 6 December. Hosted by Chiang Mai Professionals, Expats, and Digital Nomads. Check the listing for cost and booking.",
+        "link": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/317393859/",
+        "mapsUrl": "https://maps.google.com/?q=Hideaway+cafe+and+restaurant+Chiang+Mai",
+        "tags": [
+            "brunch"
+        ],
+        "imageUrl": "./assets/images/opt/night-out-960.jpg",
+        "source": "meetup"
     },
     {
         "id": "one-nimman-white-market-cae562-2026-12-06",
@@ -4209,5 +4047,208 @@
         "source": "recurring",
         "lat": 18.7853,
         "lng": 99.0003
+    },
+    {
+        "id": "jing-jai-farmers-market-9e45bb-2026-12-13",
+        "title": "Jing Jai Farmers' Market",
+        "venue": "Jing Jai Market",
+        "neighborhood": "Santitham",
+        "date": "2026-12-13",
+        "time": "6:30 AM - 1:00 PM",
+        "category": "Markets",
+        "type": "markets",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "A weekend morning market of organic produce, local coffee, breakfast stalls and handmade goods. It starts at 6:30 AM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "",
+        "mapsUrl": "https://maps.google.com/?q=Jing+Jai+Market+Chiang+Mai",
+        "tags": [
+            "weekend-market",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/markets-960.jpg",
+        "source": "recurring",
+        "lat": 18.8066,
+        "lng": 98.9966
+    },
+    {
+        "id": "free-yoga-in-the-park-9c95b2-2026-12-13",
+        "title": "Free Yoga in the Park",
+        "venue": "Nong Buak Haad Park",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "9:00 AM",
+        "category": "Workouts",
+        "type": "workout",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "Volunteer teachers lead a donation-free morning class on the grass; bring a mat or rent one at the gate. It starts at 9:00 AM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "",
+        "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
+        "tags": [
+            "yoga",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
+    },
+    {
+        "id": "kalm-village-craft-galleries-b203ee-2026-12-13",
+        "title": "Kalm Village Craft Galleries",
+        "venue": "Kalm Village",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "9:30 AM - 6:30 PM",
+        "category": "Culture",
+        "type": "culture",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "A quiet compound of textile and craft galleries, a library and courtyards inside the Old City. It starts at 9:30 AM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "https://www.kalmvillage.com/",
+        "mapsUrl": "https://maps.google.com/?q=Kalm+Village+Chiang+Mai",
+        "tags": [
+            "art-exhibition",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/culture-960.jpg",
+        "source": "recurring"
+    },
+    {
+        "id": "one-nimman-white-market-c130bd-2026-12-13",
+        "title": "One Nimman White Market",
+        "venue": "One Nimman",
+        "neighborhood": "Nimman",
+        "date": "2026-12-13",
+        "time": "3:00 PM - 10:00 PM",
+        "category": "Markets",
+        "type": "markets",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "Independent designers and makers set up white-canopied stalls around the One Nimman courtyard. It starts at 3:00 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "https://www.onenimman.com/",
+        "mapsUrl": "https://maps.google.com/?q=One+Nimman+Chiang+Mai",
+        "tags": [
+            "weekend-market",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
+        "source": "recurring",
+        "lat": 18.8,
+        "lng": 98.9677
+    },
+    {
+        "id": "acro-yoga-jam-in-the-park-671d42-2026-12-13",
+        "title": "Acro Yoga Jam in the Park",
+        "venue": "Nong Buak Haad Park",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "4:00 PM",
+        "category": "Workouts",
+        "type": "workout",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "An informal afternoon meet-up for partner acrobatics, slacklining and juggling, open to beginners. It starts at 4:00 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "",
+        "mapsUrl": "https://maps.google.com/?q=Nong+Buak+Haad+Park+Chiang+Mai",
+        "tags": [
+            "acro",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/yoga_park-960.jpg",
+        "source": "recurring",
+        "lat": 18.782,
+        "lng": 98.9793
+    },
+    {
+        "id": "sunday-walking-street-market-02046d-2026-12-13",
+        "title": "Sunday Walking Street Market",
+        "venue": "Ratchadamnoen Road (Tha Phae Gate)",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "4:00 PM - 10:00 PM",
+        "category": "Markets",
+        "type": "markets",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "The Old City's main street closes to traffic and fills with craft stalls, street food and buskers from Tha Phae Gate westwards. It starts at 4:00 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "",
+        "mapsUrl": "https://maps.google.com/?q=Ratchadamnoen+Road+%28Tha+Phae+Gate%29+Chiang+Mai",
+        "tags": [
+            "night-market",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/night_market-960.jpg",
+        "source": "recurring",
+        "lat": 18.7877,
+        "lng": 98.9933
+    },
+    {
+        "id": "sunday-night-meditation-49a857-2026-12-13",
+        "title": "Sunday Night Meditation",
+        "venue": "Wat Tung Yu",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "7:00 PM",
+        "category": "Soul",
+        "type": "soul",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "A weekly guided meditation and talk in English at a temple in the centre of the Old City. It starts at 7:00 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+        "mapsUrl": "https://maps.google.com/?q=Wat+Tung+Yu+Chiang+Mai",
+        "tags": [
+            "meditation",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/soul-960.jpg",
+        "source": "recurring"
+    },
+    {
+        "id": "live-bands-at-the-riverside-b788e9-2026-12-13",
+        "title": "Live Bands at The Riverside",
+        "venue": "The Riverside Bar & Restaurant",
+        "neighborhood": "Riverside",
+        "date": "2026-12-13",
+        "time": "8:00 PM",
+        "category": "Live Music",
+        "type": "music",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "Cover bands play nightly on both sides of the road at this long-standing spot on the Ping River. It starts at 8:00 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "https://riverside1984.com/",
+        "mapsUrl": "https://maps.google.com/?q=The+Riverside+Bar+%26+Restaurant+Chiang+Mai",
+        "tags": [
+            "live-band",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/live_music-960.jpg",
+        "source": "recurring",
+        "lat": 18.7907,
+        "lng": 99.0035
+    },
+    {
+        "id": "live-jazz-at-north-gate-6d2b42-2026-12-13",
+        "title": "Live Jazz at North Gate",
+        "venue": "North Gate Jazz Co-Op",
+        "neighborhood": "Old City",
+        "date": "2026-12-13",
+        "time": "8:30 PM",
+        "category": "Live Music",
+        "type": "music",
+        "is_free": true,
+        "timeStatus": "Upcoming",
+        "description": "Chiang Mai's best-known jazz room hosts a different band most nights, with the crowd spilling onto the pavement by Chang Phueak Gate. It starts at 8:30 PM on Sunday 13 December. Free to join. A regular fixture, so confirm times with the venue before you go.",
+        "link": "https://www.facebook.com/northgate.jazzcoop",
+        "mapsUrl": "https://maps.google.com/?q=North+Gate+Jazz+Co-Op+Chiang+Mai",
+        "tags": [
+            "jazz",
+            "weekly"
+        ],
+        "imageUrl": "./assets/images/opt/music-960.jpg",
+        "source": "recurring",
+        "lat": 18.7955,
+        "lng": 98.9866
     }
 ]
